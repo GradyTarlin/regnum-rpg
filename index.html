@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Regnum RPG — A tabletop roleplaying game set in a living, breathing galaxy. Build your crew, choose your class, and shape the story with 9 unique species and 7 distinctive classes." />
+  <title>Regnum RPG — The Galaxy Awaits</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- ════════════════════════════════════════════════
+       STARFIELD
+  ═══════════════════════════════════════════════════ -->
+  <div class="starfield" aria-hidden="true"></div>
+
+  <!-- ════════════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════════════ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+
+      <a href="index.html" class="nav-logo" aria-label="Regnum RPG Home">
+        ⬡ REGNUM RPG
+      </a>
+
+      <div class="nav-links" role="list">
+        <a href="index.html"            class="nav-link" role="listitem">Home</a>
+        <a href="character-creator.html" class="nav-link" role="listitem">Creator</a>
+        <a href="classes.html"          class="nav-link" role="listitem">Classes</a>
+        <a href="equipment.html"        class="nav-link" role="listitem">Equipment</a>
+        <a href="lore.html"             class="nav-link" role="listitem">Lore</a>
+        <a href="characters.html"       class="nav-link" role="listitem">Characters</a>
+      </div>
+
+      <a href="character-creator.html" class="nav-cta">Build Character</a>
+
+      <button class="nav-hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div><!-- /nav-inner -->
+
+    <div class="nav-mobile" role="list" aria-label="Mobile navigation">
+      <a href="index.html"            class="nav-link" role="listitem">Home</a>
+      <a href="character-creator.html" class="nav-link" role="listitem">Creator</a>
+      <a href="classes.html"          class="nav-link" role="listitem">Classes</a>
+      <a href="equipment.html"        class="nav-link" role="listitem">Equipment</a>
+      <a href="lore.html"             class="nav-link" role="listitem">Lore</a>
+      <a href="characters.html"       class="nav-link" role="listitem">Characters</a>
+      <a href="character-creator.html" class="nav-cta" style="margin-top: 8px; text-align:center;">Build Character</a>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════ -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <div class="container" style="position:relative; z-index:2; padding-top: var(--space-16); padding-bottom: var(--space-16);">
+
+      <span class="section-label animate-fade-in">The Galaxy Awaits</span>
+
+      <h1 id="hero-heading" class="display-1 text-gradient animate-slide-up" style="margin-bottom: var(--space-6); margin-top: var(--space-3);">
+        REGNUM RPG
+      </h1>
+
+      <p class="text-lg text-muted animate-slide-up stagger-1" style="max-width: 54ch; margin-bottom: var(--space-8);">
+        A tabletop roleplaying game set in a galaxy that never stands still.
+        Build your crew. Choose your class. Shape the story.
+      </p>
+
+      <div class="flex flex-wrap gap-4 animate-slide-up stagger-2" style="margin-bottom: var(--space-10);">
+        <a href="character-creator.html" class="btn btn-primary btn-lg">
+          Build Your Character
+        </a>
+        <a href="lore.html" class="btn btn-secondary btn-lg">
+          Explore the Galaxy
+        </a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="flex flex-wrap gap-4 animate-fade-in stagger-3" aria-label="Game statistics">
+        <span class="badge badge-gold">9 Species</span>
+        <span class="badge badge-gold">7 Classes</span>
+        <span class="badge badge-gold">8 Skills</span>
+      </div>
+
+    </div><!-- /container -->
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════
+       FEATURES SECTION
+  ═══════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="features-heading">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-label">What is Regnum RPG?</span>
+        <h2 id="features-heading" class="display-2">Adventure Across a Living Galaxy</h2>
+        <div class="divider"></div>
+        <p class="section-desc">
+          Regnum is a streamlined, story-first TTRPG designed for fast sessions
+          and meaningful choices. Every decision ripples through a galaxy bristling
+          with factions, secrets, and opportunity.
+        </p>
+      </div>
+
+      <div class="grid grid-3 gap-6">
+
+        <!-- Feature 1 -->
+        <article class="card">
+          <div style="font-size: 2.2rem; margin-bottom: var(--space-4);" aria-hidden="true">🧑‍🚀</div>
+          <h3 style="margin-bottom: var(--space-3);">Build Your Crew</h3>
+          <p class="text-muted">
+            Choose from 9 distinct species and 7 powerful classes, each with unique
+            skill bonuses that define your role in the crew. No two characters play
+            the same way.
+          </p>
+        </article>
+
+        <!-- Feature 2 -->
+        <article class="card">
+          <div style="font-size: 2.2rem; margin-bottom: var(--space-4);" aria-hidden="true">🎲</div>
+          <h3 style="margin-bottom: var(--space-3);">Roll the Dice</h3>
+          <p class="text-muted">
+            All skill checks use a clean 2d6 system — roll, add your skill bonus,
+            and beat the target. High stakes, high drama. The numbers are small;
+            the moments are enormous.
+          </p>
+        </article>
+
+        <!-- Feature 3 -->
+        <article class="card">
+          <div style="font-size: 2.2rem; margin-bottom: var(--space-4);" aria-hidden="true">✨</div>
+          <h3 style="margin-bottom: var(--space-3);">Shape the Story</h3>
+          <p class="text-muted">
+            The Animator — Regnum's term for the Game Master — uses intuitive,
+            open-ended tools to build living sessions. Factions shift, loyalties
+            fracture, and your choices echo across the stars.
+          </p>
+        </article>
+
+      </div><!-- /grid -->
+
+    </div><!-- /container -->
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════
+       CLASSES SECTION
+  ═══════════════════════════════════════════════════ -->
+  <section class="section" style="background: var(--surface);" aria-labelledby="classes-heading">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-label">The 7 Classes</span>
+        <h2 id="classes-heading" class="display-2">What Kind of Problem Solver Are You?</h2>
+        <div class="divider"></div>
+        <p class="section-desc">
+          Each class brings a distinct approach to every challenge. Pick the one
+          that matches how you want to leave your mark on the galaxy.
+        </p>
+      </div>
+
+      <div class="grid grid-auto-sm gap-6">
+
+        <!-- Catalyst -->
+        <article class="card card-interactive">
+          <h3 style="margin-bottom: var(--space-2);">Catalyst</h3>
+          <p class="text-muted text-sm" style="font-style:italic; margin-bottom: var(--space-4);">
+            The spark that starts revolutions.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge badge-instinct">+2 Instinct</span>
+            <span class="badge badge-charisma">+1 Charisma</span>
+          </div>
+        </article>
+
+        <!-- Heavy -->
+        <article class="card card-interactive">
+          <h3 style="margin-bottom: var(--space-2);">Heavy</h3>
+          <p class="text-muted text-sm" style="font-style:italic; margin-bottom: var(--space-4);">
+            When subtlety fails, firepower prevails.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge badge-shooting">+2 Shooting</span>
+            <span class="badge badge-fighting">+1 Fighting</span>
+          </div>
+        </article>
+
+        <!-- Hunter -->
+        <article class="card card-interactive">
+          <h3 style="margin-bottom: var(--space-2);">Hunter</h3>
+          <p class="text-muted text-sm" style="font-style:italic; margin-bottom: var(--space-4);">
+            Silence, patience, and a perfect shot.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge badge-stealth">+2 Stealth</span>
+            <span class="badge badge-athletics">+1 Athletics</span>
+          </div>
+        </article>
+
+        <!-- Mutant -->
+        <article class="card card-interactive">
+          <h3 style="margin-bottom: var(--space-2);">Mutant</h3>
+          <p class="text-muted text-sm" style="font-style:italic; margin-bottom: var(--space-4);">
+            Evolved beyond biology's limits.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge badge-fighting">+2 Fighting</span>
+            <span class="badge badge-athletics">+1 Athletics</span>
+          </div>
+        </article>
+
+        <!-- Pilot -->
+        <article class="card card-interactive">
+          <h3 style="margin-bottom: var(--space-2);">Pilot</h3>
+          <p class="text-muted text-sm" style="font-style:italic; margin-bottom: var(--space-4);">
+            The stars are just roads with no speed limits.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge badge-piloting">+2 Piloting</span>
+            <span class="badge badge-instinct">+1 Instinct</span>
+          </div>
+        </article>
+
+        <!-- Tech -->
+        <article class="card card-interactive">
+          <h3 style="margin-bottom: var(--space-2);">Tech</h3>
+          <p class="text-muted text-sm" style="font-style:italic; margin-bottom: var(--space-4);">
+            Every system has a back door.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge badge-engineering">+2 Engineering</span>
+            <span class="badge badge-piloting">+1 Piloting</span>
+          </div>
+        </article>
+
+        <!-- Trader -->
+        <article class="card card-interactive">
+          <h3 style="margin-bottom: var(--space-2);">Trader</h3>
+          <p class="text-muted text-sm" style="font-style:italic; margin-bottom: var(--space-4);">
+            Information is the most valuable cargo.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge badge-charisma">+2 Charisma</span>
+            <span class="badge badge-stealth">+1 Stealth</span>
+          </div>
+        </article>
+
+      </div><!-- /grid -->
+
+      <div class="text-center" style="margin-top: var(--space-10);">
+        <a href="classes.html" class="btn btn-secondary btn-lg">View All Classes</a>
+      </div>
+
+    </div><!-- /container -->
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════
+       SPECIES SECTION
+  ═══════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="species-heading">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-label">The 9 Species</span>
+        <h2 id="species-heading" class="display-2">Who Are You in This Galaxy?</h2>
+        <div class="divider"></div>
+        <p class="section-desc">
+          From the first starfarers to inorganic minds, Regnum's species bring
+          extraordinary variety to your crew roster.
+        </p>
+      </div>
+
+      <div class="grid grid-auto-sm gap-4">
+
+        <!-- Human -->
+        <article class="card" style="padding: var(--space-5);">
+          <h3 style="margin-bottom: var(--space-2); font-size: 1rem;">Human</h3>
+          <div style="margin-bottom: var(--space-3);">
+            <span class="badge badge-gold">+1 Any Skill</span>
+          </div>
+          <p class="text-muted text-sm">The first to reach the stars.</p>
+        </article>
+
+        <!-- Tomorran -->
+        <article class="card" style="padding: var(--space-5);">
+          <h3 style="margin-bottom: var(--space-2); font-size: 1rem;">Tomorran</h3>
+          <div style="margin-bottom: var(--space-3);">
+            <span class="badge badge-piloting">+1 Piloting</span>
+          </div>
+          <p class="text-muted text-sm">The new dominant species.</p>
+        </article>
+
+        <!-- Robot -->
+        <article class="card" style="padding: var(--space-5);">
+          <h3 style="margin-bottom: var(--space-2); font-size: 1rem;">Robot</h3>
+          <div style="margin-bottom: var(--space-3);">
+            <span class="badge badge-engineering">+1 Engineering</span>
+          </div>
+          <p class="text-muted text-sm">Inorganic, yet possibly conscious.</p>
+        </article>
+
+        <!-- Banderog -->
+        <article class="card" style="padding: var(--space-5);">
+          <h3 style="margin-bottom: var(--space-2); font-size: 1rem;">Banderog</h3>
+          <div style="margin-bottom: var(--space-3);">
+            <span class="badge badge-athletics">+1 Athletics</span>
+          </div>
+          <p class="text-muted text-sm">Engine-implanted champions of liberty.</p>
+        </article>
+
+        <!-- Chkaar -->
+        <article class="card" style="padding: var(--space-5);">
+          <h3 style="margin-bottom: var(--space-2); font-size: 1rem;">Chkaar</h3>
+          <div style="margin-bottom: var(--space-3);">
+            <span class="badge badge-fighting">+1 Fighting</span>
+          </div>
+          <p class="text-muted text-sm">Voracious warriors bred for battle.</p>
+        </article>
+
+        <!-- Altan -->
+        <article class="card" style="padding: var(--space-5);">
+          <h3 style="margin-bottom: var(--space-2); font-size: 1rem;">Altan</h3>
+          <div style="margin-bottom: var(--space-3);">
+            <span class="badge badge-shooting">+1 Shooting</span>
+          </div>
+          <p class="text-muted text-sm">Imposing reptilian predators.</p>
+        </article>
+
+        <!-- Iirkol -->
+        <article class="card" style="padding: var(--space-5);">
+          <h3 style="margin-bottom: var(--space-2); font-size: 1rem;">Iirkol</h3>
+          <div style="margin-bottom: var(--space-3);">
+            <span class="badge badge-instinct">+1 Instinct</span>
+          </div>
+          <p class="text-muted text-sm">Enigmatic sages of hidden knowledge.</p>
+        </article>
+
+        <!-- Kotta -->
+        <article class="card" style="padding: var(--space-5);">
+          <h3 style="margin-bottom: var(--space-2); font-size: 1rem;">Kotta</h3>
+          <div style="margin-bottom: var(--space-3);">
+            <span class="badge badge-stealth">+1 Stealth</span>
+          </div>
+          <p class="text-muted text-sm">Small but spirited technologists.</p>
+        </article>
+
+        <!-- Lengwae -->
+        <article class="card" style="padding: var(--space-5);">
+          <h3 style="margin-bottom: var(--space-2); font-size: 1rem;">Lengwae</h3>
+          <div style="margin-bottom: var(--space-3);">
+            <span class="badge badge-charisma">+1 Charisma</span>
+          </div>
+          <p class="text-muted text-sm">Charming masters of artistry.</p>
+        </article>
+
+      </div><!-- /grid -->
+
+    </div><!-- /container -->
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════
+       FACTIONS SECTION
+  ═══════════════════════════════════════════════════ -->
+  <section class="section" style="background: var(--surface);" aria-labelledby="factions-heading">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-label">The Galaxy of Regnum</span>
+        <h2 id="factions-heading" class="display-2">Seven Powers Shape the Stars</h2>
+        <div class="divider"></div>
+        <p class="section-desc">
+          Competing ideologies, ancient grudges, and uneasy alliances define a
+          galaxy in constant flux. Where does your loyalty lie?
+        </p>
+      </div>
+
+      <div class="grid grid-auto gap-6">
+
+        <!-- Apex Corporation -->
+        <article class="card" style="border-left: 3px solid #00d4ff; border-radius: 0 var(--radius-md) var(--radius-md) 0;">
+          <h3 style="color: #00d4ff; margin-bottom: var(--space-3);">Apex Corporation</h3>
+          <p class="text-muted text-sm">
+            Sleek corporate power with holographic technology and chemical VR.
+            The galaxy's dominant corporate force.
+          </p>
+        </article>
+
+        <!-- Magnus-V Federation -->
+        <article class="card" style="border-left: 3px solid #4caf50; border-radius: 0 var(--radius-md) var(--radius-md) 0;">
+          <h3 style="color: #4caf50; margin-bottom: var(--space-3);">Magnus-V Federation</h3>
+          <p class="text-muted text-sm">
+            Eco-brutalist harmony between people, robots and nature, all watched
+            by the cybernetic ruler Gagarin.
+          </p>
+        </article>
+
+        <!-- Voidreach Unity -->
+        <article class="card" style="border-left: 3px solid #9c27b0; border-radius: 0 var(--radius-md) var(--radius-md) 0;">
+          <h3 style="color: #9c27b0; margin-bottom: var(--space-3);">Voidreach Unity</h3>
+          <p class="text-muted text-sm">
+            A regal tropical utopia of rich purples, lush foliage, gold, and
+            gleaming ecological paradise.
+          </p>
+        </article>
+
+        <!-- Voidreach Outer Ring -->
+        <article class="card" style="border-left: 3px solid #bf5722; border-radius: 0 var(--radius-md) var(--radius-md) 0;">
+          <h3 style="color: #bf5722; margin-bottom: var(--space-3);">Voidreach Outer Ring</h3>
+          <p class="text-muted text-sm">
+            An impoverished, arid dystopia of rust and scarcity, the shadow
+            beneath the Unity's gleam.
+          </p>
+        </article>
+
+        <!-- Banderog Republic -->
+        <article class="card" style="border-left: 3px solid #78909c; border-radius: 0 var(--radius-md) var(--radius-md) 0;">
+          <h3 style="color: #78909c; margin-bottom: var(--space-3);">Banderog Republic</h3>
+          <p class="text-muted text-sm">
+            An industrial powerhouse fueled by chemicals, transparent tubes,
+            and heavy smog-belching machinery.
+          </p>
+        </article>
+
+        <!-- Chkaari Empire -->
+        <article class="card" style="border-left: 3px solid #2e7d32; border-radius: 0 var(--radius-md) var(--radius-md) 0;">
+          <h3 style="color: #2e7d32; margin-bottom: var(--space-3);">Chkaari Empire</h3>
+          <p class="text-muted text-sm">
+            An infernal war-hive lit by green Stormfire. Jagged architecture,
+            blood culture, and legions of warriors.
+          </p>
+        </article>
+
+        <!-- King K's Circuit -->
+        <article class="card" style="border-left: 3px solid #f0c040; border-radius: 0 var(--radius-md) var(--radius-md) 0;">
+          <h3 style="color: #f0c040; margin-bottom: var(--space-3);">King K's Circuit</h3>
+          <p class="text-muted text-sm">
+            A lawless haven of racers, pirates, and adventurers led by the rebel
+            hero King K. Casinos and freedom reign.
+          </p>
+        </article>
+
+      </div><!-- /grid -->
+
+      <div class="text-center" style="margin-top: var(--space-10);">
+        <a href="lore.html" class="btn btn-secondary btn-lg">Explore the Factions</a>
+      </div>
+
+    </div><!-- /container -->
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════
+       CTA SECTION
+  ═══════════════════════════════════════════════════ -->
+  <section class="section" style="background: linear-gradient(135deg, rgba(155,89,255,0.08) 0%, rgba(240,192,64,0.06) 50%, rgba(0,0,0,0) 100%);" aria-labelledby="cta-heading">
+    <div class="container text-center">
+
+      <span class="section-label">Your Story Starts Here</span>
+
+      <h2 id="cta-heading" class="display-2 text-gradient" style="margin: var(--space-4) auto var(--space-6);">
+        Ready to Join the Crew?
+      </h2>
+
+      <p class="text-lg text-muted" style="max-width: 48ch; margin: 0 auto var(--space-10);">
+        The galaxy is vast, the factions are restless, and your crew is waiting.
+        It only takes a few minutes to build your character and dive in.
+      </p>
+
+      <a href="character-creator.html" class="btn btn-primary btn-lg animate-pulse">
+        Start Building Your Character
+      </a>
+
+    </div><!-- /container -->
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+
+        <span class="footer-logo">⬡ REGNUM RPG</span>
+
+        <span style="color: var(--text-dim); font-size: 0.8rem;">
+          © 2021 Grady Tarlin. All Rights Reserved.
+        </span>
+
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="character-creator.html" class="footer-link">Character Creator</a>
+          <a href="classes.html"           class="footer-link">Classes</a>
+          <a href="equipment.html"         class="footer-link">Equipment</a>
+        </nav>
+
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /page-wrapper -->
+
+<script src="js/main.js"></script>
+</body>
+</html>

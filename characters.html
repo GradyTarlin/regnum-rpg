@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Character Compendium — Regnum RPG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Page-specific variables ── */
+    :root {
+      --bg: #08080e;
+      --surface: #0d0d1a;
+      --surface-2: #121224;
+      --gold: #f0c040;
+      --purple: #9b59ff;
+      --text: #e8e8f4;
+      --text-muted: #8888aa;
+      --border: rgba(255,255,255,0.07);
+      --radius: 10px;
+      --red: #e05555;
+      --green: #4caf80;
+      --blue: #4a90d9;
+      --orange: #f0824a;
+      --teal: #3dbfbf;
+      --pink: #d94ab0;
+    }
+
+    /* ── Base reset extras ── */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    .page-wrapper {
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Starfield ── */
+    .starfield {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .starfield::before,
+    .starfield::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 15% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 42% 68%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 70% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 55%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 28% 88%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 92% 30%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 42%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 7% 60%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 63% 90%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 35% 5%, rgba(255,255,255,0.6) 0%, transparent 100%);
+    }
+    .starfield::after {
+      background-image:
+        radial-gradient(1px 1px at 80% 75%, rgba(155,89,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 20% 45%, rgba(240,192,64,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 48% 30%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 95% 85%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 10% 95%, rgba(155,89,255,0.2) 0%, transparent 100%);
+    }
+
+    /* ── Main content ── */
+    main { position: relative; z-index: 1; }
+
+    /* ── Hero ── */
+    .compendium-hero {
+      text-align: center;
+      padding: 96px 24px 48px;
+    }
+    .compendium-hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: var(--gold);
+      margin: 0 0 12px;
+      text-shadow: 0 0 40px rgba(240,192,64,0.3);
+      letter-spacing: 0.04em;
+    }
+    .compendium-hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin: 0;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    /* ── Container ── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Toolbar (search + filters + actions) ── */
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+    }
+    .toolbar-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      flex: 1;
+    }
+    .toolbar-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .search-input,
+    .filter-select {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      padding: 8px 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      min-width: 160px;
+    }
+    .search-input::placeholder { color: var(--text-muted); }
+    .search-input:focus,
+    .filter-select:focus { border-color: var(--purple); }
+    .filter-select option { background: var(--surface-2); }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 8px 16px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--purple), #7a40cc);
+      color: #fff;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), #c89820);
+      color: #0a0808;
+    }
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    .btn-ghost:hover { border-color: var(--purple); color: var(--text); }
+    .btn-danger {
+      background: rgba(224,85,85,0.15);
+      border: 1px solid rgba(224,85,85,0.3);
+      color: var(--red);
+    }
+    .btn-danger:hover { background: rgba(224,85,85,0.25); }
+    .btn-sm { padding: 6px 12px; font-size: 0.75rem; }
+    .btn-icon { padding: 6px 10px; }
+
+    /* ── Empty State ── */
+    .empty-state {
+      text-align: center;
+      padding: 96px 24px;
+    }
+    .empty-state .empty-icon {
+      font-size: 5rem;
+      margin-bottom: 24px;
+      opacity: 0.4;
+      display: block;
+    }
+    .empty-state h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.4rem;
+      color: var(--text-muted);
+      margin: 0 0 12px;
+    }
+    .empty-state p {
+      color: var(--text-muted);
+      max-width: 400px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+
+    /* ── Character Card Grid ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+
+    /* ── Character Card ── */
+    .char-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: calc(var(--radius) + 2px);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .char-card:hover {
+      border-color: rgba(155,89,255,0.3);
+      box-shadow: 0 8px 32px rgba(155,89,255,0.1);
+    }
+
+    .char-card-header {
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 20px 14px;
+    }
+    .char-card-header h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 0 0 4px;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .char-player {
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      margin: 0;
+    }
+
+    .char-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      padding: 3px 9px;
+      white-space: nowrap;
+    }
+    .tag-class {
+      background: rgba(155,89,255,0.12);
+      border-color: rgba(155,89,255,0.3);
+      color: var(--purple);
+    }
+    .tag-species {
+      background: rgba(240,192,64,0.1);
+      border-color: rgba(240,192,64,0.25);
+      color: var(--gold);
+    }
+
+    .char-card-body {
+      padding: 16px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* ── HP Bar ── */
+    .hp-section { }
+    .hp-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .hp-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hp-pips {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+    .hp-pip {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+    .hp-pip.filled {
+      background: var(--red);
+      border-color: var(--red);
+      box-shadow: 0 0 8px rgba(224,85,85,0.4);
+    }
+    .hp-pip.empty {
+      background: transparent;
+      border-color: rgba(224,85,85,0.3);
+    }
+    .hp-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .hp-bar-track {
+      background: rgba(224,85,85,0.15);
+      border-radius: 4px;
+      height: 8px;
+      flex: 1;
+      overflow: hidden;
+    }
+    .hp-bar-fill {
+      background: linear-gradient(90deg, var(--red), #ff7070);
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+
+    /* ── Skills compact ── */
+    .skills-section { }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+    }
+    .skill-pip {
+      border-radius: 6px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 4px 2px;
+      text-align: center;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      border: 1px solid;
+    }
+    .skill-pip .skill-name {
+      font-size: 0.55rem;
+      opacity: 0.8;
+      font-family: 'Space Mono', monospace;
+      font-weight: 400;
+    }
+    .skill-pip .skill-val {
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* Skill pip colors */
+    .badge-shooting  { background: rgba(224,130,74,0.15); border-color: rgba(224,130,74,0.4); color: #f0824a; }
+    .badge-fighting  { background: rgba(224,85,85,0.15);  border-color: rgba(224,85,85,0.4);  color: var(--red); }
+    .badge-athletics { background: rgba(76,175,128,0.15); border-color: rgba(76,175,128,0.4); color: var(--green); }
+    .badge-piloting  { background: rgba(74,144,217,0.15); border-color: rgba(74,144,217,0.4); color: var(--blue); }
+    .badge-engineering{ background: rgba(155,89,255,0.15);border-color: rgba(155,89,255,0.4); color: var(--purple); }
+    .badge-charisma  { background: rgba(240,192,64,0.12); border-color: rgba(240,192,64,0.35); color: var(--gold); }
+    .badge-stealth   { background: rgba(61,191,191,0.12); border-color: rgba(61,191,191,0.35); color: var(--teal); }
+    .badge-instinct  { background: rgba(217,74,176,0.12); border-color: rgba(217,74,176,0.35); color: var(--pink); }
+
+    /* ── Feature tags ── */
+    .features-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .feature-tag {
+      background: rgba(155,89,255,0.08);
+      border: 1px solid rgba(155,89,255,0.2);
+      border-radius: 5px;
+      color: rgba(155,89,255,0.9);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      padding: 3px 8px;
+    }
+
+    /* ── Equipment list in card ── */
+    .equip-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .equip-list li {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      padding-left: 12px;
+      position: relative;
+    }
+    .equip-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      opacity: 0.6;
+      font-size: 0.6rem;
+      top: 1px;
+    }
+
+    /* ── Card actions ── */
+    .char-card-actions {
+      display: flex;
+      gap: 8px;
+      padding: 14px 20px;
+      border-top: 1px solid var(--border);
+      background: var(--surface-2);
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    /* ── Results bar ── */
+    .results-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .results-count {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* ── Hidden file input ── */
+    #import-input { display: none; }
+
+    /* ── Modal ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(8,8,14,0.85);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      overflow-y: auto;
+      padding: 24px 16px 48px;
+    }
+    .modal-overlay.active { display: flex; }
+
+    .modal {
+      background: var(--surface);
+      border: 1px solid rgba(155,89,255,0.2);
+      border-radius: calc(var(--radius) + 4px);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6), 0 0 60px rgba(155,89,255,0.08);
+      max-width: 740px;
+      width: 100%;
+      position: relative;
+      animation: modalIn 0.25s ease;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(16px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .modal-header {
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+      border-radius: calc(var(--radius) + 4px) calc(var(--radius) + 4px) 0 0;
+      padding: 24px 28px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .modal-title-group { flex: 1; }
+    .modal-title-group h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 0 0 4px;
+      letter-spacing: 0.03em;
+    }
+    .modal-title-group p {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      margin: 0;
+    }
+    .modal-close {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.1rem;
+      height: 36px;
+      width: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, color 0.2s;
+      flex-shrink: 0;
+    }
+    .modal-close:hover { background: rgba(224,85,85,0.15); color: var(--red); border-color: rgba(224,85,85,0.3); }
+
+    .modal-body {
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* ── Sheet sections ── */
+    .sheet-section {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
+    .sheet-section:last-child { border-bottom: none; padding-bottom: 0; }
+    .sheet-section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--purple);
+      margin: 0 0 14px;
+    }
+
+    /* ── HP tracker in modal ── */
+    .hp-tracker {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .hp-counter {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 16px;
+    }
+    .hp-counter-btn {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1rem;
+      height: 32px;
+      width: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .hp-counter-btn:hover { background: rgba(255,255,255,0.14); }
+    .hp-counter-val {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--red);
+      min-width: 48px;
+      text-align: center;
+    }
+    .hp-counter-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .hp-pips-modal {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+    .hp-pip-modal {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .hp-pip-modal:hover { transform: scale(1.15); }
+    .hp-pip-modal.filled {
+      background: var(--red);
+      border-color: var(--red);
+      box-shadow: 0 0 10px rgba(224,85,85,0.5);
+    }
+    .hp-pip-modal.empty {
+      background: transparent;
+      border-color: rgba(224,85,85,0.3);
+    }
+    .armour-shields {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .stat-pill {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 16px;
+      text-align: center;
+    }
+    .stat-pill .sp-val {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--blue);
+      display: block;
+    }
+    .stat-pill .sp-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    /* ── Skills modal ── */
+    .skills-sheet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    .skill-row {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+    }
+    .skill-row-badge {
+      border-radius: 6px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      min-width: 36px;
+      padding: 4px 6px;
+      text-align: center;
+      border: 1px solid;
+      flex-shrink: 0;
+    }
+    .skill-row-info { flex: 1; min-width: 0; }
+    .skill-row-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .skill-row-desc {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* ── Features in modal ── */
+    .feature-block {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--purple);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+    .feature-block-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .feature-block-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .feature-block-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .feature-block.gold { border-left-color: var(--gold); }
+
+    /* ── Equipment in modal ── */
+    .equip-sheet-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .equip-sheet-list li {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-size: 0.82rem;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .equip-sheet-list li::before {
+      content: '◈';
+      color: var(--gold);
+      opacity: 0.6;
+      font-size: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    /* ── Notes ── */
+    .notes-textarea {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      line-height: 1.6;
+      outline: none;
+      padding: 12px 14px;
+      resize: vertical;
+      transition: border-color 0.2s;
+      width: 100%;
+      min-height: 100px;
+    }
+    .notes-textarea::placeholder { color: var(--text-muted); }
+    .notes-textarea:focus { border-color: var(--purple); }
+    .notes-hint {
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      margin-top: 6px;
+    }
+
+    /* ── Footer ── */
+    .site-footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .site-footer p {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      margin: 0;
+    }
+
+    /* ── Saved indicator ── */
+    .saved-indicator {
+      color: var(--green);
+      font-size: 0.72rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .saved-indicator.show { opacity: 1; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .compendium-hero { padding: 80px 16px 32px; }
+      .cards-grid { grid-template-columns: 1fr; gap: 16px; }
+      .toolbar { flex-direction: column; align-items: stretch; }
+      .toolbar-filters { flex-direction: column; }
+      .search-input, .filter-select { min-width: 0; width: 100%; }
+      .modal-body { padding: 16px; }
+      .modal-header { padding: 16px; }
+      .skills-sheet-grid { grid-template-columns: 1fr; }
+      .hp-tracker { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <div class="starfield" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">⬡ REGNUM RPG</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="character-creator.html" class="nav-link">Creator</a>
+        <a href="classes.html" class="nav-link">Classes</a>
+        <a href="equipment.html" class="nav-link">Equipment</a>
+        <a href="lore.html" class="nav-link">Lore</a>
+        <a href="characters.html" class="nav-link active">Characters</a>
+      </div>
+      <a href="character-creator.html" class="nav-cta">Build Character</a>
+      <button class="nav-hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="character-creator.html" class="nav-link">Creator</a>
+      <a href="classes.html" class="nav-link">Classes</a>
+      <a href="equipment.html" class="nav-link">Equipment</a>
+      <a href="lore.html" class="nav-link">Lore</a>
+      <a href="characters.html" class="nav-link active">Characters</a>
+      <a href="character-creator.html" class="nav-cta" style="margin-top:8px;text-align:center;">Build Character</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="compendium-hero">
+      <h1>Character Compendium</h1>
+      <p>Your crew awaits.</p>
+    </section>
+
+    <div class="container">
+
+      <!-- Toolbar — shown only when characters exist -->
+      <div class="toolbar" id="toolbar" hidden>
+        <div class="toolbar-filters">
+          <input type="search" class="search-input" id="search-input" placeholder="🔍  Search by name…" />
+          <select class="filter-select" id="filter-class">
+            <option value="">All Classes</option>
+          </select>
+          <select class="filter-select" id="filter-species">
+            <option value="">All Species</option>
+          </select>
+        </div>
+        <div class="toolbar-actions">
+          <button class="btn btn-ghost btn-sm" id="btn-import" title="Import characters from JSON">⇪ Import</button>
+          <button class="btn btn-ghost btn-sm" id="btn-export" title="Export all characters to JSON">⇩ Export</button>
+          <input type="file" id="import-input" accept=".json,application/json" />
+        </div>
+      </div>
+
+      <!-- Results bar -->
+      <div class="results-bar" id="results-bar" hidden>
+        <span class="results-count" id="results-count"></span>
+      </div>
+
+      <!-- Empty state -->
+      <div class="empty-state" id="empty-state" hidden>
+        <span class="empty-icon">👤</span>
+        <h2>No characters saved yet.</h2>
+        <p>Build your first character to see them here. All characters you save in the Creator will appear in this Compendium.</p>
+        <a href="character-creator.html" class="btn btn-primary">⬡ Create Character</a>
+      </div>
+
+      <!-- Character cards grid -->
+      <div class="cards-grid" id="cards-grid"></div>
+
+    </div><!-- /container -->
+  </main>
+
+  <!-- Character Detail Modal -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-char-name">
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h2 id="modal-char-name">Character Name</h2>
+          <p id="modal-char-sub">Player · Species · Class</p>
+        </div>
+        <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <!-- Dynamically populated -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>©2021 Grady Tarlin, All Rights Reserved</p>
+    </div>
+  </footer>
+</div><!-- /page-wrapper -->
+
+<script src="js/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ─────────────────────────────────────────────
+     Constants & skill metadata
+  ───────────────────────────────────────────── */
+  const STORAGE_KEY = 'regnum-characters';
+
+  const SKILLS = [
+    { id: 'shooting',    label: 'Shoot',  desc: 'Accurate fire — ranged attacks, aiming, targeting.' },
+    { id: 'fighting',    label: 'Fight',  desc: 'Strike, grab, or push — close-quarters combat.' },
+    { id: 'athletics',   label: 'Athl',   desc: 'Run, jump, lift — feats of physical ability.' },
+    { id: 'piloting',    label: 'Pilot',  desc: 'Operate vehicles, ships, and other craft.' },
+    { id: 'engineering', label: 'Eng',    desc: 'Dismantle, repair, or repurpose technology.' },
+    { id: 'charisma',    label: 'Char',   desc: 'Influence people through wit, charm, or intimidation.' },
+    { id: 'stealth',     label: 'Stlth',  desc: 'Move undetected — hiding, sneaking, shadowing.' },
+    { id: 'instinct',    label: 'Inst',   desc: 'Avoid ranged attacks, make gut-level connections.' },
+  ];
+
+  /* ─────────────────────────────────────────────
+     Data helpers & creator.js normalization
+  ───────────────────────────────────────────── */
+  function normalizeChar(raw) {
+    if (!raw) return raw;
+    const cls = raw.class || raw.chosenClass || null;
+    const sp  = raw.species || null;
+    const sub = raw.subspecies || null;
+
+    // Compute skills if saved via creator.js (skillAssigned + bonuses)
+    let skills = raw.skills ? { ...raw.skills } : null;
+    if (!skills) {
+      skills = {};
+      SKILLS.forEach(s => { skills[s.id] = 0; });
+      if (sp?.skillBonus) {
+        const sk = sp.skillBonus.skill === 'any' ? raw.humanBonusSkill : sp.skillBonus.skill;
+        if (sk && skills[sk] !== undefined) skills[sk] += sp.skillBonus.amount || 1;
+      }
+      if (Array.isArray(cls?.skillBonuses)) {
+        cls.skillBonuses.forEach(b => {
+          if (skills[b.skill] !== undefined) skills[b.skill] += b.amount || 0;
+        });
+      }
+      if (raw.skillAssigned) {
+        Object.entries(raw.skillAssigned).forEach(([k, v]) => {
+          if (skills[k] !== undefined) skills[k] += Number(v) || 0;
+        });
+      }
+    }
+
+    // HP: creator.js stores array of booleans `hp: [true, true, true]`
+    let currentHp = raw.currentHp;
+    let maxHp = raw.maxHp;
+    if (Array.isArray(raw.hp)) {
+      maxHp = raw.hp.length || 3;
+      currentHp = raw.hp.filter(Boolean).length;
+    } else {
+      maxHp = Number(maxHp) || 3;
+      currentHp = currentHp !== undefined ? Number(currentHp) : maxHp;
+    }
+
+    // Equipment: creator.js stores { id, label, items: [...] }
+    const equipment = Array.isArray(raw.equipment)
+      ? raw.equipment
+      : (Array.isArray(raw.equipment?.items) ? raw.equipment.items : []);
+
+    return {
+      ...raw,
+      class: cls,
+      speciesFeature:    raw.speciesFeature    || sp?.speciesFeature    || null,
+      subspeciesFeature: raw.subspeciesFeature || sub?.subspeciesFeature || null,
+      classAbility:      raw.classAbility      || cls?.classAbility      || null,
+      skills,
+      currentHp,
+      maxHp,
+      equipment,
+      savedAt: raw.savedAt || raw.createdAt || null,
+    };
+  }
+
+  function loadRawCharacters() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    } catch (_) { return []; }
+  }
+
+  function loadCharacters() {
+    return loadRawCharacters().map(normalizeChar);
+  }
+
+  function saveCharacters(chars) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(chars));
+  }
+
+  function getCharById(id) {
+    return loadCharacters().find(c => c.id === id) || null;
+  }
+
+  function updateCharField(id, patch) {
+    const chars = loadRawCharacters();
+    const idx = chars.findIndex(c => c.id === id);
+    if (idx === -1) return;
+    Object.assign(chars[idx], patch);
+    // Keep creator.js `hp` boolean array in sync if present
+    if (patch.currentHp !== undefined && Array.isArray(chars[idx].hp)) {
+      const len = chars[idx].hp.length || 3;
+      chars[idx].hp = Array.from({ length: len }, (_, i) => i < patch.currentHp);
+    }
+    saveCharacters(chars);
+  }
+
+  function deleteChar(id) {
+    saveCharacters(loadRawCharacters().filter(c => c.id !== id));
+  }
+
+  /* ─────────────────────────────────────────────
+     Render helpers
+  ───────────────────────────────────────────── */
+  function skillSign(val) {
+    const v = Number(val) || 0;
+    return (v >= 0 ? '+' : '') + v;
+  }
+
+  function hpPipsHtml(current, max, interactive = false) {
+    let html = '';
+    for (let i = 0; i < max; i++) {
+      const filled = i < current;
+      if (interactive) {
+        html += `<button class="hp-pip-modal ${filled ? 'filled' : 'empty'}" data-pip="${i}" title="Toggle HP pip ${i + 1}" aria-label="HP pip ${i + 1}"></button>`;
+      } else {
+        html += `<div class="hp-pip ${filled ? 'filled' : 'empty'}"></div>`;
+      }
+    }
+    return html;
+  }
+
+  function buildCard(char) {
+    const species = char.species ? char.species.name : '—';
+    const subspecies = char.subspecies ? char.subspecies.name : '';
+    const cls = char.class ? char.class.name : '—';
+    const clsId = char.class ? char.class.id : '';
+    const current = Number(char.currentHp) || 0;
+    const max = Number(char.maxHp) || 1;
+    const pct = Math.min(100, Math.round((current / max) * 100));
+
+    const featureNames = [
+      char.speciesFeature ? char.speciesFeature.name : null,
+      char.subspeciesFeature ? char.subspeciesFeature.name : null,
+      char.classAbility ? char.classAbility.name : null,
+      char.tier1Feature ? char.tier1Feature.name : null,
+    ].filter(Boolean);
+
+    const equipment = Array.isArray(char.equipment) ? char.equipment : [];
+    const skills = char.skills || {};
+
+    const skillsHtml = SKILLS.map(s =>
+      `<div class="skill-pip badge-${s.id}">
+        <span class="skill-name">${s.label}</span>
+        <span class="skill-val">${skillSign(skills[s.id])}</span>
+      </div>`
+    ).join('');
+
+    const featuresHtml = featureNames.map(f =>
+      `<span class="feature-tag">${escapeHtml(f)}</span>`
+    ).join('');
+
+    const equipHtml = equipment.length
+      ? equipment.slice(0, 5).map(e => `<li>${escapeHtml(e)}</li>`).join('') +
+        (equipment.length > 5 ? `<li style="color:var(--text-muted);font-style:italic">+${equipment.length - 5} more…</li>` : '')
+      : '<li style="color:var(--text-muted)">No equipment listed.</li>';
+
+    const savedDate = char.savedAt
+      ? new Date(char.savedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+      : '';
+
+    return `
+      <article class="char-card" data-id="${escapeAttr(char.id)}">
+        <div class="char-card-header">
+          <h2>${escapeHtml(char.name || 'Unnamed Character')}</h2>
+          <p class="char-player">${escapeHtml(char.player || 'Unknown Player')}${savedDate ? ' · ' + savedDate : ''}</p>
+        </div>
+        <div class="char-tags">
+          <span class="tag tag-species">${escapeHtml(species)}${subspecies ? ' · ' + escapeHtml(subspecies) : ''}</span>
+          <span class="tag tag-class">${escapeHtml(cls)}</span>
+          ${char.armour ? `<span class="tag">🛡 ${char.armour} Armour</span>` : ''}
+          ${char.shields ? `<span class="tag">⚡ ${char.shields} Shields</span>` : ''}
+        </div>
+        <div class="char-card-body">
+
+          <!-- HP -->
+          <div class="hp-section">
+            <div class="section-label">Hit Points</div>
+            <div class="hp-row">
+              <div class="hp-pips">${hpPipsHtml(current, max)}</div>
+              <span class="hp-text">${current}/${max}</span>
+            </div>
+            <div style="margin-top:6px;" class="hp-bar-track">
+              <div class="hp-bar-fill" style="width:${pct}%"></div>
+            </div>
+          </div>
+
+          <!-- Skills -->
+          <div class="skills-section">
+            <div class="section-label">Skills</div>
+            <div class="skills-grid">${skillsHtml}</div>
+          </div>
+
+          <!-- Features -->
+          ${featureNames.length ? `
+          <div>
+            <div class="section-label">Features</div>
+            <div class="features-row">${featuresHtml}</div>
+          </div>` : ''}
+
+          <!-- Equipment -->
+          <div>
+            <div class="section-label">Equipment</div>
+            <ul class="equip-list">${equipHtml}</ul>
+          </div>
+
+        </div>
+        <div class="char-card-actions">
+          <button class="btn btn-primary btn-sm" data-action="view" data-id="${escapeAttr(char.id)}">📋 View Full Sheet</button>
+          <button class="btn btn-danger btn-sm" data-action="delete" data-id="${escapeAttr(char.id)}">🗑 Delete</button>
+        </div>
+      </article>`;
+  }
+
+  function escapeHtml(str) {
+    return String(str ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+  }
+  function escapeAttr(str) {
+    return String(str ?? '').replace(/"/g, '&quot;');
+  }
+
+  /* ─────────────────────────────────────────────
+     Filtering
+  ───────────────────────────────────────────── */
+  function getFilters() {
+    return {
+      search: (document.getElementById('search-input').value || '').toLowerCase().trim(),
+      cls:    document.getElementById('filter-class').value,
+      species: document.getElementById('filter-species').value,
+    };
+  }
+
+  function applyFilters(chars) {
+    const f = getFilters();
+    return chars.filter(c => {
+      if (f.search && !(c.name || '').toLowerCase().includes(f.search)) return false;
+      if (f.cls && (c.class ? c.class.id : '') !== f.cls) return false;
+      if (f.species && (c.species ? c.species.id : '') !== f.species) return false;
+      return true;
+    });
+  }
+
+  function populateFilters(chars) {
+    const clsSel = document.getElementById('filter-class');
+    const spSel  = document.getElementById('filter-species');
+
+    // Collect unique classes
+    const classes = {};
+    const species = {};
+    chars.forEach(c => {
+      if (c.class)   classes[c.class.id]   = c.class.name;
+      if (c.species) species[c.species.id] = c.species.name;
+    });
+
+    // Clear and repopulate
+    while (clsSel.options.length > 1) clsSel.remove(1);
+    while (spSel.options.length  > 1) spSel.remove(1);
+
+    Object.entries(classes).sort((a,b) => a[1].localeCompare(b[1])).forEach(([id, name]) => {
+      const o = document.createElement('option');
+      o.value = id; o.textContent = name;
+      clsSel.appendChild(o);
+    });
+    Object.entries(species).sort((a,b) => a[1].localeCompare(b[1])).forEach(([id, name]) => {
+      const o = document.createElement('option');
+      o.value = id; o.textContent = name;
+      spSel.appendChild(o);
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     Main render
+  ───────────────────────────────────────────── */
+  function render() {
+    const all = loadCharacters();
+    const toolbar   = document.getElementById('toolbar');
+    const resultsBar = document.getElementById('results-bar');
+    const emptyState = document.getElementById('empty-state');
+    const grid      = document.getElementById('cards-grid');
+    const countEl   = document.getElementById('results-count');
+
+    if (all.length === 0) {
+      toolbar.hidden = true;
+      resultsBar.hidden = true;
+      emptyState.hidden = false;
+      grid.innerHTML = '';
+      return;
+    }
+
+    toolbar.hidden = false;
+    resultsBar.hidden = false;
+    emptyState.hidden = true;
+
+    populateFilters(all);
+
+    const filtered = applyFilters(all);
+    countEl.textContent = filtered.length === all.length
+      ? `${all.length} character${all.length !== 1 ? 's' : ''}`
+      : `${filtered.length} of ${all.length} characters`;
+
+    grid.innerHTML = filtered.length
+      ? filtered.map(buildCard).join('')
+      : '<p style="color:var(--text-muted);text-align:center;grid-column:1/-1;padding:48px 0;">No characters match your filters.</p>';
+  }
+
+  /* ─────────────────────────────────────────────
+     Modal
+  ───────────────────────────────────────────── */
+  let activeCharId = null;
+
+  function openModal(id) {
+    const char = getCharById(id);
+    if (!char) return;
+    activeCharId = id;
+
+    document.getElementById('modal-char-name').textContent = char.name || 'Unnamed Character';
+    document.getElementById('modal-char-sub').textContent =
+      [char.player, char.species?.name, char.class?.name].filter(Boolean).join(' · ');
+
+    document.getElementById('modal-body').innerHTML = buildModalBody(char);
+    document.getElementById('modal-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // Bind HP pips
+    bindModalHp(char);
+    // Bind notes
+    bindModalNotes(char);
+  }
+
+  function buildModalBody(char) {
+    const skills = char.skills || {};
+    const equipment = Array.isArray(char.equipment) ? char.equipment : [];
+    const current = Number(char.currentHp) || 0;
+    const max = Number(char.maxHp) || 1;
+
+    const skillsHtml = SKILLS.map(s =>
+      `<div class="skill-row">
+        <div class="skill-row-badge badge-${s.id}">${skillSign(skills[s.id])}</div>
+        <div class="skill-row-info">
+          <span class="skill-row-name">${s.id.charAt(0).toUpperCase() + s.id.slice(1)}</span>
+          <span class="skill-row-desc">${s.desc}</span>
+        </div>
+      </div>`
+    ).join('');
+
+    const features = [
+      char.speciesFeature    ? { label: 'Species Feature',    ...char.speciesFeature,    gold: true  } : null,
+      char.subspeciesFeature ? { label: 'Subspecies Feature',  ...char.subspeciesFeature, gold: true  } : null,
+      char.classAbility      ? { label: 'Class Ability',       ...char.classAbility,      gold: false } : null,
+      char.tier1Feature      ? { label: 'Tier 1 Feature',      ...char.tier1Feature,      gold: false } : null,
+    ].filter(Boolean);
+
+    const featuresHtml = features.map(f =>
+      `<div class="feature-block${f.gold ? ' gold' : ''}">
+        <div class="feature-block-label">${escapeHtml(f.label)}</div>
+        <div class="feature-block-name">${escapeHtml(f.name || '—')}</div>
+        <div class="feature-block-desc">${escapeHtml(f.description || '')}</div>
+      </div>`
+    ).join('');
+
+    const equipHtml = equipment.length
+      ? equipment.map(e => `<li>${escapeHtml(e)}</li>`).join('')
+      : '<li>No equipment listed.</li>';
+
+    const notes = char.notes || '';
+
+    return `
+      <!-- HP & Stats -->
+      <div class="sheet-section">
+        <div class="sheet-section-title">Combat Stats</div>
+        <div class="hp-tracker">
+          <div class="hp-counter">
+            <button class="hp-counter-btn" id="hp-dec" aria-label="Decrease HP">−</button>
+            <div class="hp-counter-val" id="hp-val">${current}</div>
+            <span class="hp-counter-label">/ ${max} HP</span>
+            <button class="hp-counter-btn" id="hp-inc" aria-label="Increase HP">+</button>
+          </div>
+          <div class="hp-pips-modal" id="modal-hp-pips">
+            ${hpPipsHtml(current, max, true)}
+          </div>
+        </div>
+        <div class="armour-shields" style="margin-top:14px;">
+          <div class="stat-pill">
+            <span class="sp-val">${Number(char.armour) || 0}</span>
+            <span class="sp-label">🛡 Armour</span>
+          </div>
+          <div class="stat-pill">
+            <span class="sp-val">${Number(char.shields) || 0}</span>
+            <span class="sp-label">⚡ Shields</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="sheet-section">
+        <div class="sheet-section-title">Skills</div>
+        <div class="skills-sheet-grid">${skillsHtml}</div>
+      </div>
+
+      <!-- Features -->
+      ${features.length ? `
+      <div class="sheet-section">
+        <div class="sheet-section-title">Features & Abilities</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">${featuresHtml}</div>
+      </div>` : ''}
+
+      <!-- Equipment -->
+      <div class="sheet-section">
+        <div class="sheet-section-title">Equipment</div>
+        <ul class="equip-sheet-list">${equipHtml}</ul>
+      </div>
+
+      <!-- Notes -->
+      <div class="sheet-section">
+        <div class="sheet-section-title">Animator Notes</div>
+        <textarea class="notes-textarea" id="modal-notes" placeholder="Session notes, backstory, reminders…">${escapeHtml(notes)}</textarea>
+        <div class="notes-hint">Notes auto-save as you type. <span class="saved-indicator" id="notes-saved">✓ Saved</span></div>
+      </div>`;
+  }
+
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+    activeCharId = null;
+  }
+
+  /* HP interactivity in modal */
+  function bindModalHp(char) {
+    let current = Number(char.currentHp) || 0;
+    const max = Number(char.maxHp) || 1;
+
+    function updateHpUi() {
+      document.getElementById('hp-val').textContent = current;
+      const pipsEl = document.getElementById('modal-hp-pips');
+      if (pipsEl) pipsEl.innerHTML = hpPipsHtml(current, max, true);
+      rebindPips();
+    }
+
+    function saveHp() {
+      updateCharField(activeCharId, { currentHp: current });
+      render(); // refresh card
+    }
+
+    function rebindPips() {
+      document.querySelectorAll('#modal-hp-pips .hp-pip-modal').forEach(pip => {
+        pip.addEventListener('click', () => {
+          const idx = parseInt(pip.dataset.pip);
+          // Clicking a filled pip: set HP to idx (empty it and above)
+          // Clicking an empty pip: set HP to idx+1 (fill up to and including it)
+          current = pip.classList.contains('filled') ? idx : idx + 1;
+          updateHpUi();
+          saveHp();
+        });
+      });
+    }
+
+    const decBtn = document.getElementById('hp-dec');
+    const incBtn = document.getElementById('hp-inc');
+
+    decBtn.addEventListener('click', () => {
+      if (current > 0) { current--; updateHpUi(); saveHp(); }
+    });
+    incBtn.addEventListener('click', () => {
+      if (current < max) { current++; updateHpUi(); saveHp(); }
+    });
+
+    rebindPips();
+  }
+
+  /* Notes auto-save */
+  function bindModalNotes(char) {
+    const textarea = document.getElementById('modal-notes');
+    if (!textarea) return;
+    let debounce;
+    textarea.addEventListener('input', () => {
+      clearTimeout(debounce);
+      debounce = setTimeout(() => {
+        updateCharField(activeCharId, { notes: textarea.value });
+        const ind = document.getElementById('notes-saved');
+        if (ind) { ind.classList.add('show'); setTimeout(() => ind.classList.remove('show'), 1500); }
+      }, 600);
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     Export / Import
+  ───────────────────────────────────────────── */
+  function exportAll() {
+    const chars = loadRawCharacters();
+    if (!chars.length) { alert('No characters to export.'); return; }
+    const blob = new Blob([JSON.stringify(chars, null, 2)], { type: 'application/json' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href = url;
+    a.download = `regnum-characters-${new Date().toISOString().slice(0,10)}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  function importFromFile(file) {
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const incoming = JSON.parse(e.target.result);
+        if (!Array.isArray(incoming)) throw new Error('Not a JSON array.');
+        const existing = loadRawCharacters();
+        const existingIds = new Set(existing.map(c => c.id));
+        let added = 0;
+        incoming.forEach(c => {
+          if (!existingIds.has(c.id)) { existing.push(c); added++; }
+        });
+        saveCharacters(existing);
+        render();
+        alert(`Import complete: ${added} character${added !== 1 ? 's' : ''} added.`);
+      } catch (err) {
+        alert('Import failed: ' + err.message);
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  /* ─────────────────────────────────────────────
+     Event wiring
+  ───────────────────────────────────────────── */
+  function wireEvents() {
+    // Filter / search
+    document.getElementById('search-input').addEventListener('input', render);
+    document.getElementById('filter-class').addEventListener('change', render);
+    document.getElementById('filter-species').addEventListener('change', render);
+
+    // Card actions (delegated)
+    document.getElementById('cards-grid').addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-action]');
+      if (!btn) return;
+      const id = btn.dataset.id;
+      if (btn.dataset.action === 'view') {
+        openModal(id);
+      } else if (btn.dataset.action === 'delete') {
+        const char = getCharById(id);
+        const name = char ? (char.name || 'this character') : 'this character';
+        if (confirm(`Delete "${name}"? This cannot be undone.`)) {
+          deleteChar(id);
+          render();
+        }
+      }
+    });
+
+    // Modal close
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.getElementById('modal-overlay').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.getElementById('modal-overlay').classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    // Export
+    document.getElementById('btn-export').addEventListener('click', exportAll);
+
+    // Import
+    document.getElementById('btn-import').addEventListener('click', () => {
+      document.getElementById('import-input').value = '';
+      document.getElementById('import-input').click();
+    });
+    document.getElementById('import-input').addEventListener('change', (e) => {
+      importFromFile(e.target.files[0]);
+      e.target.value = '';
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     Init
+  ───────────────────────────────────────────── */
+  function init() {
+    wireEvents();
+    render();
+  }
+
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', init)
+    : init();
+
+})();
+</script>
+</body>
+</html>

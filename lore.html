@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lore Wiki — Regnum RPG</title>
+  <meta name="description" content="Explore the factions, worlds, and forces that shape the galaxy of Regnum RPG." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Lore-page specific styles ───────────────────────────── */
+
+    /* Hero */
+    .lore-hero {
+      position: relative;
+      text-align: center;
+      padding: 120px var(--space-6) 72px;
+      overflow: hidden;
+    }
+    .lore-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(155,89,255,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .lore-hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--purple);
+      text-transform: uppercase;
+      margin-bottom: var(--space-4);
+    }
+    .lore-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: var(--space-5);
+    }
+    .lore-hero h1 span {
+      color: var(--gold);
+    }
+    .lore-hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Section headers */
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: var(--space-3);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: var(--space-6);
+    }
+
+    /* Galaxy Overview */
+    .galaxy-overview {
+      padding: 0 var(--space-6) var(--space-16);
+    }
+    .galaxy-overview .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .galaxy-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--purple);
+      border-radius: var(--radius-md);
+      padding: var(--space-10) var(--space-10);
+      position: relative;
+      overflow: hidden;
+    }
+    .galaxy-card::before {
+      content: '⬡';
+      position: absolute;
+      right: var(--space-8);
+      top: var(--space-6);
+      font-size: 5rem;
+      color: rgba(155,89,255,0.07);
+      pointer-events: none;
+      line-height: 1;
+    }
+    .galaxy-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: var(--space-5);
+    }
+    .galaxy-card p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: var(--space-4);
+    }
+    .galaxy-card p:last-child { margin-bottom: 0; }
+
+    /* Search bar */
+    .faction-search-wrap {
+      padding: 0 var(--space-6) var(--space-8);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .faction-search-inner {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    .faction-search-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    #faction-search {
+      flex: 1;
+      min-width: 220px;
+      max-width: 440px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 16px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    #faction-search::placeholder { color: var(--text-dim); }
+    #faction-search:focus {
+      border-color: rgba(155,89,255,0.5);
+      box-shadow: 0 0 0 3px rgba(155,89,255,0.1);
+    }
+    .search-count {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    /* Faction Grid */
+    .faction-grid-section {
+      padding: 0 var(--space-6) var(--space-16);
+    }
+    .faction-grid-section .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .faction-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: var(--space-6);
+    }
+
+    .faction-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      border-top: 3px solid var(--faction-color, var(--gold));
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.22s var(--ease), box-shadow 0.22s var(--ease), border-color 0.22s;
+      cursor: pointer;
+    }
+    .faction-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.5), 0 0 0 1px var(--faction-color, var(--gold));
+    }
+    .faction-card-header {
+      padding: var(--space-6) var(--space-6) var(--space-4);
+      position: relative;
+    }
+    .faction-color-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--faction-color, var(--gold));
+      margin-right: var(--space-2);
+      box-shadow: 0 0 8px var(--faction-color, var(--gold));
+      vertical-align: middle;
+    }
+    .faction-strength-badge {
+      position: absolute;
+      top: var(--space-6);
+      right: var(--space-5);
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--faction-color, var(--gold));
+      background: color-mix(in srgb, var(--faction-color, var(--gold)) 10%, transparent);
+      border: 1px solid color-mix(in srgb, var(--faction-color, var(--gold)) 25%, transparent);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .faction-card h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: var(--space-3) 0 var(--space-2);
+      line-height: 1.25;
+    }
+    .faction-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: var(--space-4);
+    }
+    .faction-meta-row {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+    .faction-meta-row span {
+      color: var(--faction-color, var(--gold));
+    }
+    .faction-tagline {
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      border-left: 2px solid var(--faction-color, var(--gold));
+      padding-left: var(--space-3);
+      margin: 0 var(--space-6) var(--space-4);
+      line-height: 1.5;
+    }
+    .faction-card-body {
+      padding: 0 var(--space-6);
+      flex: 1;
+    }
+    .faction-card-body p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .faction-card-footer {
+      padding: var(--space-5) var(--space-6);
+      margin-top: var(--space-4);
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .faction-worlds-count {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+    }
+    .faction-read-more {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--faction-color, var(--gold));
+      background: color-mix(in srgb, var(--faction-color, var(--gold)) 8%, transparent);
+      border: 1px solid color-mix(in srgb, var(--faction-color, var(--gold)) 30%, transparent);
+      padding: 7px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background 0.18s, box-shadow 0.18s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .faction-read-more:hover {
+      background: color-mix(in srgb, var(--faction-color, var(--gold)) 18%, transparent);
+      box-shadow: 0 0 12px color-mix(in srgb, var(--faction-color, var(--gold)) 35%, transparent);
+    }
+
+    /* No results */
+    .no-results {
+      text-align: center;
+      padding: var(--space-16) var(--space-6);
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    /* ── Faction Detail Sections ─────────────────────────────── */
+    .faction-details {
+      padding: 0 var(--space-6) var(--space-16);
+    }
+    .faction-details .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faction-detail-section {
+      margin-bottom: var(--space-20);
+    }
+    .faction-detail-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+      margin: var(--space-16) 0;
+    }
+
+    .faction-detail-header {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-5);
+      margin-bottom: var(--space-10);
+      padding-bottom: var(--space-8);
+      border-bottom: 1px solid var(--border);
+    }
+    .faction-detail-accent {
+      width: 5px;
+      flex-shrink: 0;
+      border-radius: 3px;
+      align-self: stretch;
+      min-height: 60px;
+      background: var(--faction-color, var(--gold));
+      box-shadow: 0 0 16px color-mix(in srgb, var(--faction-color, var(--gold)) 50%, transparent);
+    }
+    .faction-detail-heading h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: var(--space-2);
+    }
+    .faction-detail-heading .detail-tagline {
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+    .faction-detail-heading .detail-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    .detail-meta-item {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+    .detail-meta-item strong {
+      color: var(--faction-color, var(--gold));
+      font-weight: 600;
+    }
+
+    /* Detail sub-sections */
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-5);
+      margin-bottom: var(--space-8);
+    }
+    .detail-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-6);
+    }
+    .detail-block h4 {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--faction-color, var(--gold));
+      margin-bottom: var(--space-3);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .detail-block h4 .block-icon {
+      font-size: 0.95rem;
+    }
+    .detail-block p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.72;
+    }
+
+    /* Overview block */
+    .detail-overview {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-8);
+      margin-bottom: var(--space-8);
+    }
+    .detail-overview h3 {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: var(--space-4);
+    }
+    .detail-overview p {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    /* Worlds list */
+    .worlds-section {
+      margin-bottom: var(--space-8);
+    }
+    .worlds-section h3 {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: var(--space-4);
+    }
+    .worlds-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--space-4);
+    }
+    .world-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-5);
+      position: relative;
+      overflow: hidden;
+    }
+    .world-card::before {
+      content: '◉';
+      position: absolute;
+      top: var(--space-4);
+      right: var(--space-4);
+      font-size: 1.1rem;
+      color: var(--faction-color, var(--gold));
+      opacity: 0.25;
+    }
+    .world-card h5 {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--faction-color, var(--gold));
+      margin-bottom: var(--space-2);
+    }
+    .world-card p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Sub-factions list */
+    .subfactions-section {
+      margin-bottom: var(--space-6);
+    }
+    .subfactions-section h3 {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: var(--space-4);
+    }
+    .subfaction-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .subfaction-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--faction-color, var(--gold));
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: var(--space-4) var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+    .subfaction-item strong {
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .subfaction-item p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── Species Quick Reference ─────────────────────────────── */
+    .species-section {
+      padding: 0 var(--space-6) var(--space-16);
+      background: var(--surface-2);
+      padding-top: var(--space-16);
+    }
+    .species-section .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .species-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-4);
+    }
+    .species-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-5) var(--space-5);
+    }
+    .species-name {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: var(--space-2);
+    }
+    .species-homes {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .species-home-pill {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      border: 1px solid;
+      text-align: center;
+    }
+
+    /* Back to top / nav anchor */
+    .back-to-grid {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      margin-top: var(--space-6);
+      transition: color 0.18s;
+    }
+    .back-to-grid:hover { color: var(--text-muted); }
+
+    /* Loading state */
+    .lore-loading {
+      text-align: center;
+      padding: var(--space-16);
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+    }
+    .lore-loading::after {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--purple);
+      margin-left: var(--space-2);
+      animation: blink 1s infinite;
+      vertical-align: middle;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.1; }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .lore-hero { padding: 100px var(--space-4) 56px; }
+      .galaxy-card { padding: var(--space-6); }
+      .faction-grid { grid-template-columns: 1fr; }
+      .detail-grid  { grid-template-columns: 1fr; }
+      .worlds-grid  { grid-template-columns: 1fr; }
+      .species-grid { grid-template-columns: repeat(2, 1fr); }
+      .faction-search-wrap { padding: 0 var(--space-4) var(--space-6); }
+      .faction-grid-section, .galaxy-overview, .faction-details, .species-section {
+        padding-left: var(--space-4);
+        padding-right: var(--space-4);
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <div class="starfield" aria-hidden="true"></div>
+
+  <!-- ── Navigation ───────────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">⬡ REGNUM RPG</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="character-creator.html" class="nav-link">Creator</a>
+        <a href="classes.html" class="nav-link">Classes</a>
+        <a href="equipment.html" class="nav-link">Equipment</a>
+        <a href="lore.html" class="nav-link active">Lore</a>
+        <a href="characters.html" class="nav-link">Characters</a>
+      </div>
+      <a href="character-creator.html" class="nav-cta">Build Character</a>
+      <button class="nav-hamburger" aria-label="Toggle mobile menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav-mobile">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="character-creator.html" class="nav-link">Creator</a>
+      <a href="classes.html" class="nav-link">Classes</a>
+      <a href="equipment.html" class="nav-link">Equipment</a>
+      <a href="lore.html" class="nav-link">Lore</a>
+      <a href="characters.html" class="nav-link">Characters</a>
+      <a href="character-creator.html" class="nav-cta" style="margin-top:8px;text-align:center;">Build Character</a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ─────────────────────────────────────────────────── -->
+  <section class="lore-hero">
+    <p class="lore-hero-eyebrow">// Regnum RPG · Codex</p>
+    <h1>The <span>Lore Wiki</span></h1>
+    <p>Factions, worlds, and the forces that shape the galaxy.</p>
+  </section>
+
+  <!-- ── Galaxy Overview ──────────────────────────────────────── -->
+  <section class="galaxy-overview">
+    <div class="container">
+      <div class="galaxy-card">
+        <h2>⬡ The Galaxy of Regnum</h2>
+        <p>Regnum is a galaxy of civilizations that never stands still. Empires rise and crumble, rebellions ignite across the stars, and impossible technologies reshape what it means to be alive. The Animator is free to set any game in Regnum or in another sci-fi setting of their choosing — the systems here are designed to flex to your table.</p>
+        <p>Seven major powers divide the known galaxy: the corporate hegemony of <strong>Apex Corporation</strong>, the idealistic federalism of <strong>Magnus-V</strong>, the spiritual paradise of <strong>Voidreach Unity</strong> and its lawless <strong>Outer Ring</strong>, the industrial republic of the <strong>Banderog</strong>, the ferocious <strong>Chkaari Empire</strong>, and the free-spirited racing circuit of <strong>King K</strong>. Every faction is a living ecosystem of societies, technologies, crimes, and mysteries — and every player character finds their place within them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Search ────────────────────────────────────────────────── -->
+  <div class="faction-search-wrap">
+    <div class="container" style="max-width:1200px;margin:0 auto;">
+      <div class="faction-search-inner">
+        <label for="faction-search" class="faction-search-label">Filter Factions</label>
+        <input
+          type="search"
+          id="faction-search"
+          placeholder="e.g. Apex, Chkaar, circuit…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <span class="search-count" id="search-count" aria-live="polite"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Faction Grid ──────────────────────────────────────────── -->
+  <section class="faction-grid-section" id="faction-grid-section">
+    <div class="container">
+      <div class="section-label">Seven Powers · One Galaxy</div>
+      <div class="section-title">Major Factions</div>
+      <div class="faction-grid" id="faction-grid">
+        <div class="lore-loading">Loading factions</div>
+      </div>
+      <div class="no-results" id="no-results" role="status">No factions match your search.</div>
+    </div>
+  </section>
+
+  <!-- ── Faction Detail Sections ──────────────────────────────── -->
+  <section class="faction-details" id="faction-details">
+    <div class="container" id="faction-details-container">
+      <!-- dynamically rendered -->
+    </div>
+  </section>
+
+  <!-- ── Species Quick Reference ──────────────────────────────── -->
+  <section class="species-section" id="species">
+    <div class="container">
+      <div class="section-label">Biology · Culture</div>
+      <div class="section-title">Species Quick Reference</div>
+      <div class="species-grid" id="species-grid">
+        <!-- dynamically rendered -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ────────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>©2021 Grady Tarlin, All Rights Reserved</p>
+      <p>Regnum RPG is a tabletop roleplaying game set in a living, breathing galaxy.</p>
+    </div>
+  </footer>
+</div><!-- /page-wrapper -->
+
+<script src="js/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ── Species data ──────────────────────────────────────────── */
+  const SPECIES = [
+    {
+      name: 'Human',
+      homes: [
+        { label: 'Apex Corporation', color: '#00d4ff' },
+        { label: 'Magnus-V Federation', color: '#4caf50' }
+      ]
+    },
+    {
+      name: 'Tomorran',
+      homes: [
+        { label: 'Apex Corporation', color: '#00d4ff' },
+        { label: 'Magnus-V Federation', color: '#4caf50' }
+      ]
+    },
+    {
+      name: 'Robot',
+      homes: [
+        { label: 'All Factions', color: '#8888aa' }
+      ]
+    },
+    {
+      name: 'Banderog',
+      homes: [
+        { label: 'Banderog Republic', color: '#78909c' }
+      ]
+    },
+    {
+      name: 'Chkaar',
+      homes: [
+        { label: 'Chkaari Empire', color: '#2e7d32' }
+      ]
+    },
+    {
+      name: 'Altan',
+      homes: [
+        { label: 'Voidreach Unity', color: '#9c27b0' }
+      ]
+    },
+    {
+      name: 'Iirkol',
+      homes: [
+        { label: 'Voidreach Unity', color: '#9c27b0' }
+      ]
+    },
+    {
+      name: 'Kotta',
+      homes: [
+        { label: 'Voidreach Unity', color: '#9c27b0' }
+      ]
+    },
+    {
+      name: 'Lengwae',
+      homes: [
+        { label: 'Voidreach Unity', color: '#9c27b0' }
+      ]
+    }
+  ];
+
+  /* ── Detail sub-section icons ─────────────────────────────── */
+  const ICONS = {
+    society:    '👥',
+    technology: '⚙️',
+    crime:      '⚠️',
+    mysticism:  '✦'
+  };
+
+  /* ── Helpers ──────────────────────────────────────────────── */
+  function esc(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function hexToRgba(hex, alpha) {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r},${g},${b},${alpha})`;
+  }
+
+  /* ── Render faction grid card ─────────────────────────────── */
+  function renderCard(faction) {
+    const worldCount = faction.worlds ? faction.worlds.length : 0;
+    const subCount   = faction.factions ? faction.factions.length : 0;
+    const descPreview = esc(faction.description || '');
+
+    return `
+      <article
+        class="faction-card"
+        style="--faction-color:${esc(faction.color)};"
+        data-faction-id="${esc(faction.id)}"
+        data-faction-name="${esc(faction.name.toLowerCase())}"
+        tabindex="0"
+        role="article"
+        aria-label="${esc(faction.name)}"
+      >
+        <div class="faction-card-header">
+          <span class="faction-strength-badge">${esc(faction.strength)}</span>
+          <span class="faction-color-dot"></span>
+          <h3>${esc(faction.name)}</h3>
+          <div class="faction-meta">
+            <div class="faction-meta-row">Leader: <span>${esc(faction.leader)}</span></div>
+            <div class="faction-meta-row">Goal: <span>${esc(faction.goal)}</span></div>
+          </div>
+        </div>
+        <p class="faction-tagline">${esc(faction.tagline)}</p>
+        <div class="faction-card-body">
+          <p>${descPreview}</p>
+        </div>
+        <div class="faction-card-footer">
+          <span class="faction-worlds-count">
+            ${worldCount > 0 ? worldCount + ' world' + (worldCount !== 1 ? 's' : '') : ''}
+            ${worldCount > 0 && subCount > 0 ? ' · ' : ''}
+            ${subCount > 0 ? subCount + ' org' + (subCount !== 1 ? 's' : '') : ''}
+          </span>
+          <a
+            href="#faction-${esc(faction.id)}"
+            class="faction-read-more"
+            onclick="smoothScrollTo('faction-${esc(faction.id)}', event)"
+          >Read More →</a>
+        </div>
+      </article>`;
+  }
+
+  /* ── Render faction detail section ───────────────────────── */
+  function renderDetailSection(faction, isFirst) {
+    const color = esc(faction.color);
+
+    // Worlds
+    let worldsHtml = '';
+    if (faction.worlds && faction.worlds.length > 0) {
+      const worldCards = faction.worlds.map(w => `
+        <div class="world-card" style="--faction-color:${color};">
+          <h5>${esc(w.name)}</h5>
+          <p>${esc(w.description)}</p>
+        </div>`).join('');
+      worldsHtml = `
+        <div class="worlds-section">
+          <h3>Notable Worlds</h3>
+          <div class="worlds-grid">${worldCards}</div>
+        </div>`;
+    }
+
+    // Sub-factions
+    let subfactionsHtml = '';
+    if (faction.factions && faction.factions.length > 0) {
+      const items = faction.factions.map(sf => `
+        <div class="subfaction-item" style="border-left-color:${color};">
+          <strong>${esc(sf.name)}</strong>
+          <p>${esc(sf.description)}</p>
+        </div>`).join('');
+      subfactionsHtml = `
+        <div class="subfactions-section">
+          <h3>Organizations &amp; Sub-Factions</h3>
+          <div class="subfaction-list">${items}</div>
+        </div>`;
+    }
+
+    // Divider (not before first)
+    const divider = isFirst ? '' : '<div class="faction-detail-divider"></div>';
+
+    return `
+      ${divider}
+      <section id="faction-${esc(faction.id)}" class="faction-detail-section" style="--faction-color:${color};">
+        <div class="faction-detail-header">
+          <div class="faction-detail-accent"></div>
+          <div class="faction-detail-heading">
+            <h2>${esc(faction.name)}</h2>
+            <div class="detail-tagline">"${esc(faction.tagline)}"</div>
+            <div class="detail-meta">
+              <div class="detail-meta-item">Leader: <strong>${esc(faction.leader)}</strong></div>
+              <div class="detail-meta-item">Goal: <strong>${esc(faction.goal)}</strong></div>
+              <div class="detail-meta-item">Strength: <strong>${esc(faction.strength)}</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-overview">
+          <h3>Overview</h3>
+          <p>${esc(faction.description)}</p>
+        </div>
+
+        <div class="detail-grid">
+          <div class="detail-block" style="--faction-color:${color};">
+            <h4><span class="block-icon">${ICONS.society}</span> Society</h4>
+            <p>${esc(faction.society)}</p>
+          </div>
+          <div class="detail-block" style="--faction-color:${color};">
+            <h4><span class="block-icon">${ICONS.technology}</span> Technology</h4>
+            <p>${esc(faction.technology)}</p>
+          </div>
+          <div class="detail-block" style="--faction-color:${color};">
+            <h4><span class="block-icon">${ICONS.crime}</span> Crime</h4>
+            <p>${esc(faction.crime)}</p>
+          </div>
+          <div class="detail-block" style="--faction-color:${color};">
+            <h4><span class="block-icon">${ICONS.mysticism}</span> Mysticism</h4>
+            <p>${esc(faction.mysticism)}</p>
+          </div>
+        </div>
+
+        ${worldsHtml}
+        ${subfactionsHtml}
+
+        <a href="#faction-grid-section" class="back-to-grid">↑ Back to Factions</a>
+      </section>`;
+  }
+
+  /* ── Render species grid ──────────────────────────────────── */
+  function renderSpecies() {
+    const grid = document.getElementById('species-grid');
+    if (!grid) return;
+    grid.innerHTML = SPECIES.map(sp => {
+      const pills = sp.homes.map(h => `
+        <span
+          class="species-home-pill"
+          style="color:${esc(h.color)};border-color:${hexToRgba(h.color, 0.3)};background:${hexToRgba(h.color, 0.07)};"
+        >${esc(h.label)}</span>`).join('');
+      return `
+        <div class="species-card">
+          <div class="species-name">${esc(sp.name)}</div>
+          <div class="species-homes">${pills}</div>
+        </div>`;
+    }).join('');
+  }
+
+  /* ── Smooth scroll helper ─────────────────────────────────── */
+  window.smoothScrollTo = function (id, e) {
+    if (e) e.preventDefault();
+    const target = document.getElementById(id);
+    if (!target) return;
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Update URL hash without jumping
+    history.pushState(null, '', '#' + id);
+  };
+
+  /* ── Search / filter logic ────────────────────────────────── */
+  function setupSearch(factions) {
+    const input    = document.getElementById('faction-search');
+    const countEl  = document.getElementById('search-count');
+    const noRes    = document.getElementById('no-results');
+    if (!input) return;
+
+    function updateCount(visible, total) {
+      countEl.textContent = visible === total
+        ? `${total} factions`
+        : `${visible} of ${total}`;
+    }
+
+    updateCount(factions.length, factions.length);
+
+    input.addEventListener('input', function () {
+      const q = this.value.trim().toLowerCase();
+      const cards = document.querySelectorAll('#faction-grid .faction-card');
+      let visible = 0;
+
+      cards.forEach(card => {
+        const name = card.dataset.factionName || '';
+        const matches = !q || name.includes(q);
+        card.style.display = matches ? '' : 'none';
+        if (matches) visible++;
+      });
+
+      noRes.style.display = visible === 0 ? 'block' : 'none';
+      updateCount(visible, factions.length);
+    });
+  }
+
+  /* ── Main: fetch & render ─────────────────────────────────── */
+  async function init() {
+    const grid      = document.getElementById('faction-grid');
+    const detailCon = document.getElementById('faction-details-container');
+
+    try {
+      const res      = await fetch('data/factions.json');
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data     = await res.json();
+      const factions = data.factions || [];
+
+      // Render grid
+      grid.innerHTML = factions.map(f => renderCard(f)).join('');
+
+      // Render detail sections
+      detailCon.innerHTML = factions
+        .map((f, i) => renderDetailSection(f, i === 0))
+        .join('');
+
+      // Species
+      renderSpecies();
+
+      // Search
+      setupSearch(factions);
+
+      // Keyboard: Enter on card activates read more
+      document.querySelectorAll('.faction-card').forEach(card => {
+        card.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const id = 'faction-' + this.dataset.factionId;
+            smoothScrollTo(id);
+          }
+        });
+      });
+
+      // Handle direct hash on load
+      if (window.location.hash) {
+        setTimeout(() => {
+          const target = document.querySelector(window.location.hash);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 150);
+      }
+
+    } catch (err) {
+      console.error('Lore: failed to load factions.json', err);
+      grid.innerHTML = `<p style="color:var(--danger);font-family:var(--font-mono);font-size:.85rem;grid-column:1/-1;">
+        Failed to load faction data. Please refresh or check the data file.
+      </p>`;
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+})();
+</script>
+</body>
+</html>

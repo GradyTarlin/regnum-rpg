@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Regnum RPG Class Compendium — Seven paths through the galaxy. Each demands a different kind of brilliance." />
+  <title>Class Compendium — Regnum RPG</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Classes page-specific layout ──────────────────────── */
+    .classes-hero {
+      padding: var(--space-16) 0 var(--space-10);
+      text-align: center;
+      background: linear-gradient(135deg, rgba(155,89,255,0.08) 0%, rgba(240,192,64,0.06) 60%, transparent 100%);
+    }
+
+    /* Quick-nav pills */
+    .class-quicknav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      justify-content: center;
+      padding: var(--space-8) var(--space-4);
+      position: sticky;
+      top: 60px;
+      z-index: 90;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .class-quicknav a {
+      display: inline-block;
+      padding: 6px 18px;
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background 0.2s, color 0.2s;
+    }
+    .class-quicknav a:hover,
+    .class-quicknav a:focus {
+      background: var(--gold);
+      color: var(--bg);
+    }
+
+    /* Class sections */
+    .classes-container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: var(--space-6) var(--space-4) var(--space-16);
+    }
+
+    .class-section {
+      margin-bottom: var(--space-16);
+    }
+    .class-section hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: var(--space-16) 0 0;
+    }
+
+    /* Class header */
+    .class-header {
+      margin-bottom: var(--space-6);
+    }
+    .class-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin: 0 0 var(--space-2);
+    }
+    .class-flavor {
+      font-style: italic;
+      color: var(--text-muted);
+      margin: 0 0 var(--space-4);
+      font-size: 1rem;
+    }
+    .class-description {
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: var(--space-5);
+    }
+    .class-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-bottom: var(--space-6);
+    }
+
+    /* Class ability box */
+    .class-ability {
+      background: var(--surface-2);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: var(--space-4) var(--space-5);
+      margin-bottom: var(--space-8);
+    }
+    .class-ability-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      font-family: var(--font-display);
+      margin-bottom: var(--space-1);
+    }
+    .class-ability-name {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--text);
+      margin-bottom: var(--space-2);
+    }
+    .class-ability-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Section sub-headings */
+    .class-subheading {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--purple);
+      margin: var(--space-8) 0 var(--space-3);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .class-subheading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .class-subheading small {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: none;
+      letter-spacing: 0;
+      font-family: var(--font-body);
+    }
+
+    /* Starting equipment cards */
+    .equip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-4);
+      margin-bottom: var(--space-2);
+    }
+    .equip-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-4);
+    }
+    .equip-card-label {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: var(--space-2);
+    }
+    .equip-card ul {
+      margin: 0;
+      padding-left: var(--space-5);
+      list-style: disc;
+    }
+    .equip-card li {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* Expandable details/summary */
+    details {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: var(--space-3);
+      overflow: hidden;
+    }
+    details[open] {
+      border-color: rgba(155,89,255,0.3);
+    }
+    details summary {
+      cursor: pointer;
+      padding: var(--space-3) var(--space-4);
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      color: var(--text);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      user-select: none;
+      transition: color 0.15s;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::before {
+      content: '▶';
+      color: var(--purple);
+      font-size: 0.6rem;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    details[open] summary::before {
+      transform: rotate(90deg);
+    }
+    details summary:hover {
+      color: var(--gold);
+    }
+    .details-body {
+      padding: 0 var(--space-4) var(--space-4);
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      border-top: 1px solid var(--border);
+      padding-top: var(--space-3);
+    }
+
+    /* Build button */
+    .class-build-btn {
+      margin-top: var(--space-8);
+    }
+
+    /* Loading state */
+    .loading-state {
+      text-align: center;
+      padding: var(--space-16) var(--space-4);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+    }
+    .loading-spinner {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      border: 3px solid var(--border);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: var(--space-4);
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Error state */
+    .error-state {
+      text-align: center;
+      padding: var(--space-10) var(--space-4);
+      color: #ff6b6b;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+    }
+
+    /* Footer override to match brief */
+    .site-footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: var(--space-8) 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+    .site-footer p { margin: 0; }
+  </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- ════════════════════════════════════════════════
+       STARFIELD
+  ═══════════════════════════════════════════════════ -->
+  <div class="starfield" aria-hidden="true"></div>
+
+  <!-- ════════════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════════════ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+
+      <a href="index.html" class="nav-logo" aria-label="Regnum RPG Home">
+        ⬡ REGNUM RPG
+      </a>
+
+      <div class="nav-links" role="list">
+        <a href="index.html"            class="nav-link" role="listitem">Home</a>
+        <a href="character-creator.html" class="nav-link" role="listitem">Creator</a>
+        <a href="classes.html"          class="nav-link active" role="listitem">Classes</a>
+        <a href="equipment.html"        class="nav-link" role="listitem">Equipment</a>
+        <a href="lore.html"             class="nav-link" role="listitem">Lore</a>
+        <a href="characters.html"       class="nav-link" role="listitem">Characters</a>
+      </div>
+
+      <a href="character-creator.html" class="nav-cta">Build Character</a>
+
+      <button class="nav-hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div><!-- /nav-inner -->
+
+    <div class="nav-mobile" role="list" aria-label="Mobile navigation">
+      <a href="index.html"            class="nav-link" role="listitem">Home</a>
+      <a href="character-creator.html" class="nav-link" role="listitem">Creator</a>
+      <a href="classes.html"          class="nav-link" role="listitem">Classes</a>
+      <a href="equipment.html"        class="nav-link" role="listitem">Equipment</a>
+      <a href="lore.html"             class="nav-link" role="listitem">Lore</a>
+      <a href="characters.html"       class="nav-link" role="listitem">Characters</a>
+      <a href="character-creator.html" class="nav-cta" style="margin-top:8px;text-align:center;">Build Character</a>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════ -->
+  <section class="classes-hero" aria-labelledby="classes-page-heading">
+    <div class="container">
+      <span class="section-label">The 7 Classes</span>
+      <h1 id="classes-page-heading" class="display-1 text-gradient" style="margin: var(--space-3) 0 var(--space-4);">
+        Class Compendium
+      </h1>
+      <p class="text-lg text-muted" style="max-width: 52ch; margin: 0 auto;">
+        Seven paths through the galaxy. Each demands a different kind of brilliance.
+      </p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════
+       QUICK-NAV PILLS
+  ═══════════════════════════════════════════════════ -->
+  <nav class="class-quicknav" aria-label="Jump to class">
+    <a href="#class-catalyst">Catalyst</a>
+    <a href="#class-heavy">Heavy</a>
+    <a href="#class-hunter">Hunter</a>
+    <a href="#class-mutant">Mutant</a>
+    <a href="#class-pilot">Pilot</a>
+    <a href="#class-tech">Tech</a>
+    <a href="#class-trader">Trader</a>
+  </nav>
+
+  <!-- ════════════════════════════════════════════════
+       MAIN CONTENT
+  ═══════════════════════════════════════════════════ -->
+  <main class="main-content">
+    <div class="classes-container">
+
+      <!-- Loading / error / rendered content lands here -->
+      <div id="classes-container">
+        <div class="loading-state" aria-live="polite" aria-label="Loading class data">
+          <div class="loading-spinner" aria-hidden="true"></div>
+          <p>Loading class data…</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>©2021 Grady Tarlin, All Rights Reserved</p>
+      <p>Regnum RPG is a tabletop roleplaying game set in a living, breathing galaxy.</p>
+    </div>
+  </footer>
+
+</div><!-- /page-wrapper -->
+
+<script src="js/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ── Skill → badge class map ─────────────────────────── */
+  const SKILL_BADGE = {
+    shooting:    'badge-shooting',
+    fighting:    'badge-fighting',
+    athletics:   'badge-athletics',
+    piloting:    'badge-piloting',
+    engineering: 'badge-engineering',
+    charisma:    'badge-charisma',
+    stealth:     'badge-stealth',
+    instinct:    'badge-instinct',
+  };
+
+  /* ── Helpers ────────────────────────────────────────── */
+  function cap(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  function escapeHTML(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  /* ── Render helpers ─────────────────────────────────── */
+  function renderBadges(skillBonuses) {
+    return skillBonuses.map(function (sb) {
+      var cls = SKILL_BADGE[sb.skill] || '';
+      return '<span class="badge ' + cls + '">+' + sb.amount + ' ' + cap(sb.skill) + '</span>';
+    }).join('');
+  }
+
+  function renderEquipment(startingEquipment) {
+    var cards = startingEquipment.map(function (opt) {
+      var items = opt.items.map(function (it) {
+        return '<li>' + escapeHTML(it) + '</li>';
+      }).join('');
+      return (
+        '<div class="equip-card">' +
+          '<div class="equip-card-label">' + escapeHTML(opt.label) + '</div>' +
+          '<ul>' + items + '</ul>' +
+        '</div>'
+      );
+    }).join('');
+    return '<div class="equip-grid">' + cards + '</div>';
+  }
+
+  function renderDetails(features) {
+    return features.map(function (f) {
+      return (
+        '<details>' +
+          '<summary>' + escapeHTML(f.name) + '</summary>' +
+          '<div class="details-body">' + escapeHTML(f.description) + '</div>' +
+        '</details>'
+      );
+    }).join('');
+  }
+
+  function renderSubSection(title, subtitle, features) {
+    return (
+      '<h3 class="class-subheading">' + escapeHTML(title) +
+        (subtitle ? ' <small>' + escapeHTML(subtitle) + '</small>' : '') +
+      '</h3>' +
+      renderDetails(features)
+    );
+  }
+
+  /* ── Render a single class section ─────────────────── */
+  function renderClass(cls, isLast) {
+    var html = '';
+
+    html += '<section id="class-' + escapeHTML(cls.id) + '" class="class-section" aria-labelledby="class-heading-' + escapeHTML(cls.id) + '">';
+
+    /* Header */
+    html += '<div class="class-header">';
+    html += '<h2 id="class-heading-' + escapeHTML(cls.id) + '" class="class-name">' + escapeHTML(cls.name) + '</h2>';
+    html += '<p class="class-flavor">' + escapeHTML(cls.flavor) + '</p>';
+    html += '<p class="class-description">' + escapeHTML(cls.description) + '</p>';
+    html += '<div class="class-badges">' + renderBadges(cls.skillBonuses) + '</div>';
+    html += '</div>';
+
+    /* Class Ability */
+    html += '<div class="class-ability" role="region" aria-label="Class Ability">';
+    html += '<div class="class-ability-label">Class Ability</div>';
+    html += '<div class="class-ability-name">' + escapeHTML(cls.classAbility.name) + '</div>';
+    html += '<p class="class-ability-desc">' + escapeHTML(cls.classAbility.description) + '</p>';
+    html += '</div>';
+
+    /* Starting Equipment */
+    html += '<h3 class="class-subheading">Starting Equipment <small>choose one option</small></h3>';
+    html += renderEquipment(cls.startingEquipment);
+
+    /* Tier 1 Features */
+    html += renderSubSection('Tier 1 Features', 'choose one at level 1', cls.tier1Features);
+
+    /* Specialties */
+    html += renderSubSection('Specialties', 'choose one at level 2', cls.specialties);
+
+    /* Tier 2 Features */
+    html += renderSubSection('Tier 2 Features', 'choose one at level 5', cls.tier2Features);
+
+    /* Styles */
+    html += renderSubSection('Styles', 'choose one at level 6', cls.styles);
+
+    /* Tier 3 Features */
+    html += renderSubSection('Tier 3 Features', 'choose one at level 9', cls.tier3Features);
+
+    /* Legacies */
+    html += renderSubSection('Legacies', 'choose one at level 10', cls.legacies);
+
+    /* Build CTA */
+    html += (
+      '<div class="class-build-btn">' +
+        '<a href="character-creator.html?class=' + encodeURIComponent(cls.id) + '" class="btn btn-primary">' +
+          'Build a ' + escapeHTML(cls.name) + ' →' +
+        '</a>' +
+      '</div>'
+    );
+
+    /* Separator (not after last) */
+    if (!isLast) {
+      html += '<hr aria-hidden="true" />';
+    }
+
+    html += '</section>';
+    return html;
+  }
+
+  /* ── Main fetch & render ────────────────────────────── */
+  function renderClasses(data) {
+    var container = document.getElementById('classes-container');
+    if (!container) return;
+
+    var classes = data.classes;
+    if (!Array.isArray(classes) || classes.length === 0) {
+      container.innerHTML = '<div class="error-state">No class data found.</div>';
+      return;
+    }
+
+    var html = '';
+    classes.forEach(function (cls, i) {
+      html += renderClass(cls, i === classes.length - 1);
+    });
+
+    container.innerHTML = html;
+  }
+
+  function showError(msg) {
+    var container = document.getElementById('classes-container');
+    if (container) {
+      container.innerHTML = '<div class="error-state">⚠ ' + escapeHTML(msg) + '</div>';
+    }
+  }
+
+  /* ── Fetch ───────────────────────────────────────────── */
+  fetch('data/classes.json')
+    .then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status + ' — could not load data/classes.json');
+      return res.json();
+    })
+    .then(renderClasses)
+    .catch(function (err) {
+      showError(err.message || 'Failed to load class data.');
+      console.error('[Regnum] classes.html fetch error:', err);
+    });
+
+})();
+</script>
+</body>
+</html>

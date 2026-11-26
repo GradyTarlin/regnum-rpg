@@ -1,0 +1,396 @@
+{
+  "overview": "The galaxy is full of incredible technology, and space travel has never been easier. Starships and aircruisers allow people to travel immense distances and transport vast quantities of cargo. Vehicles can be customized with modules, which range from weapons to robotic systems.",
+  "stats": {
+    "speed": "A vehicle's speed score is added to piloting checks made to operate it, such as avoiding enemy fire, outmaneuvering other ships, or navigating through debris storms.",
+    "hull": "The hull indicates how many times a vehicle can be hit before it stops functioning. One point of hull equals one point of health. At zero hull, the vehicle enters critical condition — no piloting checks can be made, and any further damage causes an explosion.",
+    "energy": "Energy is used to power modules. Energy can be increased with reactors. Vehicles can only have one reactor at a time.",
+    "capacity": "Capacity determines how many passengers and cargo units a vehicle can carry. 0 capacity = up to 10 people, no bulk cargo. Each additional capacity point allows 50 more people and 1 more unit of bulk cargo.",
+    "hullRepair": "Score at least a 12 on an engineering check to repair one point of hull."
+  },
+  "categories": [
+    {
+      "id": "aircruiser",
+      "name": "Aircruisers",
+      "costRange": "500–10,000 Credits",
+      "description": "Vehicles for travel around planets, aircruisers are the most affordable and common vehicles in the galaxy. They range from low-altitude airspeeders to near-orbit airships, and are designed for speed and maneuverability within atmospheres. Aircruisers cannot escape the gravitational pull of planets on their own, but can be used in space.",
+      "models": [
+        {
+          "id": "airspeeder",
+          "name": "Airspeeder",
+          "speed": 3,
+          "hull": 2,
+          "energy": 0,
+          "capacity": 0,
+          "capacityNote": "Occupies 1 point of capacity in a larger vessel",
+          "description": "Fast and nimble, airspeeders are built for speed over short distances. Ideal for pursuits, raids, and rapid deployment."
+        },
+        {
+          "id": "aircar",
+          "name": "Aircar",
+          "speed": 2,
+          "hull": 3,
+          "energy": 1,
+          "capacity": 0,
+          "capacityNote": "Occupies 1 point of capacity in a larger vessel",
+          "description": "A sturdy and versatile personal transport. Aircars offer a balance of speed and durability, and can support one module."
+        },
+        {
+          "id": "airship",
+          "name": "Airship",
+          "speed": 0,
+          "hull": 4,
+          "energy": 2,
+          "capacity": 1,
+          "capacityNote": "Occupies 2 points of capacity in a larger vessel",
+          "description": "Large atmospheric vessels built for cargo and crew transport. Airships are slow but durable, with room for two modules."
+        }
+      ]
+    },
+    {
+      "id": "light-starship",
+      "name": "Light Starships",
+      "costRange": "5,000–200,000 Credits",
+      "description": "Used by individuals or small crews, light starships bring people exactly where they need to be in space. Though they aren't usually fit for bulk transport, light starships can be modified to suit the crew's needs. Light starships can be stored in the cargo areas of larger vessels.",
+      "models": [
+        {
+          "id": "fighter",
+          "name": "Fighter",
+          "speed": 3,
+          "hull": 3,
+          "energy": 2,
+          "capacity": 0,
+          "capacityNote": "Occupies 1 point of capacity in a larger vessel",
+          "description": "Built for combat, fighters are fast and deadly but carry little cargo or crew. The backbone of any space force."
+        },
+        {
+          "id": "corvette",
+          "name": "Corvette",
+          "speed": 1,
+          "hull": 5,
+          "energy": 3,
+          "capacity": 1,
+          "capacityNote": "Occupies 2 points of capacity in a larger vessel",
+          "description": "A well-rounded light warship. Corvettes are sturdy and can support several modules, making them popular with independent crews."
+        },
+        {
+          "id": "shuttle",
+          "name": "Shuttle",
+          "speed": 0,
+          "hull": 8,
+          "energy": 2,
+          "capacity": 2,
+          "capacityNote": "Occupies 3 points of capacity in a larger vessel",
+          "description": "Designed for cargo and passenger transport, shuttles are tough and spacious. Slow but dependable workhorses of the galaxy."
+        }
+      ]
+    },
+    {
+      "id": "heavy-starship",
+      "name": "Heavy Starships",
+      "costRange": "50,000–2,000,000 Credits",
+      "description": "Used by larger crews, heavy starships make up the majority of most fleets. They are sturdy and versatile, and can fill any kind of role in galactic society. Heavy starships can be stored inside the cargo areas of larger vessels.",
+      "models": [
+        {
+          "id": "cruiser",
+          "name": "Cruiser",
+          "speed": 2,
+          "hull": 6,
+          "energy": 5,
+          "capacity": 3,
+          "capacityNote": "Occupies 4 points of capacity in a larger vessel",
+          "description": "A fast and powerful warship. Cruisers strike a balance between speed and firepower, and are the ship of choice for elite captains."
+        },
+        {
+          "id": "frigate",
+          "name": "Frigate",
+          "speed": 0,
+          "hull": 12,
+          "energy": 6,
+          "capacity": 2,
+          "capacityNote": "Occupies 3 points of capacity in a larger vessel",
+          "description": "A heavily armoured warship built to endure punishment. Frigates anchor fleets with their tremendous hull and module capacity."
+        },
+        {
+          "id": "freighter",
+          "name": "Freighter",
+          "speed": 1,
+          "hull": 8,
+          "energy": 5,
+          "capacity": 6,
+          "capacityNote": "Occupies 7 points of capacity in a larger vessel",
+          "description": "The galaxy's workhorse for bulk cargo transport. Freighters carry enormous loads at moderate speed, favored by traders and smugglers alike."
+        }
+      ]
+    },
+    {
+      "id": "galactic-starship",
+      "name": "Galactic Starships",
+      "costRange": "1,000,000–50,000,000 Credits",
+      "description": "Incredibly powerful and complex, galactic starships are used for mass transport between star systems. They may be crewed by hundreds of people or more, and can support entire self-sustaining communities. Galactic starships are the largest category of vehicles, and are not generally stored inside of other vehicles.",
+      "models": [
+        {
+          "id": "flagship",
+          "name": "Flagship",
+          "speed": 0,
+          "hull": 16,
+          "energy": 9,
+          "capacity": 6,
+          "capacityNote": "Not stored in other vessels",
+          "description": "The command vessel of a fleet. Flagships are immense mobile fortresses, bristling with modules and housing entire crews."
+        },
+        {
+          "id": "destroyer",
+          "name": "Destroyer",
+          "speed": 1,
+          "hull": 15,
+          "energy": 10,
+          "capacity": 4,
+          "capacityNote": "Not stored in other vessels",
+          "description": "Built for overwhelming offensive power. Destroyers combine speed with enormous energy capacity, capable of equipping devastating arsenals."
+        },
+        {
+          "id": "barge",
+          "name": "Barge",
+          "speed": 0,
+          "hull": 14,
+          "energy": 9,
+          "capacity": 10,
+          "capacityNote": "Not stored in other vessels",
+          "description": "A massive cargo vessel. Barges haul unparalleled amounts of resources across the galaxy, and can even carry entire fleets of smaller ships."
+        }
+      ]
+    }
+  ],
+  "reactors": {
+    "description": "Energy can be increased with reactors, which allow a ship to support more modules. Vehicles can only have one reactor at a time.",
+    "types": [
+      {
+        "id": "fission",
+        "name": "Fission Reactor",
+        "energyBonus": 1,
+        "cost": 10000,
+        "description": "A basic nuclear fission reactor that provides reliable extra energy for one additional module."
+      },
+      {
+        "id": "fusion",
+        "name": "Fusion Reactor",
+        "energyBonus": 2,
+        "cost": 25000,
+        "description": "An advanced fusion reactor that provides enough energy for two additional modules with cleaner output."
+      },
+      {
+        "id": "dark",
+        "name": "Dark Reactor",
+        "energyBonus": 3,
+        "cost": 50000,
+        "description": "An exotic dark energy reactor that provides power for three additional modules. Rare and expensive, but extraordinarily efficient."
+      }
+    ]
+  },
+  "modules": {
+    "overview": "Some tools and weapons are far larger than those a character is able to wield. Energy can be used to power modules, such as missiles, robotic systems, and shields. You can use each module to make a skill check once per turn. If you collect more modules than you have energy to power, you can store extras in your cargo area. Inactive modules occupy one unit of capacity per energy cost.",
+    "costs": [
+      { "energyCost": 1, "creditCost": 5000 },
+      { "energyCost": 2, "creditCost": 10000 },
+      { "energyCost": 3, "creditCost": 50000 }
+    ],
+    "types": [
+      {
+        "id": "cannons",
+        "name": "Cannons",
+        "summary": "Cannons deal direct damage to their targets.",
+        "modules": [
+          {
+            "id": "light-cannon",
+            "name": "Light Cannon",
+            "energyCost": 1,
+            "creditCost": 5000,
+            "description": "Light cannons are the standard weapon of vehicular combat. The light cannon can be used to make shooting contests against enemy characters and ships, which deal 3 damage."
+          },
+          {
+            "id": "heavy-cannon",
+            "name": "Heavy Cannon",
+            "energyCost": 2,
+            "creditCost": 10000,
+            "description": "Heavy cannons dispense devastating artillery. Each shooting check you make with the heavy cannon deals 6 damage."
+          },
+          {
+            "id": "dreadnought-cannon",
+            "name": "Dreadnought Cannon",
+            "energyCost": 3,
+            "creditCost": 50000,
+            "description": "Dreadnought cannons are used for large-scale wars, and can reduce entire settlements to rubble. Each shooting check you make with the dreadnought cannon deals 10 damage."
+          }
+        ]
+      },
+      {
+        "id": "defenses",
+        "name": "Defenses",
+        "summary": "Defense modules offer protection and help avoid further damage.",
+        "modules": [
+          {
+            "id": "reinforced-plating",
+            "name": "Reinforced Plating",
+            "energyCost": 1,
+            "creditCost": 5000,
+            "description": "Reinforced plating offers additional protection against heavy debris and gunfire. The reinforced plating grants +3 hull."
+          },
+          {
+            "id": "repulsion-array",
+            "name": "Repulsion Array",
+            "energyCost": 2,
+            "creditCost": 10000,
+            "description": "Repulsion arrays project a force field which can block a single impact of any size. After the repulsion array is hit, it goes down until you score at least a 9 on an engineering check to restore it."
+          },
+          {
+            "id": "absorption-paneling",
+            "name": "Absorption Paneling",
+            "energyCost": 3,
+            "creditCost": 50000,
+            "description": "Absorption paneling uses your vehicle's momentum to divert the force of impacts. Whenever your vehicle is hit, the damage is reduced by an amount equal to your current speed."
+          }
+        ]
+      },
+      {
+        "id": "transport",
+        "name": "Transport",
+        "summary": "Transport modules allow for faster travel.",
+        "modules": [
+          {
+            "id": "turboboosters",
+            "name": "Turboboosters",
+            "energyCost": 1,
+            "creditCost": 5000,
+            "description": "Turboboosters generate a tremendous amount of thrust. They grant +1 speed, but they overheat if any check made to use them fails. Turboboosters no longer grant a speed bonus once overheated, but can be repaired by scoring at least an 8 on an engineering check."
+          },
+          {
+            "id": "l-drive",
+            "name": "L-Drive",
+            "energyCost": 2,
+            "creditCost": 10000,
+            "description": "L-drives enable interstellar travel. When injected with a cell of crystallized deuterium, the L-drive allows its vehicle to pass into metaspace. Once injected, the L-drive takes five minutes to spin up, or instantly if the crew scores at least 7 on an engineering check."
+          },
+          {
+            "id": "teleporter-pad",
+            "name": "Teleporter Pad",
+            "energyCost": 3,
+            "creditCost": 50000,
+            "description": "Your cargo area contains a platform connected to the galaxy's teleportation networks. The pad can teleport one unit of cargo at a time to any linked teleporter, or to an unoccupied space up to one thousand kilometres away. You can teleport people, but cannot return them unless they have access to a teleportation uplink."
+          }
+        ]
+      },
+      {
+        "id": "missiles",
+        "name": "Missiles",
+        "summary": "Missiles deliver specialized payloads to their targets.",
+        "modules": [
+          {
+            "id": "ion-rockets",
+            "name": "Ion Rockets",
+            "energyCost": 1,
+            "creditCost": 5000,
+            "description": "Ion rockets can be precisely targeted to take out enemy modules. Make a shooting contest against an enemy vehicle to hit them. If you succeed, you can disable one of their modules (requires a 10+ engineering check to repair). Ion rockets deal 2 energy damage within a five metre radius; characters must score 9+ on an athletics check to avoid the blast."
+          },
+          {
+            "id": "emps",
+            "name": "EMPs",
+            "energyCost": 2,
+            "creditCost": 10000,
+            "description": "EMPs are electromagnetic missiles which disable powered systems. Target a vehicle with a shooting contest; if you succeed, the target's energy is reduced by 5 until someone scores at least a 12 on an engineering check to restore power."
+          },
+          {
+            "id": "drop-pods",
+            "name": "Drop Pods",
+            "energyCost": 3,
+            "creditCost": 50000,
+            "description": "Drop pods can safely transport personnel at high speeds, including dropping from orbit. You have enough drop pods for ten people. If you succeed on a shooting check against an enemy vehicle, you can shoot it with a drop pod, allowing boarding. The pods are not able to return on their own."
+          }
+        ]
+      },
+      {
+        "id": "robotics",
+        "name": "Robotics",
+        "summary": "Robotics modules provide valuable data and automate dangerous tasks.",
+        "modules": [
+          {
+            "id": "longarms",
+            "name": "Longarms",
+            "energyCost": 1,
+            "creditCost": 5000,
+            "description": "Longarms are robotic graspers that can do dangerous work in hazardous environments like space. They can be installed internally or externally, and outfitted with heavy tools. You can make fighting checks using the longarms, which deal 3 kinetic damage. Vehicles fitted with longarms may be converted into humanoid mechs."
+          },
+          {
+            "id": "seeker-drone",
+            "name": "Seeker Drone",
+            "energyCost": 2,
+            "creditCost": 10000,
+            "description": "You can deploy a flying seeker drone armed with assault weapons and advanced scanners. One crew member controls the drone through a command terminal. Make piloting checks to fly it and shooting checks to attack; the drone's weapons deal 2 damage and it has one point of hull. It can operate for up to a day before returning to recharge, and transmits a live feed within the same star system."
+          },
+          {
+            "id": "nanite-hull",
+            "name": "Nanite Hull",
+            "energyCost": 3,
+            "creditCost": 50000,
+            "description": "Nanite hulls are composed of a dynamic swarm of protective nanomachines. The crew can restore three points of hull by scoring at least a 7 on an engineering check to coordinate the nanites. The nanites cannot increase the hull beyond its normal maximum."
+          }
+        ]
+      },
+      {
+        "id": "storage",
+        "name": "Storage",
+        "summary": "Storage modules provide extra space for cargo and personnel.",
+        "modules": [
+          {
+            "id": "stasis-cells",
+            "name": "Stasis Cells",
+            "energyCost": 1,
+            "creditCost": 5000,
+            "description": "You can preserve up to four people or one unit of cargo in stasis cells held in a gravitational field, completely immobilized. Being in stasis prevents any biological decay, such as the progression of illness, poison, or age. Contents are released when the cell is programmed to unlock, or if the stasis cells lose energy."
+          },
+          {
+            "id": "cargo-bay",
+            "name": "Cargo Bay",
+            "energyCost": 2,
+            "creditCost": 10000,
+            "description": "Cargo bays are equipped with secure storage areas for resources and passengers of all kinds. The cargo bay grants +3 capacity."
+          },
+          {
+            "id": "metaspace-storage",
+            "name": "Metaspace Storage",
+            "energyCost": 3,
+            "creditCost": 50000,
+            "description": "Metaspace storage terminals can store ten units of cargo as data, taking up no physical space. People cannot be uploaded into metaspace storage, but the cargo can be interacted with in virtual reality. The metaspace uplink can digitize or materialize one unit of cargo at a time."
+          }
+        ]
+      },
+      {
+        "id": "stealth",
+        "name": "Stealth",
+        "summary": "Stealth modules make it easier to conceal cargo and even entire vehicles.",
+        "modules": [
+          {
+            "id": "secret-compartments",
+            "name": "Secret Compartments",
+            "energyCost": 1,
+            "creditCost": 5000,
+            "description": "Secret compartments can store one unit of cargo in a hidden area shielded from conventional scanners. The compartment contains specialized storage mechanisms for unstable or delicate cargo."
+          },
+          {
+            "id": "comms-jammer",
+            "name": "Comms Jammer",
+            "energyCost": 2,
+            "creditCost": 10000,
+            "description": "Comms jammers flood communications systems with corrupted input, preventing them from broadcasting or receiving signals. You must beat the operator of the target system in an engineering contest to jam their comms. If you succeed, they can retry the contest to restore their signal on their turn."
+          },
+          {
+            "id": "cloaking-array",
+            "name": "Cloaking Array",
+            "energyCost": 3,
+            "creditCost": 50000,
+            "description": "Cloaking arrays make a vehicle completely invisible to the naked eye and common scanners. When integrated into a ship, the cloaking array gives the crew advantage on stealth checks made to pilot the ship without being detected."
+          }
+        ]
+      }
+    ]
+  }
+}

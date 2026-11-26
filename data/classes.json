@@ -1,0 +1,935 @@
+{
+  "classes": [
+    {
+      "id": "catalyst",
+      "name": "Catalyst",
+      "flavor": "Those who solve problems with mystical abilities",
+      "description": "There are some things in the universe that nobody understands. Science can only explain so much, and you are outside of that reach. Whether you are a wizened shaman or a stranded time traveller, your abilities baffle even the most knowledgeable scholars. Catalysts tend only to appear when something very important is about to happen, and rarely stick around long after.",
+      "skillBonuses": [
+        { "skill": "instinct", "amount": 2 },
+        { "skill": "charisma", "amount": 1 }
+      ],
+      "classAbility": {
+        "name": "Insight",
+        "description": "If you succeed on every skill check on your turn, you can make a free check with advantage."
+      },
+      "startingEquipment": [
+        {
+          "id": "catalyst-equip-1",
+          "label": "Option A",
+          "items": ["A light weapon", "A trophy from a mythical creature"]
+        },
+        {
+          "id": "catalyst-equip-2",
+          "label": "Option B",
+          "items": ["Light shields", "The ability to communicate with other catalysts in your dreams"]
+        },
+        {
+          "id": "catalyst-equip-3",
+          "label": "Option C",
+          "items": ["Light armour", "A mysterious artifact from a different timeline or dimension"]
+        }
+      ],
+      "tier1Features": [
+        {
+          "id": "catalyst-t1-1",
+          "name": "Lucky Token",
+          "description": "You've stumbled across a trinket that seems to confer exceptional good fortune to you. While carrying your lucky token, you can gain advantage on the first check of your turn. If you fail this check, you must make your second check with disadvantage."
+        },
+        {
+          "id": "catalyst-t1-2",
+          "name": "Entropic Crystal",
+          "description": "You gain a crystal which channels energy into ravenous blades of psychic plasma. You can make an instinct contest against an enemy you can see to unleash an entropic blast at them. If you succeed, you deal 1 energy damage and can push your target up to three metres back. Whenever you succeed on a skill check to avoid energy damage, your next entropic blast deals an extra point of damage. This effect is cumulative."
+        },
+        {
+          "id": "catalyst-t1-3",
+          "name": "Mystic Haven",
+          "description": "You are cloaked in an aura of tranquility. Whenever you or an ally within ten metres of you are hit with an attack, you can make an instinct contest against the attacker to soften the blow. If you succeed, the target takes one less point of damage."
+        }
+      ],
+      "specialties": [
+        {
+          "id": "catalyst-spec-energy",
+          "name": "Energy",
+          "description": "People turn to you to harness the formless chaos of raw energy. You gain a +1 specialty bonus to: Shooting checks using energy weapons; Engineering checks to harness and redirect energy."
+        },
+        {
+          "id": "catalyst-spec-spirits",
+          "name": "Spirits",
+          "description": "People turn to you to contact metaphysical beings, whether you're a shaman or a medium. You gain a +1 specialty bonus to: Instinct to detect and invoke spiritual forces; Charisma to calm or excite."
+        },
+        {
+          "id": "catalyst-spec-time",
+          "name": "Time",
+          "description": "People turn to you to navigate the flow of time, whether you're an oracle or a castaway time traveler. You gain a +1 specialty bonus to: Charisma checks with people who have memories of you; Fighting checks against people who have no memories of you."
+        }
+      ],
+      "tier2Features": [
+        {
+          "id": "catalyst-t2-1",
+          "name": "Dark Hunger",
+          "description": "The void calls from within you, and feeding it brings darkness to the world. After you deal damage to an enemy, your next attack against them deals an extra point of damage. Whenever you kill an enemy, you regain a point of health."
+        },
+        {
+          "id": "catalyst-t2-2",
+          "name": "Mindfast",
+          "description": "Your mind spans the cosmos. You can manipulate memory and look into the minds of others with a touch. Characters who resist must beat you in an instinct contest, or else you can see their most significant memories. Once you have mindfasted with a character, they gain disadvantage on charisma contests against you, and you can insert yourself into their memories. You can also erase specific memories of a character you touch by beating them in an instinct contest."
+        },
+        {
+          "id": "catalyst-t2-3",
+          "name": "Rune of Binding",
+          "description": "You can mark a weapon with a mystical rune, binding it to your spirit. You can conjure your bound weapon to your hand or dispel it into metaspace at any time. Whenever you attack an enemy with your bound weapon, you can expend one point of health to charge the attack with spiritual energy. If the attack hits, it deals 1 additional energy damage and you regain one point of health. You can only have one bound weapon at a time."
+        }
+      ],
+      "styles": [
+        {
+          "id": "catalyst-style-intense",
+          "name": "Intense",
+          "description": "If you succeed on any two skill contests against the same target on your turn, they gain disadvantage on their next skill check."
+        },
+        {
+          "id": "catalyst-style-free",
+          "name": "Free",
+          "description": "Succeeding on an instinct check grants you advantage on your next check."
+        },
+        {
+          "id": "catalyst-style-wise",
+          "name": "Wise",
+          "description": "If you succeed on a skill check on your turn, you gain advantage on your next check using the same skill this turn."
+        }
+      ],
+      "tier3Features": [
+        {
+          "id": "catalyst-t3-1",
+          "name": "Cataclysm",
+          "description": "Chaos yields to your will. You can make an instinct contest against an enemy that you can see to flood them with destructive energy. If you succeed, you deal 2 energy damage. You can expend one point of health to deal 3 energy damage instead. If you succeed on this instinct check with advantage, you can also deal 1 energy damage to every enemy within ten metres of you or the target."
+        },
+        {
+          "id": "catalyst-t3-2",
+          "name": "Metaforce",
+          "description": "Your life force radiates with magnificent energy, empowering those who follow your path. Whenever you succeed on a skill check, you can restore one point of health to yourself and every ally within ten metres of you. You can sprout a seed into a fully grown plant in the blink of an eye, cure diseases with a touch, and halt the effects of aging entirely. While at full health, you can add your instinct bonus to charisma checks."
+        },
+        {
+          "id": "catalyst-t3-3",
+          "name": "Third Eye",
+          "description": "Knowledge beyond time has been revealed to you. You may reroll any 1 you roll on the dice. You can perceive the flow of mystical energy throughout the world and the auras of supernatural entities."
+        }
+      ],
+      "legacies": [
+        {
+          "id": "catalyst-legacy-immortal",
+          "name": "Immortal",
+          "description": "You are known across the galaxy for your mastery over the forces of mortality. Those seeking to achieve eternal life flock to you, and may offer to serve you and your followers. You have the power to detach your spirit from any physical form, and you know how to conceal any living spirit from death's unrelenting pursuit. You gain +1 instinct, charisma, and athletics."
+        },
+        {
+          "id": "catalyst-legacy-prophet",
+          "name": "Prophet",
+          "description": "You are known across the galaxy for your unfailing foresight. Those seeking a glimpse into their future flock to you, and may offer to serve you and your followers. You have the power to preemptively shape future events, and you know how to predict the fate of any person. You gain +1 instinct, charisma, and stealth."
+        },
+        {
+          "id": "catalyst-legacy-wanderer",
+          "name": "Wanderer",
+          "description": "Few people know of you, but you have been everywhere and seen everything. Those seeking answers lost to the deepest cosmos flock to you, and may offer to serve you and your followers. You have the power to travel through dimensions, and you know your exact location in spacetime wherever you are. You gain +1 instinct, charisma, and piloting."
+        }
+      ]
+    },
+    {
+      "id": "heavy",
+      "name": "Heavy",
+      "flavor": "Those who solve problems using force",
+      "description": "There's one thing that every great civilization has seen throughout history, and that's violence. As a heavy, your name means strength. You could be an honourable marine, a ruthless pirate, or anything in between, but you win fights all the same. It may be the others who do the charming, but when things go south, you're the one who everyone turns to.",
+      "skillBonuses": [
+        { "skill": "shooting", "amount": 2 },
+        { "skill": "fighting", "amount": 1 }
+      ],
+      "classAbility": {
+        "name": "Onslaught",
+        "description": "If you succeed on a shooting check you can instantly make a free fighting check. If you succeed on a fighting check you can instantly make a free shooting check."
+      },
+      "startingEquipment": [
+        {
+          "id": "heavy-equip-1",
+          "label": "Option A",
+          "items": ["Light armour", "A heavy weapon"]
+        },
+        {
+          "id": "heavy-equip-2",
+          "label": "Option B",
+          "items": ["A heavy weapon", "Two light weapons of any kind"]
+        },
+        {
+          "id": "heavy-equip-3",
+          "label": "Option C",
+          "items": ["Heavy armour", "Two light weapons of any kind"]
+        }
+      ],
+      "tier1Features": [
+        {
+          "id": "heavy-t1-1",
+          "name": "Disintegrator Bombs",
+          "description": "You can detonate three thrown explosive devices per day. The bombs disintegrate materials within five metres of them when detonated. Targets must make an athletics check to avoid the blast. If they score lower than a 9, they take 1 energy damage. If they score lower than a 5, they take 2 energy damage."
+        },
+        {
+          "id": "heavy-t1-2",
+          "name": "Manticore Munitions",
+          "description": "You gain a supply of specialized ammunition which debilitates its targets. After you succeed on a shooting check using a kinetic weapon, your target gains disadvantage on their next skill check."
+        },
+        {
+          "id": "heavy-t1-3",
+          "name": "Momentum Pack",
+          "description": "You gain a mobility harness which can propel you in short bursts. You can use the momentum pack to move six metres in any direction, including straight up. You gain advantage on any athletics check made to move quickly, including dodging, jumping, or climbing. You can use the momentum pack every five seconds."
+        }
+      ],
+      "specialties": [
+        {
+          "id": "heavy-spec-defense",
+          "name": "Defense",
+          "description": "People turn to you for protection and security, whether you're a mecha marine or a mercenary. You gain a +1 specialty bonus to: Fighting checks to defend against attacks; Athletics checks to move others out of danger."
+        },
+        {
+          "id": "heavy-spec-destruction",
+          "name": "Destruction",
+          "description": "People turn to you when something or someone needs to be destroyed, whether you're a starship's gunner or an explosives technician. You gain a +1 specialty bonus to: Shooting checks using vehicle weapons; Engineering checks to create and use explosives."
+        },
+        {
+          "id": "heavy-spec-tactics",
+          "name": "Tactics",
+          "description": "People turn to you when it's time to devise a plan, whether you're a deep-space rebel or a naval commander. You gain a +1 specialty bonus to: Stealth checks to ambush; Instinct checks to study enemies and structures for weaknesses."
+        }
+      ],
+      "tier2Features": [
+        {
+          "id": "heavy-t2-1",
+          "name": "Graviton Vest",
+          "description": "You gain a specialized defensive upgrade which absorbs trauma. While wearing the graviton vest, any shooting or fighting check made against you that scores a 7 or lower deals no damage."
+        },
+        {
+          "id": "heavy-t2-2",
+          "name": "Incendiary Battery",
+          "description": "You gain a fiery power source which enhances your energy weapons. After you succeed on a shooting or fighting check using an energy weapon, your target takes 2 energy damage at the end of their next turn unless they score at least a 6 on an athletics check to extinguish the fire."
+        },
+        {
+          "id": "heavy-t2-3",
+          "name": "War Arm",
+          "description": "You gain a cybernetic arm which contains hidden weapon systems. Shooting and fighting checks made with the war arm's integrated weapons deal 2 damage. If you succeed on a shooting check using the war arm, your next fighting check gains advantage. When you gain the war arm, decide if it contains energy or kinetic weapons."
+        }
+      ],
+      "styles": [
+        {
+          "id": "heavy-style-precise",
+          "name": "Precise",
+          "description": "Succeeding on a shooting check gives you advantage on your next check."
+        },
+        {
+          "id": "heavy-style-strategic",
+          "name": "Strategic",
+          "description": "If you succeed on both a shooting check and a fighting check on your turn, you can make a free check of any kind."
+        },
+        {
+          "id": "heavy-style-tough",
+          "name": "Tough",
+          "description": "Succeeding on a fighting check gives you advantage on your next check."
+        }
+      ],
+      "tier3Features": [
+        {
+          "id": "heavy-t3-1",
+          "name": "Aegis Rig",
+          "description": "You gain a powered mech suit which shields you in battle. The Aegis rig grants you five points of armour and five points of shields. You cannot wear other armour or shields while wearing the Aegis rig. While wearing it, you may add your piloting bonus to your fighting checks."
+        },
+        {
+          "id": "heavy-t3-2",
+          "name": "Baphomet Launcher",
+          "description": "You gain a long-range artillery weapon which delivers explosive charges at high velocity. You can make shooting checks using the Baphomet launcher, which deal 2 kinetic damage if you succeed. Whether or not you succeed, everyone within five metres of the target must score at least a 7 on an athletics check or take 2 energy damage from the explosion. If you hit your target, they automatically fail the athletics check."
+        },
+        {
+          "id": "heavy-t3-3",
+          "name": "Tempest Core",
+          "description": "You are implanted with a power core which overcharges your body with destructive energy. Every time you deal damage, every subsequent attack on your turn deals 1 extra point of energy damage. This bonus is cumulative, so the more attacks you hit, the more damage each one deals. As you build up more charge, energy begins crackling along your body and you are able to move faster and faster."
+        }
+      ],
+      "legacies": [
+        {
+          "id": "heavy-legacy-guardian",
+          "name": "Guardian",
+          "description": "You are known across the galaxy for your indomitable strength and fortitude. Those seeking protection flock to you, and may offer to serve you and your followers. You have the power to secure entire worlds, and you know the best way to defend your territories from attack. You gain +1 shooting, fighting, and charisma."
+        },
+        {
+          "id": "heavy-legacy-warlord",
+          "name": "Warlord",
+          "description": "You are known across the galaxy for your unstoppable conquests. Those seeking the might to destroy their enemies flock to you, and may offer to serve you and your followers. You have the power to conquer nations at a time, and you know the best way to destroy a rival army. You gain +1 shooting, fighting, and stealth."
+        },
+        {
+          "id": "heavy-legacy-juggernaut",
+          "name": "Juggernaut",
+          "description": "You are known across the galaxy for your ability to deliver death. Those seeking to master the ways of combat flock to you, and may offer to serve you and your followers. You have the power to slay even the most legendary of foes, and you know the best way to kill any enemy. You gain +1 shooting, fighting, and instinct."
+        }
+      ]
+    },
+    {
+      "id": "hunter",
+      "name": "Hunter",
+      "flavor": "Those who solve problems quickly and quietly",
+      "description": "It's easy for things to go missing in such an immense galaxy — people too. Hunters are the ones who make sure that doesn't happen, no matter how hidden their quarry may be. It doesn't matter if you're a detective, a bounty hunter, or just someone with a grudge; to the other guy, you're the boogeyman, and you're never far behind.",
+      "skillBonuses": [
+        { "skill": "stealth", "amount": 2 },
+        { "skill": "athletics", "amount": 1 }
+      ],
+      "classAbility": {
+        "name": "Ambush",
+        "description": "If you succeed on a stealth check you can instantly make a free athletics check. If you succeed on an athletics check you can instantly make a free stealth check."
+      },
+      "startingEquipment": [
+        {
+          "id": "hunter-equip-1",
+          "label": "Option A",
+          "items": ["Light armour", "A light weapon", "A pair of maglock handcuffs", "A facial ID scanner"]
+        },
+        {
+          "id": "hunter-equip-2",
+          "label": "Option B",
+          "items": ["Two light weapons", "A covert recording device", "A pair of long-range binoculars"]
+        },
+        {
+          "id": "hunter-equip-3",
+          "label": "Option C",
+          "items": ["Light shields", "A light weapon", "A short-range communications jammer"]
+        }
+      ],
+      "tier1Features": [
+        {
+          "id": "hunter-t1-1",
+          "name": "Grappling Reel",
+          "description": "You gain a wrist-mounted mobility tool which allows you to quickly travel vertically or in zero gravity. The grappling reel has a range of twenty metres, and can support the weight of up to two people in gravity. You can make an athletics contest against a target within the reel's range to pull or trip them."
+        },
+        {
+          "id": "hunter-t1-2",
+          "name": "Kinetic Bracers",
+          "description": "You gain a set of arm guards which magnify the force of your movements. Your attacks with melee or thrown kinetic weapons deal an extra point of damage when you have advantage."
+        },
+        {
+          "id": "hunter-t1-3",
+          "name": "Xenobeast Companion",
+          "description": "You gain a creature who travels by your side. Your xenobeast companion can be up to twice your size, small enough to fit in your palm, or anywhere in between. It follows your simple commands and can communicate simple ideas. You can use one or both of your checks on your turn to allow your companion to make an instinct, fighting, athletics, or stealth check, which it has a +1 bonus to. Whenever you gain a skill point, your companion does as well."
+        }
+      ],
+      "specialties": [
+        {
+          "id": "hunter-spec-assassination",
+          "name": "Assassination",
+          "description": "People turn to you when someone needs to be disposed of quietly, whether you're a ninja or a secret agent. You gain a +1 specialty bonus to: Stealth to use hidden weapons and poison; Shooting at long range (twenty-five metres or more)."
+        },
+        {
+          "id": "hunter-spec-thievery",
+          "name": "Thievery",
+          "description": "People turn to you when something needs to be retrieved from a secure location, whether you're a bank robber or a treasure hunter. You gain a +1 specialty bonus to: Stealth checks for sleight of hand, such as pickpocketing; Athletics checks to climb."
+        },
+        {
+          "id": "hunter-spec-tracking",
+          "name": "Tracking",
+          "description": "People turn to you to hunt down hidden people, items, and beasts, whether you're a bounty hunter or a wilderness ranger. You gain a +1 specialty bonus to: Instinct checks to investigate people, places, or events; Fighting checks to tackle or pin."
+        }
+      ],
+      "tier2Features": [
+        {
+          "id": "hunter-t2-1",
+          "name": "Morpheus Toxin",
+          "description": "You gain a culture of a neurotoxic prion which debilitates its targets. The toxin must either be injected or ingested, and can be delivered by blades, needles, and food or drink. Victims must score at least a 10 on an instinct check at the beginning of their turn or lose consciousness. The culture generates enough biomass to be used once a day."
+        },
+        {
+          "id": "hunter-t2-2",
+          "name": "Sonar Smokescreen",
+          "description": "You gain a supply of computerized gas which conceals you when you deploy it. The sonar smokescreen fills the area out to 5 metres around you, and is fully opaque. Sounds cannot be created within the screen, and people within it are outlined to you and your allies. Stealth checks you make within the smokescreen automatically score at least an 8, unless your roll is higher. After deployment, it must recharge for an hour."
+        },
+        {
+          "id": "hunter-t2-3",
+          "name": "Viper Gauntlet",
+          "description": "You gain a gauntlet which contains various weapons: a short-range flamethrower, an electrified tether, and a tracking chip launcher, each used with a shooting check. The flamethrower deals 3 energy damage against organic material. The tether deals 3 energy damage against robots and wet organic material. The tracking chips transmit their location to you as long as they are in the same star system."
+        }
+      ],
+      "styles": [
+        {
+          "id": "hunter-style-sneaky",
+          "name": "Sneaky",
+          "description": "You gain advantage on your next stealth check after succeeding on a check of any kind."
+        },
+        {
+          "id": "hunter-style-quick",
+          "name": "Quick",
+          "description": "Succeeding on an athletics check grants you advantage on your next check."
+        },
+        {
+          "id": "hunter-style-efficient",
+          "name": "Efficient",
+          "description": "If you succeed on both a stealth check and an athletics check on your turn, you can make a free check of any kind."
+        }
+      ],
+      "tier3Features": [
+        {
+          "id": "hunter-t3-1",
+          "name": "Adaptive Camo",
+          "description": "You gain a generator which emits a field of concealing energy. While the beacon is on your person, you can activate it to become invisible to the naked eye and almost all scanners. The faster you move, the less concealed you become. You have advantage on contests made against targets who can't see you. If you take damage, your invisibility fails until you score an 8 on an engineering check to repair your camo."
+        },
+        {
+          "id": "hunter-t3-2",
+          "name": "Optical Cybertech",
+          "description": "You gain an implant or eyepiece which provides a full visual overlay. X-ray imaging lets you see through solid surfaces, perform detailed scans, and zoom in up to one-hundred metres. The scans reveal your enemies' weaknesses; you deal an extra point of damage if you score twice as high as your target in a shooting, fighting or athletics contest."
+        },
+        {
+          "id": "hunter-t3-3",
+          "name": "Predator Blades",
+          "description": "You gain a set of smart blades which mark your target for death. After hitting an enemy with a predator blade, attacks against them gain advantage for the next hour. You can accurately throw the blades up to fifty metres or use them in melee. The blades deal 2 kinetic damage. Predator blades can be programmed to adjust their trajectory after being thrown, allowing you to aim at targets behind cover or around corners."
+        }
+      ],
+      "legacies": [
+        {
+          "id": "hunter-legacy-phantom",
+          "name": "Phantom",
+          "description": "You are known across the galaxy as an untraceable ghostly killer. Those seeking mastery of the shadows flock to you, and may offer to serve you and your followers. You have the power to eliminate world leaders, and you know the best way to infiltrate any location. You gain +1 stealth, athletics, and charisma."
+        },
+        {
+          "id": "hunter-legacy-elite",
+          "name": "Elite",
+          "description": "You are known across the galaxy for your relentless and unavoidable pursuit. Those seeking justice or revenge flock to you, and may offer to serve you and your followers. You have the power to hunt down entire factions, and you know the best way to capture anyone. You gain +1 stealth, athletics, and piloting."
+        },
+        {
+          "id": "hunter-legacy-sentinel",
+          "name": "Sentinel",
+          "description": "You are known across the galaxy for your ability to unravel secrets and lies. Those seeking the truth flock to you, and may offer to serve you and your followers. You have the power to dismantle galaxy-wide conspiracies, and you know the best way to locate sources of corruption. You gain +1 stealth, athletics, and engineering."
+        }
+      ]
+    },
+    {
+      "id": "mutant",
+      "name": "Mutant",
+      "flavor": "Those who solve problems with unnatural adaptations",
+      "description": "The very basis of evolution is in mutation. Mutants do not obey the rules of their heredity, whether they are warped by radiation or born into supremacy. You have long been an outsider, but you know that it is because you are feared. The others are right to fear. They've yet to see your true potential.",
+      "skillBonuses": [
+        { "skill": "fighting", "amount": 2 },
+        { "skill": "athletics", "amount": 1 }
+      ],
+      "classAbility": {
+        "name": "Adaptation",
+        "description": "You can retry one failed skill check on each of your turns."
+      },
+      "startingEquipment": [
+        {
+          "id": "mutant-equip-1",
+          "label": "Option A",
+          "items": ["Light armour", "Two light weapons", "The ability to conceal your mutations at will"]
+        },
+        {
+          "id": "mutant-equip-2",
+          "label": "Option B",
+          "items": ["A heavy weapon", "The ability to hold your breath for up to five hours"]
+        },
+        {
+          "id": "mutant-equip-3",
+          "label": "Option C",
+          "items": ["Heavy shields", "The ability to survive intense doses of radiation"]
+        }
+      ],
+      "tier1Features": [
+        {
+          "id": "mutant-t1-1",
+          "name": "Blood Rage",
+          "description": "Your veins can barely contain the boiling frenzy within you. For every point of health you lose, your melee attacks deal an extra point of damage. Once you regain the lost health, your blood rage subsides."
+        },
+        {
+          "id": "mutant-t1-2",
+          "name": "Hypersense",
+          "description": "You have bestial senses and uncanny reflexes. You can see in total darkness and smell the recent history of an area. You have advantage on checks made to avoid ranged attacks and explosive effects as well as checks made to detect hidden entities."
+        },
+        {
+          "id": "mutant-t1-3",
+          "name": "Wings",
+          "description": "A pair of powerful wings sits on your back, allowing you to fly in short bursts. You can fly up to fifteen metres on your turn, and can remain airborne until the start of your next turn if you score at least a 9 on an athletics check. If you take any damage while in the air, you immediately fall. If you beat another character in an athletics contest, you can carry them into the air."
+        }
+      ],
+      "specialties": [
+        {
+          "id": "mutant-spec-intuition",
+          "name": "Intuition",
+          "description": "People turn to you to make predictions and observations, whether you're a xenobeast tracker or an enlightened machine. You gain a +1 specialty bonus to: Instinct checks to avoid projectiles; Charisma checks to sense lies and the truth."
+        },
+        {
+          "id": "mutant-spec-savagery",
+          "name": "Savagery",
+          "description": "People turn to you to eviscerate and horrify enemies, whether you're an escaped bioweapon or an uplifted beast. You gain a +1 specialty bonus to: Unarmed fighting checks; Stealth checks to stalk."
+        },
+        {
+          "id": "mutant-spec-survival",
+          "name": "Survival",
+          "description": "People turn to you for the most dangerous work, whether you're a scavenger or a guerilla fighter. You gain a +1 specialty bonus to: Athletics checks to avoid explosions and fire; Instinct checks to clear your mind of psychic effects."
+        }
+      ],
+      "tier2Features": [
+        {
+          "id": "mutant-t2-1",
+          "name": "Bioconduit",
+          "description": "Conductive channels form a network within your body, bonding tissue with technology. Enemies have disadvantage on engineering and piloting contests against you. Whenever you take energy damage, you gain advantage on your next skill check."
+        },
+        {
+          "id": "mutant-t2-2",
+          "name": "Regeneration",
+          "description": "Your body races to rebuild itself in new and better ways. You regain one point of health at the end of every turn. Your regeneration ceases if you have no health at the end of your turn."
+        },
+        {
+          "id": "mutant-t2-3",
+          "name": "Retractable Claws",
+          "description": "You gain a set of bladed claws which allow you to climb sheer surfaces with ease. Your unarmed fighting attacks deal 2 kinetic damage. If you score at least a 10 on a fighting contest, you still deal 1 kinetic damage even if you don't succeed."
+        }
+      ],
+      "styles": [
+        {
+          "id": "mutant-style-brutal",
+          "name": "Brutal",
+          "description": "You gain advantage on your next fighting check after succeeding on a skill check of any kind."
+        },
+        {
+          "id": "mutant-style-reckless",
+          "name": "Reckless",
+          "description": "You can make a free skill check whenever you take damage."
+        },
+        {
+          "id": "mutant-style-unusual",
+          "name": "Unusual",
+          "description": "After you fail a skill check, you gain advantage on your next check."
+        }
+      ],
+      "tier3Features": [
+        {
+          "id": "mutant-t3-1",
+          "name": "Chronopathy",
+          "description": "Your mind can process input at an astounding rate, temporarily slowing your perception of time. When you initiate your chronopathy, you are able to make four checks instead of two on your turn. You can do this once per day without suffering side effects; after that, you must score at least an 8 on an instinct check or take 2 damage when you initiate your chronopathy."
+        },
+        {
+          "id": "mutant-t3-2",
+          "name": "Hemokinesis",
+          "description": "You gain control over the flow of blood. Those of weak will are highly susceptible to your influence. You can make an instinct contest against an organic enemy within ten metres of you to command their blood. If you succeed, you control one of the checks on their turn until they beat you in an instinct contest."
+        },
+        {
+          "id": "mutant-t3-3",
+          "name": "Hyperstrength",
+          "description": "Your body exerts an unnatural amount of force, which can be as much of a danger to you as it is to your enemies. You may roll three dice instead of two for athletics and fighting checks. If you roll a 7 or lower in athletics or fighting (before adding your skill bonus), you take 2 damage."
+        }
+      ],
+      "legacies": [
+        {
+          "id": "mutant-legacy-horror",
+          "name": "Horror",
+          "description": "You are known across the galaxy as a ruthless creature of darkness. Those seeking to bring ruin to society flock to you, and may offer to serve you and your followers. You have the power to single-handedly destroy entire cities, and you know how to spread paranoia throughout any population. You gain +1 fighting, athletics, and instinct."
+        },
+        {
+          "id": "mutant-legacy-scion",
+          "name": "Scion",
+          "description": "You are known across the galaxy as the pinnacle of millennia of evolution. Those seeking to evolve beyond their natural limits flock to you, and may offer to serve you and your followers. You have the power to create an entire new species, and you know how to unlock the full genetic potential of any organism. You gain +1 fighting, athletics, and charisma."
+        },
+        {
+          "id": "mutant-legacy-underlord",
+          "name": "Underlord",
+          "description": "You are known across the galaxy as the sovereign of outcasts. Those seeking acceptance for their abnormalities flock to you, and may offer to serve you and your followers. You have the power to raise entire armies from the gutters of society, and you know how to run complex operations without the notice of the elite. You gain +1 fighting, athletics, and shooting."
+        }
+      ]
+    },
+    {
+      "id": "pilot",
+      "name": "Pilot",
+      "flavor": "Those who solve problems by taking risks",
+      "description": "An engine is just a hunk of metal. When you get behind the controls though, it becomes a living thing, and it answers to you. As a pilot, you do the real heavy lifting for your crew, whether they admit it or not. Maybe you're a cadmium-huffing racer, a decorated ace, or a simple food courier. Even if you aren't the boss, when the engines are roaring, you're really in charge.",
+      "skillBonuses": [
+        { "skill": "piloting", "amount": 2 },
+        { "skill": "instinct", "amount": 1 }
+      ],
+      "classAbility": {
+        "name": "Maneuver",
+        "description": "When a character makes a skill contest against you on their turn and fails, you can immediately make a free check. You can use Maneuver once on each enemy's turn."
+      },
+      "startingEquipment": [
+        {
+          "id": "pilot-equip-1",
+          "label": "Option A",
+          "items": ["An airspeeder"]
+        },
+        {
+          "id": "pilot-equip-2",
+          "label": "Option B",
+          "items": ["An aircar"]
+        },
+        {
+          "id": "pilot-equip-3",
+          "label": "Option C",
+          "items": ["Heavy shields", "Two light weapons of any kind"]
+        }
+      ],
+      "tier1Features": [
+        {
+          "id": "pilot-t1-1",
+          "name": "Dioxalyde Charges",
+          "description": "You gain a supply of fuel capsules which can overcharge machines when they fail. Whenever you fail a piloting or engineering check made to operate a machine, you may choose to reroll it. If you fail your reroll, your machine loses a point of hull."
+        },
+        {
+          "id": "pilot-t1-2",
+          "name": "Skid Sauce",
+          "description": "You gain a supply of an addictive stimulant. Before you make a skill check, you may ingest a dose of skid sauce. If you do, you gain disadvantage on the skill check. If you succeed, you can immediately make a free skill check of any kind. If you take skid sauce while you have advantage, it cancels out your advantage instead of giving you disadvantage. The effects include restlessness, paranoia, and extreme adrenaline spikes."
+        },
+        {
+          "id": "pilot-t1-3",
+          "name": "Tactical Display",
+          "description": "You gain a targeting overlay which facilitates aiming. You can lock on to one target at a time. Any time you succeed on a contest against them, you gain advantage on your next shooting contest against them."
+        }
+      ],
+      "specialties": [
+        {
+          "id": "pilot-spec-evasion",
+          "name": "Evasion",
+          "description": "People turn to you to get them through the most dangerous of circumstances, whether you're a fighter pilot or a getaway driver. You gain a +1 specialty bonus to: Piloting checks to avoid enemy attacks; Stealth checks to shake pursuers."
+        },
+        {
+          "id": "pilot-spec-leadership",
+          "name": "Leadership",
+          "description": "People turn to you for guidance in situations of uncertainty, whether you're a squadron commander or a frigate's admiral. You gain a +1 specialty bonus to: Charisma checks to address groups; Fighting checks while within five metres of an ally."
+        },
+        {
+          "id": "pilot-spec-speed",
+          "name": "Speed",
+          "description": "People turn to you when time is of the essence, whether you're a mach-million racer or an express courier. You gain a +1 specialty bonus to: Piloting checks to accelerate; Athletics checks to run."
+        }
+      ],
+      "tier2Features": [
+        {
+          "id": "pilot-t2-1",
+          "name": "Drive Enhancer",
+          "description": "You gain a portable engine booster which pours extra power into any vehicle that you operate. Whenever you succeed on a piloting check, your vehicle gains +1 speed. You can earn this bonus multiple times, and it lasts until the end of your next turn."
+        },
+        {
+          "id": "pilot-t2-2",
+          "name": "Jet Pack",
+          "description": "You gain a personal flight device which allows you to quickly soar through the air. The thrusters allow you to move up to thirty metres on your turn, as well as hover. You can make piloting checks when you would normally make athletics checks."
+        },
+        {
+          "id": "pilot-t2-3",
+          "name": "Technic Prosthesis",
+          "description": "You gain a set of removable robotic arms which act with limited initiative. Any time you have advantage, you may instead make two different normal checks. If you are granted advantage from multiple different sources, you may make both checks with advantage."
+        }
+      ],
+      "styles": [
+        {
+          "id": "pilot-style-bold",
+          "name": "Bold",
+          "description": "You gain advantage on your next check after you succeed on a piloting check."
+        },
+        {
+          "id": "pilot-style-coordinated",
+          "name": "Coordinated",
+          "description": "Enemies gain disadvantage on their next skill contest when they initiate and then fail a contest against you."
+        },
+        {
+          "id": "pilot-style-lucky",
+          "name": "Lucky",
+          "description": "You gain advantage on your next check after an enemy initiates and then fails a contest against you."
+        }
+      ],
+      "tier3Features": [
+        {
+          "id": "pilot-t3-1",
+          "name": "Cadmium-85",
+          "description": "You gain the ability to synthesize a powerful narcotic which pushes your mind and body to their limits. Whenever you fail a skill contest, you may choose to take a dose of Cadmium-85. If you do, you may retry the skill contest with advantage, but lose one point of health."
+        },
+        {
+          "id": "pilot-t3-2",
+          "name": "Mind Link",
+          "description": "Your mind blends into your machinery, giving you instant remote control over every mechanism you own. Whenever you roll a 4 or lower (before bonuses) on a piloting, shooting, or engineering check, you may treat it as a 5. You only gain this benefit for machines that you have spent at least five minutes modifying."
+        },
+        {
+          "id": "pilot-t3-3",
+          "name": "Promethium Cell",
+          "description": "You gain a sample of promethium, an exotic substance which propels your vehicle through time itself. When you inject a vehicle's engine with the promethium cell, everyone inside gains advantage on all skill contests against characters outside until the end of your next turn. The promethium cell grants your vehicle a +6 bonus to speed until the end of your next turn. The promethium cell takes 24 hours to regenerate after use."
+        }
+      ],
+      "legacies": [
+        {
+          "id": "pilot-legacy-ace",
+          "name": "Ace",
+          "description": "You are known across the galaxy for your daring and fearlessness. Those seeking to overcome impossible odds flock to you, and may offer to serve you and your followers. You have the power to single-handedly neutralize an entire fleet, and you know the best way to escape certain death. You gain +1 piloting, instinct, and stealth."
+        },
+        {
+          "id": "pilot-legacy-champion",
+          "name": "Champion",
+          "description": "You are known across the galaxy as a high-speed hero. Those seeking a glimpse of your glory flock to you, and may offer to serve you and your followers. You have the power to traverse the entire galaxy within days, and you know the fastest way to travel to any location. You gain +1 piloting, instinct, and athletics."
+        },
+        {
+          "id": "pilot-legacy-commander",
+          "name": "Commander",
+          "description": "You are known across the galaxy for your wise and courageous leadership. Those seeking a chance to become great flock to you, and may offer to serve you and your followers. You have the power to command entire fleets, and you know the best way to end any conflict. You gain +1 piloting, instinct, and engineering."
+        }
+      ]
+    },
+    {
+      "id": "tech",
+      "name": "Tech",
+      "flavor": "Those who solve problems using technology",
+      "description": "It isn't magic that keeps society ticking. It's all wired up, and you're the one doing the wiring. As a tech, you are an architect of the future, which is just about here. You could be a warship's engineer, an undercover hacker, or a scrapyard scavenger. No matter what happens, you're the one who knows what to do.",
+      "skillBonuses": [
+        { "skill": "engineering", "amount": 2 },
+        { "skill": "piloting", "amount": 1 }
+      ],
+      "classAbility": {
+        "name": "Rework",
+        "description": "If you succeed on an engineering check on your turn, you gain advantage on your next check."
+      },
+      "startingEquipment": [
+        {
+          "id": "tech-equip-1",
+          "label": "Option A",
+          "items": ["Light shields", "A data drive which can quickly transfer and analyze data"]
+        },
+        {
+          "id": "tech-equip-2",
+          "label": "Option B",
+          "items": ["Light armour", "A multitorch which can cut and affix metal"]
+        },
+        {
+          "id": "tech-equip-3",
+          "label": "Option C",
+          "items": ["A light weapon", "A chemistry supply kit with acids, adhesives, lubricants, and solvents"]
+        }
+      ],
+      "tier1Features": [
+        {
+          "id": "tech-t1-1",
+          "name": "Nanomechanics",
+          "description": "You gain a small capsule of nanomachines which can quickly repair tissue and integrate with robotics. If you score at least a 7 on an engineering check, you can restore one point of health to a damaged character. The nanomechanics also allow you to easily establish a connection for hacking devices or repair damaged circuitry. You can control the nanomechanics from up to a metre away."
+        },
+        {
+          "id": "tech-t1-2",
+          "name": "Protonic Spanner",
+          "description": "You gain a handheld mechanic's tool which manipulates machines electromagnetically. The spanner can disassemble complex machinery and suspend its components in the air, allowing you to make repairs or modifications. It can suspend up to five kilograms of material in a small radius around it, and does not work on moving objects. You gain advantage on engineering checks made to repair or modify machinery when you use the protonic spanner."
+        },
+        {
+          "id": "tech-t1-3",
+          "name": "Utility Droid",
+          "description": "You gain a hovering assistant loaded with tools and useful gadgets. You can integrate any handheld tool you come across into the drone, and can make engineering checks through it. You can control the drone from up to fifty metres away, and receive a live video feed from its sensors."
+        }
+      ],
+      "specialties": [
+        {
+          "id": "tech-spec-data",
+          "name": "Data",
+          "description": "People turn to you when they need information, whether you're a hacker or a scholar. You gain a +1 specialty bonus to: Engineering checks to use software; Stealth checks to get rid of records and evidence."
+        },
+        {
+          "id": "tech-spec-machines",
+          "name": "Machines",
+          "description": "People turn to you to design and build powerful machinery, whether you're a shipwright or a gunsmith. You gain a +1 specialty bonus to: Engineering checks to construct or modify machines; Piloting checks to operate machines that you have constructed or modified."
+        },
+        {
+          "id": "tech-spec-organisms",
+          "name": "Organisms",
+          "description": "People turn to you to heal, enhance, and produce living creatures, whether you're a biotechnician or a xenobiologist. You gain a +1 specialty bonus to: Engineering checks to heal or create organisms; Charisma checks to interact with wildlife."
+        }
+      ],
+      "tier2Features": [
+        {
+          "id": "tech-t2-1",
+          "name": "Crucible Reactor",
+          "description": "You gain a superheated power core which allows you to melt and shape metal items. You can deal 2 energy damage to an armoured character or a vehicle by beating them in a fighting contest. If you succeed, your target also gains disadvantage on their next skill check. You only have to roll an 8 on an engineering check to repair a point of armour or hull."
+        },
+        {
+          "id": "tech-t2-2",
+          "name": "Hardlight Prism",
+          "description": "You gain a specialized lens which allows you to project shimmering barriers of solid light. The barriers can have a total surface area of up to four square metres, divided into up to four separate barriers, and can collectively block 2 damage before they must recharge. You can project the barriers up to five metres away, and shape them into disks, domes, pillars, or walls. Each barrier can support up to 100 kilograms, allowing you to create staircases in mid air. Once shattered, they take an hour to recharge."
+        },
+        {
+          "id": "tech-t2-3",
+          "name": "Lance Virus",
+          "description": "You gain an intrusive software script which can force its way through security systems. The lance virus grants you advantage on any check made to bypass security software, and allows you to control or liberate robots. If you beat a robot in an engineering contest, you can either free it from its programming or gain remote control over it for one minute. The virus needs five minutes to recompile after modifying a robot."
+        }
+      ],
+      "styles": [
+        {
+          "id": "tech-style-creative",
+          "name": "Creative",
+          "description": "You can make a free piloting or fighting check after you succeed on an engineering check."
+        },
+        {
+          "id": "tech-style-driven",
+          "name": "Driven",
+          "description": "You can make a free shooting or athletics check after you succeed on an engineering check."
+        },
+        {
+          "id": "tech-style-cunning",
+          "name": "Cunning",
+          "description": "Whenever you beat an enemy in an engineering contest, they gain disadvantage on their next check."
+        }
+      ],
+      "tier3Features": [
+        {
+          "id": "tech-t3-1",
+          "name": "Gravity Engine",
+          "description": "You gain a machine which wields power over gravity within five metres of it. You can levitate objects within the engine's effective radius, and launch projectiles at high speeds. The engine allows you to make attacks by making an engineering contest against your target's athletics, dealing 2 kinetic damage on success. Targets within five metres of you have disadvantage on all athletics checks. The engine's gravity field also allows you to redirect incoming kinetic projectiles."
+        },
+        {
+          "id": "tech-t3-2",
+          "name": "Quantum Simulation",
+          "description": "You gain a device which maps the potential futures of your decisions and warns you about dangerous outcomes. You automatically succeed on the first check of your turn if you score at least a 7. The quantum simulation allows you to test theories in a limited theoretical space, but cannot anticipate the outcomes of social interactions."
+        },
+        {
+          "id": "tech-t3-3",
+          "name": "Teleportation Uplink",
+          "description": "You gain a transmitter which relays your position to the galaxy's teleporter networks. You can use this tool to teleport to a space up to one hundred metres away from you or back to a teleporter pad that your uplink is connected to."
+        }
+      ],
+      "legacies": [
+        {
+          "id": "tech-legacy-genius",
+          "name": "Genius",
+          "description": "You are known across the galaxy as a technological pioneer. Those seeking the bleeding edge of science flock to you, and may offer to serve you and your followers. You have the power to engineer massive creations of flawless quality, and you know the most effective way to employ any form of technology. You gain +1 engineering, piloting, and instinct."
+        },
+        {
+          "id": "tech-legacy-mad-scientist",
+          "name": "Mad Scientist",
+          "description": "You are known across the galaxy for your reckless experimentation. Those seeking answers denied to them by scientific institutions flock to you, and may offer to serve you and your followers. You have the power to create horrific abominations, and you know how to make any form of technology more dangerous. You gain +1 engineering, piloting, and shooting."
+        },
+        {
+          "id": "tech-legacy-chronicler",
+          "name": "Chronicler",
+          "description": "You are known across the galaxy for your immense knowledge and wisdom. Those seeking information beyond the networked realm flock to you, and may offer to serve you and your followers. You have the power to answer any question about the galaxy with an applicable answer, and you know how to predict the future with a high degree of accuracy. You gain +1 engineering, piloting, and charisma."
+        }
+      ]
+    },
+    {
+      "id": "trader",
+      "name": "Trader",
+      "flavor": "Those who solve problems with their words",
+      "description": "What's the point of interstellar travel if you can't make a few credits out of the deal? A lot goes into the crew of a ship, but they probably wouldn't be there if it weren't for you. Traders are the ones paying the wages, whether you're a dealer in exotic xenobeasts or illegal gun parts. The others may do the fighting, but you decide who's getting shot.",
+      "skillBonuses": [
+        { "skill": "charisma", "amount": 2 },
+        { "skill": "stealth", "amount": 1 }
+      ],
+      "classAbility": {
+        "name": "Presence",
+        "description": "If you succeed on a charisma check on your turn, you gain advantage on your next check."
+      },
+      "startingEquipment": [
+        {
+          "id": "trader-equip-1",
+          "label": "Option A",
+          "items": ["One bulk unit of consumer goods"]
+        },
+        {
+          "id": "trader-equip-2",
+          "label": "Option B",
+          "items": ["Light shields", "A large collection of luxury clothing", "50 credits"]
+        },
+        {
+          "id": "trader-equip-3",
+          "label": "Option C",
+          "items": ["A light weapon", "A fake ID", "50 credits"]
+        }
+      ],
+      "tier1Features": [
+        {
+          "id": "trader-t1-1",
+          "name": "Hologram Projector",
+          "description": "You gain a small device which can display three-dimensional images near you. You can make a charisma contest against a target within five metres of you to dazzle, disorient, or overwhelm them with holograms. If you succeed, all charisma, stealth, fighting, and shooting contests made against them gain advantage until the start of your next turn."
+        },
+        {
+          "id": "trader-t1-2",
+          "name": "Superior Attire",
+          "description": "You gain an ornate set of clothing which makes your importance known to anyone who sees you. When you succeed on a charisma contest, your target cannot make any skill checks against you until they've beaten you in a new charisma contest. If you make an athletics, fighting, or shooting contest against the target, they are freed from your influence."
+        },
+        {
+          "id": "trader-t1-3",
+          "name": "Star Vault",
+          "description": "You gain a metaspace storage device which can digitize cargo into a lightweight form. The star vault can contain up to fifty kilograms of material, or one unit of bulk resources. The vault's thin exterior can easily be concealed under clothing."
+        }
+      ],
+      "specialties": [
+        {
+          "id": "trader-spec-commerce",
+          "name": "Commerce",
+          "description": "People turn to you when there are credits to be made. You gain a +1 specialty bonus to: Charisma checks to haggle; Instinct checks to evaluate value."
+        },
+        {
+          "id": "trader-spec-control",
+          "name": "Control",
+          "description": "People turn to you when they need to influence powerful people. You gain a +1 specialty bonus to: Charisma checks to suggest; Fighting checks to intimidate."
+        },
+        {
+          "id": "trader-spec-smuggling",
+          "name": "Smuggling",
+          "description": "People turn to you when they need to exchange restricted resources. You gain a +1 specialty bonus to: Charisma checks to lie; Stealth checks to hide items."
+        }
+      ],
+      "tier2Features": [
+        {
+          "id": "trader-t2-1",
+          "name": "Bacchus Diffuser",
+          "description": "You gain a device which emits a fine vapour into the atmosphere around you. Bacchus is a narcotic substance which inhibits the defensive instincts of its users, and you are immunized against it. Breathing creatures within four metres of you gain disadvantage on defensive charisma, instinct, piloting, and fighting contests. Creatures wearing breathing masks do not suffer the effects, which also include euphoria and absence of mind."
+        },
+        {
+          "id": "trader-t2-2",
+          "name": "Commware",
+          "description": "You gain a set of high-definition communications devices. You can deploy up to three floating camera drones which transmit footage of your adventures to any computer that you own. Your camera drones cannot fly more than five metres away from you. Your commware allows you to record, exchange, and display high-definition recordings to your network of contacts and supporters. Every time you succeed on a charisma check, you gain 500 credits."
+        },
+        {
+          "id": "trader-t2-3",
+          "name": "Holographic Disguise",
+          "description": "You gain a light-bending mask which fully disguises you as another person. You can disguise as anyone of equal or greater size to you, but not smaller. The disguise is completely insubstantial, and struggles to render a lot of movement at once. Suspicious onlookers must succeed on an instinct or engineering contest against your charisma to discern that your appearance is a deception. Every time you succeed on a charisma contest against a target while disguised, your next attack against them on the same turn deals 1 extra point of damage."
+        }
+      ],
+      "styles": [
+        {
+          "id": "trader-style-influential",
+          "name": "Influential",
+          "description": "When you beat an enemy in a charisma contest, they gain disadvantage on their next check."
+        },
+        {
+          "id": "trader-style-methodical",
+          "name": "Methodical",
+          "description": "You can make a free piloting or engineering check after you succeed on a charisma check."
+        },
+        {
+          "id": "trader-style-sly",
+          "name": "Sly",
+          "description": "You can make a free stealth or shooting check after succeeding on a charisma check."
+        }
+      ],
+      "tier3Features": [
+        {
+          "id": "trader-t3-1",
+          "name": "Hardlight Decoy",
+          "description": "You gain a device which can project a perfect visual replica of yourself within your line of sight. The three-dimensional image becomes more indistinct the further away you project it, but is indistinguishable from your real body at fifteen metres. The decoy can move and act with limited initiative, mimicking your mannerisms. You and your decoy can switch places. If your decoy is attacked, you defend as if you were being attacked. If the decoy takes any damage, it disappears and must recharge for one minute."
+        },
+        {
+          "id": "trader-t3-2",
+          "name": "Multitonal Instrument",
+          "description": "You gain an advanced musical instrument which enthrals those who hear its music. While you play, anyone who you beat in a charisma contest loses a skill check on their turn. If you had advantage on the charisma contest, you can immediately repeat it against another target (once per turn). The music of the multitonal instrument can cause drastic changes in emotion, inadvertent movement, and even hallucinations."
+        },
+        {
+          "id": "trader-t3-3",
+          "name": "Sovereign Enterprise",
+          "description": "You gain galactic recognition as a reliable and effective leader. You can order any piece of equipment, vehicle, module, or resource to be delivered to you at half of its normal price. Characters who you have beat in a charisma contest have disadvantage on offensive skill checks made against you. You are immediately recognizable as an authority, and have clearance to deal in restricted resources."
+        }
+      ],
+      "legacies": [
+        {
+          "id": "trader-legacy-magistrate",
+          "name": "Magistrate",
+          "description": "You are known across the galaxy for your firm and decisive leadership. Those seeking an efficient and organized society flock to you, and may offer to serve you and your followers. You have the power to govern entire nations, and you know the best way to win the favour of anyone you speak to. You gain +1 charisma, stealth, and athletics."
+        },
+        {
+          "id": "trader-legacy-mastermind",
+          "name": "Mastermind",
+          "description": "Few people know of you, but you control elites all over the galaxy. Those seeking to influence secret affairs flock to you, and may offer to serve you and your followers. You have the power to manipulate politics in factions across the galaxy, and you know the weaknesses of any person or group you interact with. You gain +1 charisma, stealth, and fighting."
+        },
+        {
+          "id": "trader-legacy-mogul",
+          "name": "Mogul",
+          "description": "You are known across the galaxy for your ambition and fabulous wealth. Those seeking to get rich flock to you, and may offer to serve you and your followers. You have the power to control the economies of entire worlds, and you know the best way to profit from any interaction. You gain +1 charisma, stealth, and engineering."
+        }
+      ]
+    }
+  ]
+}

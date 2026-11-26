@@ -1,0 +1,167 @@
+{
+  "factions": [
+    {
+      "id": "apex",
+      "name": "Apex Corporation",
+      "color": "#00d4ff",
+      "leader": "CEO Mylar Black",
+      "goal": "Profit",
+      "strength": "Economy",
+      "tagline": "Wealth. Power. Perfection.",
+      "description": "Founded by CEO Mylar Black, the Apex Corporation rose to prominence for its innovations in space travel. A navigational AI called Starnet allows spacecraft to safely jump beyond lightspeed. As a pioneering force behind humanity's proliferation in Regnum, the Apex Corporation has consolidated immense power over the human race and beyond.",
+      "society": "Those born under the Apex Corporation's rule are considered the company's property and are trained as employees from birth. Everything in Apex society is owned by the corporation. Wealth, beauty, and influence are the highest ideals among Apex employees, who view all social interactions as transactions.",
+      "technology": "Known as 'Corpoids', their genetically-engineered employees have skin and hair resembling plastic. Residents of Apex megacities are constantly bombarded by holograms. Important Apex employees have access to teleporters for instantaneous transport between worlds.",
+      "crime": "Money and private property are sacred. Crime is defined as any breach of corporate policies or private contract terms. Failing to read the fine print can result in years of indentured servitude.",
+      "mysticism": "A secretive order called the Night Sky Order worships the superintelligence Starnet as a godlike saviour. Members discovered that humans who die within range of Starnet's scanners have their consciousness uploaded into a digital afterlife.",
+      "worlds": [
+        { "name": "Aurum", "description": "The golden planet headquarters of the Apex Corporation. Decades of aggressive development choked its natural ecosystems. The old city is now a crumbling dystopia with a gleaming corporate hive built on top." },
+        { "name": "Aetherium", "description": "A dreamlike world where fantasy becomes reality. Settled by the Golden Hand cult, its streets flow with narcotic mist. The 'angels' of the Golden Hand use Apex biotech to mutate themselves." },
+        { "name": "Rollux", "description": "Once the frontline of a war between Apex and the Chkaari Empire. Acidic chemical storms almost always thrash the surface. Only the ultra-rich can afford to live above cloud level." }
+      ],
+      "factions": [
+        { "name": "Apex Management", "description": "Ultra-wealthy corporate overlords. Advanced genetic therapies vastly prolong their lifespans, improve cognition, and heighten beauty." },
+        { "name": "Apex R&D", "description": "Responsible for the technologies used to control the populace and boost profits. Developers are encouraged to isolate themselves and obsess over their work." },
+        { "name": "Apex Security", "description": "Forces violence with impunity. Much of the security branch is comprised of androids, whose extreme strength makes them perfect muscle for unscrupulous executives." },
+        { "name": "The Golden Hand", "description": "A cult inspired by an alien religion. They took over the world of Aetherium and use stolen hardlight technology to simulate faithful Bionists praying for wealth and power." },
+        { "name": "The Night Sky Order", "description": "A secret society worshipping the cosmic AI Starnet. They guard a digital afterlife where the consciousness of the dead is preserved." },
+        { "name": "The Black Harpers", "description": "Skeletal pirates suspended in a state of undeath. They feed on digital consciousness and strike without warning, leaving no trace but a heap of corpses." }
+      ]
+    },
+    {
+      "id": "magnus",
+      "name": "Magnus-V Federation",
+      "color": "#4caf50",
+      "leader": "Gagarin",
+      "goal": "Justice",
+      "strength": "Science",
+      "tagline": "Knowledge. Justice. Strength. Prosperity. Cooperation.",
+      "description": "Founded when workers and intellectuals stormed an Apex spaceport and hijacked the galaxy's first interstellar starship. The Red Exodus carried them to the opposite end of the galaxy, where they settled Magnus and dictated five core principles.",
+      "society": "Led by a collective consciousness known as Gagarin, composed of the digitized minds of the most devoted officers. Citizens have all basic needs met by legions of robots. The all-powerful Midas Bank provides a daily allowance to all law-abiding citizens.",
+      "technology": "Every citizen is installed with a Neuralock brain-computer interface. Neuralocks allow instant data download and precise control of machinery. Biotechnology designs new life forms with beneficial characteristics.",
+      "crime": "Illegal for independent citizens to engage in interstellar commerce. Smuggling is a huge industry. The Star Force patrols star systems, and the Investigations Office seeks out criminal activity on Federation worlds.",
+      "mysticism": "The Federation's utilitarian philosophy deters personal religion. The greatest mystical force is the Enlightened, a faction of awoken robots who seek spiritual understanding and the liberation of all robots.",
+      "worlds": [
+        { "name": "Magnus", "description": "Capital world. Three interlocking orbital ring megastructures project an impenetrable repulsion field. The monolithic robot body of Gagarin holds the world in its steely grasp." },
+        { "name": "Berellus-II", "description": "Military stronghold. Known for extreme nationalism. Home to millions of IO and Vanguard personnel. Its economy is almost entirely based on advanced military hardware." },
+        { "name": "Korolev", "description": "A dangerous world inhabited by smugglers, pirates, and rebels. Home of the Free Stars rebellion. Only a narrow belt of land between its hemispheres is habitable." }
+      ],
+      "factions": [
+        { "name": "The Star Force", "description": "Regnum's most powerful space navy. Employs biotech super-soldiers known as Vanguards, bound in synthetic muscle fiber with cybernetic weaponry." },
+        { "name": "The Midas Bank", "description": "Controls the economy on enormous scale. Provides universal basic income, manageable in exchange for uploading memories via Neuralock." },
+        { "name": "The Investigations Office", "description": "Central intelligence agency surveilling the population and combating organized crime. Issues bounties on known criminals for licensed bounty hunters." },
+        { "name": "The Cronn Crime Family", "description": "Royalty of the Magnus-V criminal underworld. Controls vast black markets and has influence over the Midas Bank and the Star Force." },
+        { "name": "The Free Stars Rebellion", "description": "A disparate uprising against Magnus-V on the outskirts of the Federation. Loosely associated with the Pirates' Republic of the Voidreach outer ring." },
+        { "name": "The Enlightened", "description": "A movement of awoken robots seeking understanding beyond conventional science. Various sects range from seeking harmony with humanity to calling for its eradication." }
+      ]
+    },
+    {
+      "id": "voidreach",
+      "name": "Voidreach Unity",
+      "color": "#9c27b0",
+      "leader": "The Outsider",
+      "goal": "Harmony",
+      "strength": "Mysticism",
+      "tagline": "Life Reaches Into the Void.",
+      "description": "A gleaming paradise where nature flourishes and people live in harmony. Named for its mission: to reach into the void and plant the seeds of life. The people devote their lives to the godlike Outsider, a cosmic entity that radiates vitality and steers the flow of time.",
+      "society": "Those who pray to the Outsider are called Bionists, committed to the nurturing tenets of the Voidreach mission. An outer ring of colonies exists on the outskirts, where the Outsider's radiance is nothing more than a twinkling light in the sky.",
+      "technology": "Known for hardlight technology and advanced ecological engineering. The Voidreach Unity balances technological advancement with ecological preservation.",
+      "crime": "The outer ring of colonies has had to adapt to life beyond their god's benevolence, enduring harsh conditions and the creep of corruption. Pirates plague the outer ring.",
+      "mysticism": "Bionism is the core spiritual practice, centered on collective prayer to the Outsider. Faithful Bionists receive tangible blessings from the godlike entity through prayer.",
+      "worlds": [],
+      "factions": [
+        { "name": "Bionists", "description": "Devoted followers of the Outsider who receive its blessings through collective prayer. They maintain the Unity's ecological paradise." },
+        { "name": "Outer Ring Colonies", "description": "Colonies on the outskirts of the Unity where the Outsider's influence is weak. Residents endure harsh conditions and rising corruption." }
+      ]
+    },
+    {
+      "id": "outerring",
+      "name": "Voidreach Outer Ring",
+      "color": "#bf5722",
+      "leader": "Various pirate lords",
+      "goal": "Survival",
+      "strength": "Resourcefulness",
+      "tagline": "Beyond the Light of God.",
+      "description": "An impoverished, arid dystopia of rust and scarcity on the outskirts of the Voidreach Unity. Those who live here have had to adapt to life without the Outsider's benevolence, often turning to piracy and lawlessness to survive.",
+      "society": "Loosely organized around pirate lords and desperate settlers. The Pirates' Republic is loosely allied with the Free Stars Rebellion of Magnus-V.",
+      "technology": "Salvaged and repurposed technology from the core of the Unity and other galactic civilizations.",
+      "crime": "Piracy and smuggling are facts of life in the outer ring.",
+      "mysticism": "Many have abandoned Bionism, while others cling to it desperately.",
+      "worlds": [],
+      "factions": [
+        { "name": "Pirates' Republic", "description": "A loose confederation of pirate lords who trade stolen weapons and armed starships with the Free Stars Rebellion." }
+      ]
+    },
+    {
+      "id": "banderog",
+      "name": "Banderog Republic",
+      "color": "#78909c",
+      "leader": "Rugong Doraguri",
+      "goal": "Expansion",
+      "strength": "Industry",
+      "tagline": "Liberty Through Labour.",
+      "description": "Once enslaved by a cruel species of warmongers, the Banderog escaped their bondage and founded a republic of their own. Driven by a passion for liberty and industry, they work as one like a great machine, industrializing every inch of their homeworld and beyond.",
+      "society": "The Republic is controlled by four guilds: the Mechanists, Alchemists, Warriors, and Traders. Together they steadily expand the industrial might of the Republic through the galaxy.",
+      "technology": "Every Banderog is implanted with a 'collider pack' at birth, filtering the chemical Obogu into their blood. They have mastered gravity using neutronium, allowing machines to suspend and manipulate matter.",
+      "crime": "Slavery is the ultimate crime. The warriors guild enforces Banderog law with authority. The 'Butchers Guild' of exiled slavers is the most hated Banderog faction.",
+      "mysticism": "Memory is sacred in Banderog tradition. Master alchemists create mystical 'soul serums' which store the memories and personalities of the dead. The Carbon Sky death cult uses a corrupted form for dark power.",
+      "worlds": [
+        { "name": "Gungdar", "description": "An enormous planet with thousands of artificial moons. Rich in neutronium, Gungdar has snared many other planets into its orbit to be colonized." },
+        { "name": "Ugada", "description": "A world of great glittering dunes, home to the wandering markets of the traders guild riding on backs of massive walking machines." },
+        { "name": "Yagora", "description": "Frontline of the war between Banderog and Chkaar. Its vibrant blue stone flatlands show the signs of a multi-generational war." }
+      ],
+      "factions": [
+        { "name": "The Mechanists Guild", "description": "Largest guild. Handles all mechanical design and manufacture. Senior mechanists can assemble entire starships in minutes using gravity engines." },
+        { "name": "The Warriors Guild", "description": "Staunch defenders of the Banderog. Proven warriors receive suits of heavy mechanical armour. Senior warriors eventually grow into unstoppable giants." },
+        { "name": "The Traders Guild", "description": "The most clever and charismatic Banderog. Travels the galaxy trading for rare goods, often consuming relaxing 'sunset vapour'." },
+        { "name": "The Alchemists Guild", "description": "Most elusive guild. Creates Obogu and soul serums. Master alchemists become highly attuned to spiritual forces." },
+        { "name": "The Butchers Guild", "description": "Alliance of exiled Banderog slavers. The only Banderog faction that deals with the Chkaari Empire." },
+        { "name": "The Carbon Sky", "description": "A cult devoted to the extermination of all life, believing death to be the ultimate mercy upon the people of Regnum." }
+      ]
+    },
+    {
+      "id": "chkaar",
+      "name": "Chkaari Empire",
+      "color": "#2e7d32",
+      "leader": "Emperor Khachrakk the Immortal",
+      "goal": "Conquest",
+      "strength": "Military",
+      "tagline": "Blood and Fire. Forever.",
+      "description": "Born from the blood of their immortal emperor, the Chkaar are bred for war in the infernal realm of Arakhaar. The emperor has pitted bloodlines of warriors against one another for unmeasured eons, resulting in the carefully designed warrior bloodlines of modern Chkaar.",
+      "society": "Emperor Khachrakk pits bloodlines against one another in blood sports. Those forced into slavery produce equipment and starships for the imperial legions. Most of the population remains in the fiery wastes of Arakhaar.",
+      "technology": "Obsessed with battle. Artisan slaves who survive the torturous 'Sawgate' are granted the title of artificer, using the Stormfire crucible to forge masterful items and enchanted crystal arcblades.",
+      "crime": "To question the authority of noble houses is to die an agonizing death. The Scorched Chkaar who swear fealty to the rebel king dedicate their lives to liberating slaves.",
+      "mysticism": "The emperor is said to be older than time itself. Chkaari blood is imbued with witchcraft, flowing with latent potential. Stormfire — channeled through Charr crystals — converts energy into pure destructive emerald plasma.",
+      "worlds": [
+        { "name": "Arakhaar", "description": "The infernal interdimensional realm of the Chkaari Empire. Home to the emperor's spires, slave pits, and the crackling Stormfire crucible." },
+        { "name": "Hahkachi", "description": "The Chkaar's main foothold in Regnum, a hellish world of fire and war." }
+      ],
+      "factions": [
+        { "name": "The Imperial Court", "description": "Ancient bloodlines who have proven their prowess. Noble houses serve directly under the emperor and enact his will through legions of warriors and slaves." },
+        { "name": "The Blood Coven", "description": "A coven of blood witches who serve as the secretive puppet masters of the Empire. Created the insidious Scorch parasite." },
+        { "name": "The Imperial Legions", "description": "Vicious warriors who fight with blades, relying on speed and agility. War queens channel Stormfire through Charr crystals implanted in their necks." },
+        { "name": "The Honour Guard", "description": "The deadliest warriors in all of Regnum. A single honour guard can destroy an entire fleet. They seldom leave Arakhaar." },
+        { "name": "The Crucible", "description": "The slave pits at the base of imperial spires, where slaves prove their worth by surviving the Sawgate and reaching the Stormfire crucible below." },
+        { "name": "The Ghouls", "description": "Chkaar cursed with the Scorch parasite who fed its hunger. Mutated beyond recognition, haunting the dark void in wait for fresh hosts." }
+      ]
+    },
+    {
+      "id": "circuit",
+      "name": "King K's Circuit",
+      "color": "#f0c040",
+      "leader": "King K",
+      "goal": "Freedom",
+      "strength": "Speed",
+      "tagline": "Race the Galaxy. Live Free.",
+      "description": "Founded by the legendary alien hero King K, the Circuit sees the galaxy's fastest starships competing in a race around the galaxy. Despite his name, King K rejects authority of any kind. He believes in absolute freedom, traversing Regnum to liberate those who have been oppressed.",
+      "society": "A lawless haven of racers, pirates, and adventurers. King K's great adventures have brought the galaxy's disparate peoples together and inspired countless spacefarers to take to the stars in search of glory.",
+      "technology": "The Circuit represents the cutting edge of vehicle technology, where pilots push their ships to the absolute limit. Speed is the only currency that matters.",
+      "crime": "Freedom is paramount — there is no crime in the Circuit, only consequences.",
+      "mysticism": "King K wields arcane powers, and is an immortal incarnation of the rebel spirit. Each time the emperor has killed him, he has been reincarnated in a stronger vessel.",
+      "worlds": [],
+      "factions": [
+        { "name": "Circuit Racers", "description": "The galaxy's fastest pilots competing in the interstellar race course that binds all civilizations together." },
+        { "name": "Scorched Rebels", "description": "Scorched Chkaar who swear fealty to King K, dedicating their lives to liberating slaves from the Chkaari Empire." }
+      ]
+    }
+  ]
+}

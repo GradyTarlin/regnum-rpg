@@ -1,0 +1,292 @@
+{
+  "species": [
+    {
+      "id": "human",
+      "name": "Human",
+      "description": "Humans are relentless, adaptable, and unpredictable. The first to reach the stars, they have spread to every corner of the galaxy.",
+      "lifespan": "Natural: 60 years, Enhanced: 500 years",
+      "height": "5'10\"",
+      "skillBonus": { "skill": "any", "amount": 1 },
+      "speciesFeature": {
+        "name": "Versatility",
+        "description": "You have a wide range of talents, and can quickly adapt to all manner of tasks, environments, and societies. Other species regularly underestimate humans, and expect little of them."
+      },
+      "subspecies": [
+        {
+          "id": "human-settler",
+          "name": "Settler",
+          "description": "The backbone of planetary civilization, human settlers are resilient, determined and brave.",
+          "subspeciesFeature": {
+            "name": "Terrestrial",
+            "description": "You have been strengthened by a hard life on a rugged world. You can endure harsh climates of all kinds, and survive with scarce resources for extended periods of time. You are able to identify all kinds of minerals and organisms, and can often find some kind of useful application for them."
+          }
+        },
+        {
+          "id": "human-spacefarer",
+          "name": "Spacefarer",
+          "description": "Suited to a life amongst the cosmos, human spacefarers are lithe, crafty, and meticulous.",
+          "subspeciesFeature": {
+            "name": "Weightless",
+            "description": "Your body is incredibly light, from years of life in zero gravity. You are exceptionally quick and quiet, especially in space. You are significantly taller than most humans, but are not as strong when you enter gravity."
+          }
+        }
+      ]
+    },
+    {
+      "id": "tomorran",
+      "name": "Tomorran",
+      "description": "The next step in human evolution, Tomorrans are efficient, strategic, and focused. Expensive to produce, Tomorrans are often granted roles of authority in human societies.",
+      "lifespan": "Natural: 500 years, Enhanced: Indefinite",
+      "height": "6'",
+      "skillBonus": { "skill": "piloting", "amount": 1 },
+      "speciesFeature": {
+        "name": "Enhanced",
+        "description": "Your body has been upgraded with technology, allowing you to control your own biological processes. Your body does not age past maturity, and you can easily modify your appearance with chemicals and mechanisms."
+      },
+      "subspecies": [
+        {
+          "id": "tomorran-corpoid",
+          "name": "Corpoid",
+          "description": "Enhanced with genetic engineering, corpoids are slick, witty, and creative. Designed to excel in specific occupations, corpoids make great specialists.",
+          "subspeciesFeature": {
+            "name": "Biopolymer",
+            "description": "Your body's tissue is reinforced with synthetic molecules which accelerate your healing, improve your flexibility, and make your skin smooth and shiny. You can recover from broken bones, deep cuts, and severe burns within days without receiving medical attention."
+          }
+        },
+        {
+          "id": "tomorran-cyborg",
+          "name": "Cyborg",
+          "description": "Enhanced with cybernetic mechanisms, cyborgs are smart, observant, and calculating. With partly digital minds, cyborgs see a different world than natural humans.",
+          "subspeciesFeature": {
+            "name": "Wired",
+            "description": "Your body contains many mechanisms. You automatically scan everything you see, and see data entries on items of interest. You can instantly download properly-formatted data directly into your mind, such as schematics, maps, or encyclopedias."
+          }
+        }
+      ]
+    },
+    {
+      "id": "robot",
+      "name": "Robot",
+      "description": "Robots are precise, methodical, and analytical. Created for applications of many kinds, some develop personalities.",
+      "lifespan": "Indefinite",
+      "height": "5'4\"",
+      "skillBonus": { "skill": "engineering", "amount": 1 },
+      "speciesFeature": {
+        "name": "Integration",
+        "description": "Your mind and body are designed to interact with other machines. You can use computers and other devices by plugging into them, and you are extremely precise and efficient when you do so."
+      },
+      "subspecies": [
+        {
+          "id": "robot-android",
+          "name": "Android",
+          "description": "Created to resemble humanity, androids are strong, fast, and intelligent. Androids run on advanced AI, and live in a digital reality.",
+          "subspeciesFeature": {
+            "name": "Apperception",
+            "description": "You can process input as quickly as it comes in. You can read a book in five seconds, understand multiple voices talking over each other, and focus on everything in your field of vision simultaneously. No detail evades you, and your memory is perfect."
+          }
+        },
+        {
+          "id": "robot-husk",
+          "name": "Husk",
+          "description": "Created to serve, husks are durable, handy, and versatile. Many industries rely on the labour of husks to operate, and some models are designed for war.",
+          "subspeciesFeature": {
+            "name": "Modular",
+            "description": "Your mind is entirely contained on a central computer. As long as that remains intact, you can modify your body however you see fit."
+          }
+        }
+      ]
+    },
+    {
+      "id": "banderog",
+      "name": "Banderog",
+      "description": "Mighty craftsmen, Banderog are industrious, utilitarian, and driven by a passion for liberty. Descended from slaves, they value freedom above all else.",
+      "lifespan": "Natural: 50 years, Enhanced: Indefinite",
+      "height": "7'4\"",
+      "skillBonus": { "skill": "athletics", "amount": 1 },
+      "speciesFeature": {
+        "name": "Collider Pack",
+        "description": "You have a heavy machine built into your back which filters your blood and supplements your internal chemistry. Your collider pack defends you from all but the most potent poisons and diseases. You never tire, and can modify your collider pack to excel at certain functions. Your collider pack periodically spews exhaust, to the disgust of most other species."
+      },
+      "subspecies": [
+        {
+          "id": "banderog-smoghog",
+          "name": "Smog Hog",
+          "description": "Honourable craftsmen, Banderog smog hogs are persistent, stubborn, and grimy. Smog hogs toil to expand the industrial might of the Banderog.",
+          "subspeciesFeature": {
+            "name": "Engine Heart",
+            "description": "Your collider pack spews out thick smog. The smog doesn't affect Banderog, but other species struggle to see, smell, or breathe in the cloud. The smog grows more intense the more you exert yourself, and gradually fills any enclosed spaces you occupy."
+          }
+        },
+        {
+          "id": "banderog-guildape",
+          "name": "Guild Ape",
+          "description": "Wise artisans, Banderog guild apes are pragmatic, driven, and unrelenting. The Banderog guilds are responsible for the design, manufacture, defense, and trade of all things in the Republic.",
+          "subspeciesFeature": {
+            "name": "Neutronium Bones",
+            "description": "Your skeleton is reinforced with neutronium, an element which wields control over the laws of physics. Your neutronium bones allow you to shape metal as thick as your arm with your bare hands. You could compress a metal sheet into a dense ball, form a solid bar out of a handful of scrap metal, or tie a gun in a knot. Electricity interferes with the effects of neutronium."
+          }
+        }
+      ]
+    },
+    {
+      "id": "chkaar",
+      "name": "Chkaar",
+      "description": "Mystical warriors, the Chkaar are fast, ferocious, and competitive. The Chkaar way of life centres around blood, and war is their sacred ritual.",
+      "lifespan": "Natural: 100 years, Enhanced: Indefinite",
+      "height": "6'10\"",
+      "skillBonus": { "skill": "fighting", "amount": 1 },
+      "speciesFeature": {
+        "name": "Warrior's Blood",
+        "description": "You are bred for war, and can fight on through the most hazardous of conditions. You can hold your breath for up to three hours, and your ceramic hide allows you to survive in outer space. You have five hearts, which allow you to prevent excessive bleeding from injuries."
+      },
+      "subspecies": [
+        {
+          "id": "chkaar-imperial",
+          "name": "Imperial",
+          "description": "Disciplined mystics, imperial Chkaar are cruel, sharp, and traditional. The emperor watches his legions carefully, and grants accursed power to his most loyal warriors.",
+          "subspeciesFeature": {
+            "name": "Psychic Scars",
+            "description": "Your wounds quickly form scar tissue, which serves as a testament to your ferocity. Anyone who sees your scars is afflicted by a sense of supernatural dread, which may manifest as insomnia, nightmares, or a feeling of looming destruction. Anyone who touches your scars relives the pain you felt from the wound."
+          }
+        },
+        {
+          "id": "chkaar-scorched",
+          "name": "Scorched",
+          "description": "Troubled outsiders, scorched Chkaar are ravenous, brutal, and defiant. Cursed by the emperor, the blood of the scorched is host to an insidious parasite.",
+          "subspeciesFeature": {
+            "name": "Parasite",
+            "description": "You can feel when other viable hosts for the Scorch parasite enter your vicinity. You can discern the direction they're in and get a sense for their overall vitality. You must resist the urge to spread the parasite, which grows when you scratch its blackened 'burns'."
+          }
+        }
+      ]
+    },
+    {
+      "id": "altan",
+      "name": "Altan",
+      "description": "Reptilian predators, Altans are ambitious, headstrong, and menacing. Altans seek power in all of its forms and are natural leaders.",
+      "lifespan": "Natural: 100 years, Enhanced: 200 years",
+      "height": "6'8\"",
+      "skillBonus": { "skill": "shooting", "amount": 1 },
+      "speciesFeature": {
+        "name": "Keen Senses",
+        "description": "You have infrared vision, allowing you to hunt even at night and in desert storms. Your sense of smell allows you to track your prey hours after they have passed by."
+      },
+      "subspecies": [
+        {
+          "id": "altan-united",
+          "name": "United",
+          "description": "Powerful rulers, united Altans are strategic, cunning, and influential. In the core of the Voidreach Unity, Altans are looked to for leadership and defense.",
+          "subspeciesFeature": {
+            "name": "Raptor",
+            "description": "People struggle to hold your piercing blue stare, and you always know when someone is lying to you. You can detect even the slightest movement from more than thirty metres away."
+          }
+        },
+        {
+          "id": "altan-outringer",
+          "name": "Outringer",
+          "description": "Hardy settlers, Altan outringers are tough, proud, and imposing. On the outer ring of the Voidreach Unity, Altans thrive on contract work as bounty hunters, mercenaries, and operators.",
+          "subspeciesFeature": {
+            "name": "Sunsworn",
+            "description": "You can withstand scorching heat, and you regenerate faster under bright sunlight. You are unharmed by natural fire, and can last for a week without water."
+          }
+        }
+      ]
+    },
+    {
+      "id": "iirkol",
+      "name": "Iirkol",
+      "description": "Silicon-based philosophers, Iirkol are insightful, analytical, and otherworldly. Iirkol value knowledge above all else, and create truly alien technologies.",
+      "lifespan": "Natural: 1000 years",
+      "height": "7'6\"",
+      "skillBonus": { "skill": "instinct", "amount": 1 },
+      "speciesFeature": {
+        "name": "Polydextrous",
+        "description": "You have four grasping arms and compound eyes which can see in every direction. You know an intricate sign language which only machines and other Iirkol can interpret."
+      },
+      "subspecies": [
+        {
+          "id": "iirkol-united",
+          "name": "United",
+          "description": "Studious sages, united Iirkol are mystical, methodical, and mysterious. In the core of the Voidreach Unity, they are revered as academics and spiritualists.",
+          "subspeciesFeature": {
+            "name": "Pearl",
+            "description": "You can manifest a pearl of energy, which spreads the essence of your spirit around it. Others may choose to add their own spirits to your pearl, empowering it and establishing a mystical connection with you. Depending on the nature of your spirit, your pearl might invigorate life and spread fertility or suppress life and spread decay."
+          }
+        },
+        {
+          "id": "iirkol-outringer",
+          "name": "Outringer",
+          "description": "Enigmatic hermits, Iirkol outringers are wise, experimental, and inquisitive. On the outer ring of the Voidreach Unity, Iirkol establish communities and study new worlds.",
+          "subspeciesFeature": {
+            "name": "Scholar",
+            "description": "You have learned a great deal about the universe in your life, and have even become an expert in some disciplines. Your knowledge is respected by all those around you."
+          }
+        }
+      ]
+    },
+    {
+      "id": "kotta",
+      "name": "Kotta",
+      "description": "Little tinkerers, Kotta are clever, sneaky, and resourceful. Kotta revere nature, and construct machines in tandem with the wilderness.",
+      "lifespan": "Natural: 30 years, Enhanced: 300 years",
+      "height": "3'6\"",
+      "skillBonus": { "skill": "stealth", "amount": 1 },
+      "speciesFeature": {
+        "name": "Arboreal",
+        "description": "You are a natural-born climber, and can deftly scamper around in dense environments. You are nimble enough to sneak through small service channels and ventilation systems."
+      },
+      "subspecies": [
+        {
+          "id": "kotta-united",
+          "name": "United",
+          "description": "Gifted designers, united Kotta are mischievous, naturalistic, and obsessive. In the Voidreach Unity's core, Kotta maintain the balance of nature and design.",
+          "subspeciesFeature": {
+            "name": "Magnepathy",
+            "description": "You can see magnetic fields, and have a vague sense for the presence of metals. Your specialized sight allows you to track electrical currents, and design compact power systems."
+          }
+        },
+        {
+          "id": "kotta-outringer",
+          "name": "Outringer",
+          "description": "Scrappy scavengers, Kotta outringers are secretive, aggressive, and tireless. In the Voidreach Unity's outer ring, Kotta mechanics are in constant demand, and Kotta thieves plague the wealthy.",
+          "subspeciesFeature": {
+            "name": "Pallesthesia",
+            "description": "You are highly sensitive to vibrations, and can hear even the quietest noise from far away. By tapping an object or the floor, you can get a sense of its inner workings. You can also detect issues in machinery by feeling its vibrations."
+          }
+        }
+      ]
+    },
+    {
+      "id": "lengwae",
+      "name": "Lengwae",
+      "description": "Musical tricksters, the Lengwae are friendly, persuasive, and quick. Nomadic by nature, Lengwae wander the galaxy on pilgrimages and for commerce.",
+      "lifespan": "Natural: 50 years, Enhanced: 500 years",
+      "height": "5'2\"",
+      "skillBonus": { "skill": "charisma", "amount": 1 },
+      "speciesFeature": {
+        "name": "Singsong",
+        "description": "You are a natural mimic, and can speak in three voices at once. You are an excellent singer, and your speech is hard to resist."
+      },
+      "subspecies": [
+        {
+          "id": "lengwae-united",
+          "name": "United",
+          "description": "Lovable charmers, united Lengwae are deceitful, charismatic, and playful. In the Voidreach Unity's core, Lengwae run the information networks, and achieve great celebrity.",
+          "subspeciesFeature": {
+            "name": "Chromatophore",
+            "description": "You can alter the colouration of your fur. With practice, you can apply this talent as a form of camouflage. You can create colourful patterns and imitate textures around you."
+          }
+        },
+        {
+          "id": "lengwae-outringer",
+          "name": "Outringer",
+          "description": "Adventurous wanderers, Lengwae outringers are curious, skittish, and spry. On the Voidreach Unity's outer ring, Lengwae act as rangers and merchants.",
+          "subspeciesFeature": {
+            "name": "Springtail",
+            "description": "Your powerful legs and light body allow you to leap long distances and sprint with incredible speed. Your prongs vastly improve your coordination in the air."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "overview": "Supply and demand keeps cargo and credits flowing around the galaxy. The value of a resource is measured per bulk unit and fluctuates based on scarcity. Succeeding on a charisma contest allows you to get a better deal when trading resources. The best way to profit from resource trading is to buy resources where they are abundant and sell them where they are scarce.",
+  "currency": {
+    "credits": {
+      "name": "Credits",
+      "description": "Credits are accepted by vendors in all galactic societies, and are a measure of your monetary value. You can earn credits by completing jobs for people or by starting your own enterprise.",
+      "startingAmount": 50
+    },
+    "deuterium": {
+      "name": "Deuterium Cells",
+      "description": "Glowing vials of crystallized deuterium can be used as fuel for interstellar travel via L-drives. They are the other common currency in the galaxy.",
+      "averageValue": 5000,
+      "unit": "credits per cell"
+    }
+  },
+  "contraband": {
+    "description": "Many substances and technologies are illegal. There can be severe punishments for being found with contraband, such as fines, imprisonment, and even execution in extreme cases. Those who do transport illegal goods stand to make hefty profits if they can avoid the watchful eyes of the law.",
+    "valueMultiplier": 2,
+    "note": "There are illegal instances of all resources. For example, narcotic drugs are contraband biotech compounds. Stolen goods of any kind can be considered contraband as well."
+  },
+  "categories": [
+    {
+      "id": "materials",
+      "name": "Materials",
+      "description": "Bulk supplies are always needed for operations of all kinds. Common materials can be fairly safe to transport, but exotic and volatile substances can destroy a starship if not handled with appropriate care. Depending on the rarity of a material, people may pay tremendous sums of money to acquire it.",
+      "resources": [
+        {
+          "id": "common-materials",
+          "name": "Common Materials",
+          "averageValue": 1000,
+          "description": "Basic raw materials used in manufacturing and construction. Easy to source, but always in demand."
+        },
+        {
+          "id": "refined-materials",
+          "name": "Refined Materials",
+          "averageValue": 2000,
+          "description": "Processed materials ready for specialized use in engineering and fabrication. More valuable due to the refinement process."
+        },
+        {
+          "id": "exotic-materials",
+          "name": "Exotic Materials",
+          "averageValue": 3000,
+          "description": "Rare and extraordinary substances with unique properties. Volatile and difficult to handle, but highly sought after."
+        }
+      ]
+    },
+    {
+      "id": "goods",
+      "name": "Goods",
+      "description": "New technologies are constantly being developed across the galaxy. Manufactured goods take countless forms, and always need to be shipped to expectant customers. Many kinds of goods are rather fragile, and require delicate transportation to function properly upon delivery.",
+      "resources": [
+        {
+          "id": "parts",
+          "name": "Parts",
+          "averageValue": 2000,
+          "description": "Machine components and replacement parts for vehicles and equipment. Essential for keeping civilization running."
+        },
+        {
+          "id": "consumer-goods",
+          "name": "Consumer Goods",
+          "averageValue": 4000,
+          "description": "Everyday products for galactic consumers. Electronics, clothing, food — if people buy it, someone has to ship it."
+        },
+        {
+          "id": "luxury-goods",
+          "name": "Luxury Goods",
+          "averageValue": 8000,
+          "description": "High-end products for the wealthy. Art, fine clothing, rare foods, and premium tech command premium prices."
+        }
+      ]
+    },
+    {
+      "id": "biotech",
+      "name": "Biotech",
+      "description": "The science of life has flourished, and the galaxy now enjoys greater biodiversity than ever before. Biotech is of immense value to new settlements, who aim to transform barren rocks into lush ecosystems. Biotech also presents unique risks during transportation, and can be some of the most dangerous cargo to take on.",
+      "resources": [
+        {
+          "id": "organisms",
+          "name": "Organisms",
+          "averageValue": 3000,
+          "description": "Living creatures and biological specimens for research, terraforming, or exotic trade. Requires life support during transport."
+        },
+        {
+          "id": "compounds",
+          "name": "Compounds",
+          "averageValue": 6000,
+          "description": "Biological chemicals and pharmaceutical substances. Includes medicines, stimulants, and performance enhancers."
+        },
+        {
+          "id": "weapons",
+          "name": "Bioweapons",
+          "averageValue": 12000,
+          "description": "Engineered biological agents designed for warfare. Strictly controlled and highly illegal in most jurisdictions."
+        }
+      ]
+    }
+  ]
+}

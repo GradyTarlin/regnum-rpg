@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Build your Regnum RPG character step by step. Choose your species, class, features, and skills.">
+  <title>Character Creator — Regnum RPG</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/creator.css">
+</head>
+<body>
+
+<!-- Starfield background -->
+<div class="starfield" aria-hidden="true"></div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Regnum RPG Home">
+      <span class="nav-logo-icon">⬡</span> REGNUM RPG
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="character-creator.html" class="nav-link active">Creator</a>
+      <a href="classes.html" class="nav-link">Classes</a>
+      <a href="equipment.html" class="nav-link">Equipment</a>
+      <a href="lore.html" class="nav-link">Lore</a>
+      <a href="characters.html" class="nav-link">Characters</a>
+    </div>
+    <a href="character-creator.html" class="nav-cta">Build Character</a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile" role="menu">
+    <a href="index.html" class="nav-link" role="menuitem">Home</a>
+    <a href="character-creator.html" class="nav-link active" role="menuitem">Creator</a>
+    <a href="classes.html" class="nav-link" role="menuitem">Classes</a>
+    <a href="equipment.html" class="nav-link" role="menuitem">Equipment</a>
+    <a href="lore.html" class="nav-link" role="menuitem">Lore</a>
+    <a href="characters.html" class="nav-link" role="menuitem">Characters</a>
+  </div>
+</nav>
+
+<div class="page-wrapper">
+
+  <!-- ============================================================
+       CREATOR HEADER
+       ============================================================ -->
+  <header class="creator-header" id="creator-header">
+    <div class="container">
+      <div class="creator-header-top">
+        <div>
+          <span class="section-label">Character Creation</span>
+          <h1 class="creator-title" id="step-title">Choose Your Species</h1>
+          <p class="creator-subtitle text-muted" id="step-subtitle">Your species determines how you look, your species feature, and a bonus to one skill.</p>
+        </div>
+        <div class="creator-actions">
+          <button class="btn btn-ghost btn-sm" id="btn-load" title="Load saved character">
+            <span>📂</span> Load
+          </button>
+          <button class="btn btn-ghost btn-sm" id="btn-new" title="Start a new character">
+            <span>✦</span> New
+          </button>
+        </div>
+      </div>
+
+      <!-- Step Indicator -->
+      <div class="creator-steps" id="creator-steps" role="tablist" aria-label="Character creation steps">
+        <div class="steps">
+          <div class="step active" id="step-indicator-0" role="tab" aria-selected="true" data-step="0">
+            <div class="step-dot">1</div>
+            <span class="step-label">Species</span>
+          </div>
+          <div class="step-line" id="step-line-0"></div>
+          <div class="step" id="step-indicator-1" role="tab" aria-selected="false" data-step="1">
+            <div class="step-dot">2</div>
+            <span class="step-label">Subspecies</span>
+          </div>
+          <div class="step-line" id="step-line-1"></div>
+          <div class="step" id="step-indicator-2" role="tab" aria-selected="false" data-step="2">
+            <div class="step-dot">3</div>
+            <span class="step-label">Class</span>
+          </div>
+          <div class="step-line" id="step-line-2"></div>
+          <div class="step" id="step-indicator-3" role="tab" aria-selected="false" data-step="3">
+            <div class="step-dot">4</div>
+            <span class="step-label">Equipment</span>
+          </div>
+          <div class="step-line" id="step-line-3"></div>
+          <div class="step" id="step-indicator-4" role="tab" aria-selected="false" data-step="4">
+            <div class="step-dot">5</div>
+            <span class="step-label">Feature</span>
+          </div>
+          <div class="step-line" id="step-line-4"></div>
+          <div class="step" id="step-indicator-5" role="tab" aria-selected="false" data-step="5">
+            <div class="step-dot">6</div>
+            <span class="step-label">Skills</span>
+          </div>
+          <div class="step-line" id="step-line-5"></div>
+          <div class="step" id="step-indicator-6" role="tab" aria-selected="false" data-step="6">
+            <div class="step-dot">7</div>
+            <span class="step-label">Sheet</span>
+          </div>
+        </div>
+        <!-- Progress bar -->
+        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       CREATOR BODY
+       ============================================================ -->
+  <main class="creator-body" id="creator-body">
+    <div class="container">
+
+      <!-- ── STEP 0: SPECIES ───────────────────────────────────── -->
+      <section class="creator-step" id="step-0" role="tabpanel" aria-labelledby="step-indicator-0">
+        <div class="grid grid-auto species-grid" id="species-grid" role="list">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- ── STEP 1: SUBSPECIES ─────────────────────────────────── -->
+      <section class="creator-step hidden" id="step-1" role="tabpanel" aria-labelledby="step-indicator-1">
+        <div class="subspecies-species-info card card-glass" id="subspecies-species-info">
+          <!-- Shows chosen species summary -->
+        </div>
+        <div class="grid grid-auto" id="subspecies-grid" role="list">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- ── STEP 2: CLASS ──────────────────────────────────────── -->
+      <section class="creator-step hidden" id="step-2" role="tabpanel" aria-labelledby="step-indicator-2">
+        <div class="grid grid-auto" id="class-grid" role="list">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- ── STEP 3: STARTING EQUIPMENT ───────────────────────── -->
+      <section class="creator-step hidden" id="step-3" role="tabpanel" aria-labelledby="step-indicator-3">
+        <div class="equipment-options" id="equipment-options" role="list">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- ── STEP 4: TIER 1 FEATURE ─────────────────────────── -->
+      <section class="creator-step hidden" id="step-4" role="tabpanel" aria-labelledby="step-indicator-4">
+        <div class="grid grid-auto" id="feature-grid" role="list">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- ── STEP 5: SKILLS ─────────────────────────────────── -->
+      <section class="creator-step hidden" id="step-5" role="tabpanel" aria-labelledby="step-indicator-5">
+        <div class="skills-layout">
+          <!-- Human skill bonus picker (shown only for Humans) -->
+          <div class="human-bonus-panel card" id="human-bonus-panel" style="display:none;">
+            <h3 class="text-gold" style="margin-bottom:12px; font-size:0.9rem;">Human Versatility — Choose Your Species Skill Bonus</h3>
+            <p class="text-muted text-sm" style="margin-bottom:16px;">Select one skill to receive your +1 species bonus.</p>
+            <div class="human-bonus-grid" id="human-bonus-grid">
+              <!-- skill buttons populated by JS -->
+            </div>
+          </div>
+
+          <div class="skills-panel card">
+            <div class="skills-header">
+              <div>
+                <h3 style="margin-bottom: 4px;">Assign Skill Points</h3>
+                <p class="text-muted text-sm">Distribute your 3 extra skill points. No skill may exceed +3 at level 1.</p>
+              </div>
+              <div class="points-remaining-box" id="points-remaining-box">
+                <span class="points-remaining-label">Points Left</span>
+                <span class="points-remaining-value" id="points-remaining">3</span>
+              </div>
+            </div>
+            <div class="skills-list" id="skills-list">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <div class="skills-legend card card-glass">
+            <h4 style="margin-bottom:12px; font-size:0.8rem;" class="text-uppercase text-muted">Skill Bonus Legend</h4>
+            <div class="legend-row">
+              <span class="legend-dot" style="background:var(--success)"></span>
+              <span class="text-sm">Species bonus</span>
+            </div>
+            <div class="legend-row">
+              <span class="legend-dot" style="background:var(--purple)"></span>
+              <span class="text-sm">Class bonus</span>
+            </div>
+            <div class="legend-row">
+              <span class="legend-dot" style="background:var(--gold)"></span>
+              <span class="text-sm">Assigned point</span>
+            </div>
+            <div class="skills-rule text-sm text-muted" style="margin-top:16px; padding-top:16px; border-top:1px solid var(--border);">
+              <strong class="text-gold">Cap:</strong> +3 max per skill at level 1.<br>
+              Increases to +5 at level 10.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── STEP 6: CHARACTER SHEET ───────────────────────── -->
+      <section class="creator-step hidden" id="step-6" role="tabpanel" aria-labelledby="step-indicator-6">
+        <!-- Name Entry (shown at beginning of this step) -->
+        <div class="name-entry-panel" id="name-entry-panel">
+          <div class="card" style="max-width:500px; margin:0 auto 32px;">
+            <label class="form-label" for="char-name-input">Character Name</label>
+            <input type="text" class="form-input" id="char-name-input"
+              placeholder="Enter your character's name..."
+              aria-label="Character name">
+            <p class="text-muted text-sm" style="margin-top:8px;">Optional — you can always edit this later.</p>
+          </div>
+        </div>
+
+        <!-- Character Sheet -->
+        <div class="character-sheet" id="character-sheet">
+
+          <!-- Sheet Header -->
+          <div class="sheet-header card">
+            <div class="sheet-identity">
+              <div class="sheet-name-block">
+                <h2 class="sheet-char-name" id="sheet-name">Character Name</h2>
+                <div class="sheet-identity-tags" id="sheet-identity-tags">
+                  <!-- species / subspecies / class badges -->
+                </div>
+              </div>
+              <div class="sheet-vitals">
+                <!-- HP -->
+                <div class="vital-block">
+                  <span class="vital-label">HP</span>
+                  <div class="hp-tracker" id="hp-tracker" aria-label="Hit points tracker">
+                    <button class="hp-pip filled" data-pip="1" aria-label="HP 1" aria-pressed="true">❤</button>
+                    <button class="hp-pip filled" data-pip="2" aria-label="HP 2" aria-pressed="true">❤</button>
+                    <button class="hp-pip filled" data-pip="3" aria-label="HP 3" aria-pressed="true">❤</button>
+                  </div>
+                </div>
+                <!-- Credits -->
+                <div class="vital-block">
+                  <span class="vital-label">Credits</span>
+                  <span class="vital-value">50 ¢</span>
+                </div>
+                <!-- Level -->
+                <div class="vital-block">
+                  <span class="vital-label">Level</span>
+                  <span class="vital-value">1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sheet body: two-column on desktop, stacked on mobile -->
+          <div class="sheet-body">
+
+            <!-- LEFT COLUMN -->
+            <div class="sheet-col">
+
+              <!-- SKILLS -->
+              <div class="sheet-section card">
+                <h3 class="sheet-section-title">Skills</h3>
+                <div class="skills-list sheet-skills-list" id="sheet-skills-list">
+                  <!-- populated by JS -->
+                </div>
+                <div class="text-xs text-muted" style="margin-top:16px; padding-top:12px; border-top:1px solid var(--border);">
+                  Roll 2d6 + skill bonus. Higher = better.
+                </div>
+              </div>
+
+              <!-- STARTING EQUIPMENT -->
+              <div class="sheet-section card">
+                <h3 class="sheet-section-title">Equipment</h3>
+                <ul class="sheet-equip-list" id="sheet-equip-list">
+                  <!-- populated by JS -->
+                </ul>
+                <div class="sheet-equip-always">
+                  <span class="badge badge-skill">Always</span>
+                  <span class="text-sm text-muted">50 Credits + Communicator</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="sheet-col">
+
+              <!-- CLASS ABILITY -->
+              <div class="sheet-section card" id="sheet-class-ability-section">
+                <h3 class="sheet-section-title">Class Ability</h3>
+                <div class="feature-card" id="sheet-class-ability">
+                  <!-- populated by JS -->
+                </div>
+              </div>
+
+              <!-- SPECIES & SUBSPECIES FEATURES -->
+              <div class="sheet-section card" id="sheet-species-section">
+                <h3 class="sheet-section-title">Species Features</h3>
+                <div class="feature-stack" id="sheet-species-features">
+                  <!-- populated by JS -->
+                </div>
+              </div>
+
+              <!-- TIER 1 FEATURE -->
+              <div class="sheet-section card" id="sheet-tier1-section">
+                <h3 class="sheet-section-title">Tier 1 Feature</h3>
+                <div class="feature-card" id="sheet-tier1-feature">
+                  <!-- populated by JS -->
+                </div>
+              </div>
+
+              <!-- NOTES -->
+              <div class="sheet-section card">
+                <h3 class="sheet-section-title">Notes</h3>
+                <textarea class="sheet-notes" id="sheet-notes" placeholder="Add session notes, backstory, or anything else..."
+                  aria-label="Character notes" rows="5"></textarea>
+              </div>
+
+            </div>
+          </div><!-- /sheet-body -->
+
+          <!-- Sheet Footer Actions -->
+          <div class="sheet-footer">
+            <button class="btn btn-secondary" id="btn-edit-char">
+              ✏ Edit Character
+            </button>
+            <button class="btn btn-primary" id="btn-save-char">
+              💾 Save Character
+            </button>
+            <button class="btn btn-ghost" id="btn-new-char">
+              ✦ New Character
+            </button>
+          </div>
+
+        </div><!-- /character-sheet -->
+      </section>
+
+    </div><!-- /container -->
+  </main>
+
+  <!-- ============================================================
+       CREATOR NAVIGATION
+       ============================================================ -->
+  <div class="creator-nav" id="creator-nav">
+    <div class="container">
+      <div class="creator-nav-inner">
+        <button class="btn btn-ghost" id="btn-prev" disabled aria-label="Go to previous step">
+          ← Back
+        </button>
+        <div class="creator-nav-summary" id="creator-nav-summary">
+          <!-- Populated by JS: shows current selections -->
+        </div>
+        <button class="btn btn-primary" id="btn-next" aria-label="Go to next step">
+          Continue →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SAVED CHARACTERS MODAL
+       ============================================================ -->
+  <div class="modal-overlay hidden" id="load-modal" role="dialog" aria-modal="true" aria-labelledby="load-modal-title">
+    <div class="modal">
+      <button class="modal-close" id="load-modal-close" aria-label="Close modal">✕</button>
+      <h2 id="load-modal-title" style="margin-bottom:8px;">Saved Characters</h2>
+      <p class="text-muted text-sm" style="margin-bottom:24px;">Select a character to load, or delete saved characters.</p>
+      <div id="saved-characters-list">
+        <!-- Populated by JS -->
+      </div>
+      <div id="no-saved-characters" class="text-muted text-center" style="padding:40px 0; display:none;">
+        No saved characters yet.<br>
+        <span class="text-sm">Create a character and save it to see it here.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner container">
+      <span class="footer-logo">⬡ REGNUM RPG</span>
+      <span class="text-dim text-sm">© 2021 Grady Tarlin. All Rights Reserved.</span>
+      <div class="footer-links">
+        <a href="classes.html" class="footer-link">Classes</a>
+        <a href="equipment.html" class="footer-link">Equipment</a>
+        <a href="lore.html" class="footer-link">Lore</a>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /page-wrapper -->
+
+<script src="js/main.js"></script>
+<script src="js/creator.js"></script>
+</body>
+</html>

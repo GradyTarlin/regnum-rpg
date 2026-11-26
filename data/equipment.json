@@ -1,0 +1,96 @@
+{
+  "weapons": {
+    "description": "Weapons deal damage according to their size and rarity. Kinetic weapons like blades, bullets, and bludgeons are easy to use and reliable. Energy weapons like lasers, fire, and electricity are destructive and menacing. To deal damage with a weapon, you must beat your target in a skill contest.",
+    "categories": [
+      {
+        "id": "light",
+        "name": "Light Weapons",
+        "damage": 1,
+        "cost": 50,
+        "examples": "Pistols, knives, plasma cutters",
+        "description": "Light weapons are carried by many spacefaring travelers. They deal 1 damage and are affordable and easy to conceal."
+      },
+      {
+        "id": "heavy",
+        "name": "Heavy Weapons",
+        "damage": 2,
+        "cost": 1500,
+        "examples": "Rifles, swords, blasters",
+        "description": "Heavy weapons are the primary weapons of war. They deal 2 damage and require more skill to wield effectively."
+      },
+      {
+        "id": "special",
+        "name": "Special Weapons",
+        "damage": 3,
+        "cost": 150000,
+        "examples": "Biotech darts, smart guns, metaspace rays",
+        "description": "Special weapons are wielded by the warriors of legend. They deal 3 damage and are exceptionally rare and powerful."
+      }
+    ],
+    "types": [
+      {
+        "id": "kinetic",
+        "name": "Kinetic",
+        "description": "Kinetic weapons use physical force — blades, bullets, bludgeons. They are reliable and easy to use. Kinetic weapons bypass shields, dealing damage directly to health even when the target has shields.",
+        "usedWith": "shooting (ranged) or fighting (melee) or athletics (thrown)",
+        "bypassedBy": "shields"
+      },
+      {
+        "id": "energy",
+        "name": "Energy",
+        "description": "Energy weapons use lasers, fire, electricity, or plasma. They are destructive and menacing. Energy weapons bypass armour, dealing damage directly to health even when the target is armoured.",
+        "usedWith": "shooting (ranged) or fighting (melee)",
+        "bypassedBy": "armour"
+      }
+    ],
+    "rules": [
+      "Every character starts with 50 credits and a communicator, and may choose to buy a light weapon.",
+      "Ranged weapons are used with shooting checks; the target contests with instinct to dodge.",
+      "Melee weapons are used with fighting checks; the target contests with a fighting check of their own.",
+      "Melee weapons can be thrown with an athletics check; the target contests with an athletics check.",
+      "When you gain a weapon, you may choose how it looks, how it works, and how you fight with it."
+    ]
+  },
+  "defenses": {
+    "description": "Defenses add extra points onto your health in the form of armour or shields. Enemies must destroy your defenses before they can deal damage to your health. Kinetic weapons bypass shields; energy weapons bypass armour.",
+    "categories": [
+      {
+        "id": "light",
+        "name": "Light Defenses",
+        "defensePoints": 1,
+        "cost": 50,
+        "examples": "Reinforced fibre, grounding batteries",
+        "description": "Light defenses add 1 point of armour or shields and are affordable and widely available."
+      },
+      {
+        "id": "heavy",
+        "name": "Heavy Defenses",
+        "defensePoints": 2,
+        "cost": 1500,
+        "examples": "Rhodium plating, magneto packs",
+        "description": "Heavy defenses add 2 points of armour or shields and offer substantial protection in combat."
+      },
+      {
+        "id": "special",
+        "name": "Special Defenses",
+        "defensePoints": 3,
+        "cost": 150000,
+        "examples": "Nanite composites, hardlight studs",
+        "description": "Special defenses add 3 points of armour or shields and are extremely rare and powerful."
+      }
+    ],
+    "types": [
+      {
+        "id": "armour",
+        "name": "Armour",
+        "description": "Armour provides protection against kinetic damage. Energy weapons ignore armour and deal damage directly to your health."
+      },
+      {
+        "id": "shields",
+        "name": "Shields",
+        "description": "Shields provide protection against energy damage. Kinetic weapons ignore shields and deal damage directly to your health."
+      }
+    ],
+    "repair": "Scoring at least a 12 on an engineering check allows you to repair a single point of defense. To fully repair heavy or special defenses, you must succeed on multiple engineering checks."
+  }
+}
