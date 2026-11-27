@@ -243,8 +243,9 @@ function renderSpeciesStep() {
       <div class="card-badges">
         <span class="badge ${badgeClass}">${bonusText}</span>
       </div>
-      <div class="card-feature-preview">
-        <span class="text-xs text-muted">${sp.speciesFeature.name}</span>
+      <div class="card-feature-preview" style="margin-top:8px; padding-top:8px; border-top:1px solid var(--border); text-align:left;">
+        <div class="text-xs" style="color:var(--gold); font-weight:600; margin-bottom:4px;">${sp.speciesFeature.name}</div>
+        <p class="text-xs text-muted" style="line-height:1.5; margin:0;">${sp.speciesFeature.description}</p>
       </div>
     `;
 
@@ -303,11 +304,13 @@ function renderSubspeciesStep() {
       tabindex: '0',
     });
 
+    const subFeat = sub.subspeciesFeature || sub.feature;
     card.innerHTML = `
       <div class="card-name">${sub.name}</div>
-      <div>
-        <div class="feature-name" style="font-size:0.8rem; margin-bottom:4px;">${sub.feature.name}</div>
-        <p class="card-flavor">${sub.feature.description}</p>
+      ${sub.description ? `<p class="card-flavor">${sub.description}</p>` : ''}
+      <div style="margin-top:8px; padding-top:8px; border-top:1px solid var(--border); text-align:left;">
+        <div class="feature-name" style="font-size:0.8rem; color:var(--gold); font-weight:600; margin-bottom:4px;">${subFeat.name}</div>
+        <p class="card-flavor" style="margin:0;">${subFeat.description}</p>
       </div>
     `;
 
@@ -762,7 +765,7 @@ function renderSheetSpeciesFeatures() {
 
   const feats = [
     { label: state.selectedSpecies.name, feat: state.selectedSpecies.speciesFeature },
-    state.selectedSubspecies ? { label: state.selectedSubspecies.name, feat: state.selectedSubspecies.feature } : null,
+    state.selectedSubspecies ? { label: state.selectedSubspecies.name, feat: state.selectedSubspecies.subspeciesFeature || state.selectedSubspecies.feature } : null,
   ].filter(Boolean);
 
   feats.forEach(({ label, feat }) => {
